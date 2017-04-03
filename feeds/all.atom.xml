@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2017-04-03T13:02:00-07:00</updated><entry><title>Moving to Pelican at GitHub Pages</title><link href="https://breakingbytes.github.io/moving-to-pelican-at-github-pages.html" rel="alternate"></link><published>2017-04-03T13:02:00-07:00</published><updated>2017-04-03T13:02:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-04-03:/moving-to-pelican-at-github-pages.html</id><summary type="html">&lt;p&gt;So this is goodbye to Google Blogger and my old blog at
+&lt;a href="http://poquitopicante.blogspot.com/"&gt;Poquito Picante&lt;/a&gt;, although I'll try to
+keep &lt;a href="https://breakingbytes.blogspot.com/"&gt;Breaking Bytes&lt;/a&gt; up to date if I can
+figure out how to make a commit hook that posts the generated content using the
+&lt;a href="https://developers.google.com/blogger/"&gt;Blogger API v3&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And this is hello to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So this is goodbye to Google Blogger and my old blog at
+&lt;a href="http://poquitopicante.blogspot.com/"&gt;Poquito Picante&lt;/a&gt;, although I'll try to
+keep &lt;a href="https://breakingbytes.blogspot.com/"&gt;Breaking Bytes&lt;/a&gt; up to date if I can
+figure out how to make a commit hook that posts the generated content using the
+&lt;a href="https://developers.google.com/blogger/"&gt;Blogger API v3&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And this is hello to &lt;a href="https://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;! I did a very quick
+&lt;a href="https://www.fullstackpython.com/static-site-generator.html"&gt;search for static site generators&lt;/a&gt;
+like Pelican, Hyde and a few others, and Pelican quickly emerged as the most
+popular. &lt;a href="https://news.ycombinator.com/item?id=4928719"&gt;Also Kenneth Reitz said to use it.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So far Pelican usage is a snap, just follow
+&lt;a href="http://docs.getpelican.com/en/stable/index.html"&gt;the quickstart in their documentation&lt;/a&gt;.
+So this is my very first, albeit very short, post for my new blog site. Why leave
+Google Blogger?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I've wanted to for a very long time, b/c I wanted to manage my blog using
+  Git.&lt;/li&gt;
+&lt;li&gt;My old blog is now being crawled every few hours which just seems weird.&lt;/li&gt;
+&lt;li&gt;I prefer my &lt;code&gt;breakingbytes&lt;/code&gt; handle to "Poquito Picante" which is just a
+  silly alliteration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more info about me please visit &lt;a href="https://mikofski.github.io/"&gt;me here&lt;/a&gt;.&lt;/p&gt;</content></entry></feed>
