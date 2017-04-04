@@ -5,8 +5,11 @@ from __future__ import unicode_literals
 AUTHOR = u'Mark Mikofski'
 SITENAME = u'Breaking Bytes'
 SITEURL = ''
-
+SITELOGO = '/images/70s_Marko_Mustache_cropped.jpg'
+FAVICON = '/images/breakingbytes.ico'
+THEME = 'Flex'
 PATH = 'content'
+STATIC_PATHS = ['images']
 
 TIMEZONE = 'US/Pacific'
 
@@ -20,14 +23,30 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
+LINKS = (('Poquito Picante', 'https://poquitopicante.blogspot.com/'),
+         ('BwanaMarko', 'https://mikofski.github.io/'),
+         ('BreakingBytes', 'https://breakingbytes.blogspot.com/'),
          ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('github', 'https://github.com/mikofski'),
+          ('linkedin', 'https://www.linkedin.com/in/markmikofski/'),
+          ('twitter', 'https://twitter.com/breaking_bytes'),
+          ('google', 'https://plus.google.com/+MarkMikofski'),
+          ('rss', 'feeds/all.atom.xml'))
+
+
+MENUITEMS = (('Archives', '/archives.html'),
+             ('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),)
+
+CC_LICENSE = {
+    'name': 'Creative Commons Attribution-ShareAlike',
+    'version': '4.0',
+    'slug': 'by-sa'
+}
+
+COPYRIGHT_YEAR = 2017
 
 DEFAULT_PAGINATION = 10
 
