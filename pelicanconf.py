@@ -21,12 +21,12 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+MAIN_MENU = True
 
 # Blogroll
-LINKS = (('Poquito Picante', 'https://poquitopicante.blogspot.com/'),
-         ('BwanaMarko', 'https://mikofski.github.io/'),
-         ('BreakingBytes', 'https://breakingbytes.blogspot.com/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (('poquito picante', 'https://poquitopicante.blogspot.com/'),
+         ('bwanamarko', 'https://mikofski.github.io/'),
+         ('old breaking bytes', 'https://breakingbytes.blogspot.com/'),)
 
 # Social widget
 SOCIAL = (('github', 'https://github.com/mikofski'),
