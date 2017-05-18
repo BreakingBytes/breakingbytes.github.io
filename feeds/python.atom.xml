@@ -9,7 +9,7 @@ I'm wondering, "why didn't I just use the
 &lt;p&gt;To publish my pages I use the &lt;code&gt;Makefile&lt;/code&gt; that Pelican generates when you start
 your blog using &lt;code&gt;pelican-quickstart&lt;/code&gt;. I may have editted the &lt;code&gt;Makefile&lt;/code&gt; to
 target my GitHub &lt;code&gt;master&lt;/code&gt; branch since I'm using
-[User Pages(http://docs.getpelican.com/en/stable/tips.html#user-pages) or maybe
+&lt;a href="http://docs.getpelican.com/en/stable/tips.html#user-pages"&gt;User Pages&lt;/a&gt; or maybe
 Pelican asked me during the quickstart questionnaire, I can't remember. The
 &lt;code&gt;Makefile&lt;/code&gt; uses a handy tool called
 &lt;a href="https://github.com/davisp/ghp-import"&gt;&lt;code&gt;ghp-import&lt;/code&gt;&lt;/a&gt; that copies the contents of
