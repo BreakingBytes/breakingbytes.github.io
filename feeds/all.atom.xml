@@ -4,13 +4,29 @@ on this new Pelican blog. I should have logged how I set up this, instead of
 the glib cliché, "usage is a snap". Here I am posting for the second time, and
 I'm wondering, "why didn't I just use the
 &lt;a href="https://help.github.com/articles/about-github-pages-and-jekyll/"&gt;built in Jekyll static site generator&lt;/a&gt;?"&lt;/p&gt;
-&lt;p&gt;Anyway, for posterity, there is a handy tool called
-&lt;a href="https://github.com/davisp/ghp-import"&gt;&lt;code&gt;ghp-import&lt;/code&gt;&lt;/a&gt; listed in the
+&lt;p&gt;Anyway, for posterity...&lt;/p&gt;
+&lt;h1&gt;Publishing to GH Pages&lt;/h1&gt;
+&lt;p&gt;To publish my pages I use the &lt;code&gt;Makefile&lt;/code&gt; that Pelican generates when you start
+your blog using &lt;code&gt;pelican-quickstart&lt;/code&gt;. I may have editted the &lt;code&gt;Makefile&lt;/code&gt; to
+target my GitHub &lt;code&gt;master&lt;/code&gt; branch since I'm using
+[User Pages(http://docs.getpelican.com/en/stable/tips.html#user-pages) or maybe
+Pelican asked me during the quickstart questionnaire, I can't remember. The
+&lt;code&gt;Makefile&lt;/code&gt; uses a handy tool called
+&lt;a href="https://github.com/davisp/ghp-import"&gt;&lt;code&gt;ghp-import&lt;/code&gt;&lt;/a&gt; that copies the contents of
+the output directory to the target git branch. Then the &lt;code&gt;Makefile&lt;/code&gt; publishes
+the blog by pushing to the targe branch to the target remote. The &lt;code&gt;ghp-import&lt;/code&gt;
+package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
-on publishing to GitHub pages. Okay, I can't remeber exactly the reason, but
-this all worked better in Python-3 instead of Python-2, and so I created a
-virtual environment for Python-3.&lt;/p&gt;
-&lt;p&gt;This brings me finally to the title of this post. How does one create a virtual
+on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of this for you. So
+you have to install &lt;code&gt;ghp-import&lt;/code&gt;, then all I do to publish the post is execute:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make publish
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Python-3 Virtual Environment&lt;/h1&gt;
+&lt;p&gt;Okay, I can't remeber exactly the reason, but &lt;code&gt;ghp-import&lt;/code&gt; worked better in
+Python-3 than Python-2, and so I created a virtual environment for Python-3.
+This brings me finally to the title of this post. How does one create a virtual
 environment for Python-3? Well according to the
 &lt;a href="https://packaging.python.org/installing/#creating-virtual-environments"&gt;Python Packaging Authority (PyPA)&lt;/a&gt;
 since Python-3.3 there is a built in module called
