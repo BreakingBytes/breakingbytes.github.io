@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <link rel="shortcut icon" href="/images/breakingbytes.ico" type="image/x-icon">
+    <link rel="icon" href="/images/breakingbytes.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+
+<meta name="author" content="Mark Mikofski" />
+<meta name="description" content="Python-3 venv module vs virtualenv package" />
+<meta name="keywords" content="virtualenv, pelican, windows, bash, rant">
+<meta property="og:site_name" content="Breaking Bytes"/>
+<meta property="og:title" content="Python-3 Virtual Environments on MS Windows"/>
+<meta property="og:description" content="Python-3 venv module vs virtualenv package"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/python-3-virtual-environments-on-ms-windows.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-05-18 11:01:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/mark-mikofski.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="virtualenv"/>
+<meta property="article:tag" content="pelican"/>
+<meta property="article:tag" content="windows"/>
+<meta property="article:tag" content="bash"/>
+<meta property="article:tag" content="rant"/>
+<meta property="og:image" content="/images/70s_Marko_Mustache_cropped.jpg">
+
+  <title>Breaking Bytes &ndash; Python-3 Virtual Environments on MS Windows</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/images/70s_Marko_Mustache_cropped.jpg" alt="" title="">
+      </a>
+      <h1><a href=""></a></h1>
+
+
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://poquitopicante.blogspot.com/" target="_blank">poquito picante</a></li>
+          <li><a href="https://mikofski.github.io/" target="_blank">bwanamarko</a></li>
+          <li><a href="https://breakingbytes.blogspot.com/" target="_blank">old breaking bytes</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="python-3-virtual-environments-on-ms-windows">Python-3 Virtual Environments on MS Windows</h1>
+    <p>
+          Posted on Thu 18 May 2017 in <a href="/category/python.html">Python</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>This is a follow up from my <a href="/moving-to-pelican-at-github-pages.html">first post</a>
+on this new Pelican blog. I should have logged how I set up this, instead of
+the glib cliché, "usage is a snap". Here I am posting for the second time, and
+I'm wondering, "why didn't I just use the
+<a href="https://help.github.com/articles/about-github-pages-and-jekyll/">built in Jekyll static site generator</a>?"</p>
+<p>Anyway, for posterity, there is a handy tool called
+<a href="https://github.com/davisp/ghp-import"><code>ghp-import</code></a> listed in the
+<a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github">Pelican Tips</a>
+on publishing to GitHub pages. Okay, I can't remeber exactly the reason, but
+this all worked better in Python-3 instead of Python-2, and so I created a
+virtual environment for Python-3.</p>
+<p>This brings me finally to the title of this post. How does one create a virtual
+environment for Python-3? Well according to the
+<a href="https://packaging.python.org/installing/#creating-virtual-environments">Python Packaging Authority (PyPA)</a>
+since Python-3.3 there is a built in module called
+<a href="https://docs.python.org/3.5/library/venv.html"><code>venv</code></a>. However the venerable
+<a href="https://virtualenv.pypa.io/en/stable/"><code>virtualenv</code></a> package also works just
+fine for Python-3.</p>
+<p>How do these packages differ? There is one major difference that really affects
+me. The built in Python-3 <code>venv</code> module only activates in MS Windows <code>CMD</code>
+terminal or PowerShell whereas Ian Bicking's indispensible <code>virtualenv</code> package
+works in BaSH as well. This is an issue with Python on MS Windows that I
+encounter a lot, it's a PITA and breaks the whole concept of a common unified
+experience regardless of user's platform. I should be able to use Python exactly
+the same on any system with very minor exceptions. Since I tend to use mostly
+use BaSH, this means that in order to use the built in <code>venv</code> module I have to
+switch to a MS Windows <code>CMD</code> shell. I guess it's not that big of a deal, but
+since <code>virtualenv</code> works fine with Python-3, I guess I'll stick with that.</p>
+<p>Okay, there's also one other important difference. Python-3 installs all of its
+shared objects into the virtual environment, which is different from Python-2
+which uses links mostly. This means that when you update your version of
+Python-3 you need to <em>also</em> update your virtual environment.</p>
+<p>For the <code>virtualenv</code> package you'll have to create a new virtual environment on
+top of the old one. But for the built in <code>venv</code> module you can just run:</p>
+<div class="highlight"><pre><span></span>py -3 -m venv --upgrade &lt;my-py3-venv&gt;
+</pre></div>
+
+
+<p>where <code>&lt;my-py3-venv&gt;</code> is the name of your Python-3 virtual environment. I think
+the source code for both are nearly the same, and I also think that under the
+hood the <code>--upgrade</code> options is really doing exactly the same thing as
+<code>virtualenv</code>, the difference is that if you try to create a virtual environment
+on top of an existing one with the Python-3 <code>venv</code> module is will raise an
+exception.</p>
+<blockquote>
+<p>Changed in version 3.4: In earlier versions, if the target directory already
+existed, an error was raised, unless the <code>--clear</code> or <code>--upgrade</code> option was
+provided. Now, if an existing directory is specified, its contents are removed
+and the directory is processed as if it had been newly created.</p>
+</blockquote>
+<p>In conclusion, I don't see much difference between the two methods. So if you
+want to use BaSH on MS Windows, stick with the original, otherwise try the new.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/virtualenv.html">virtualenv</a>
+      <a href="/tag/pelican.html">pelican</a>
+      <a href="/tag/windows.html">windows</a>
+      <a href="/tag/bash.html">bash</a>
+      <a href="/tag/rant.html">rant</a>
+    </p>
+  </div>
+
+
+    <div class="addthis_relatedposts_inline">
+
+
+</article>
+
+    <footer>
+<p>
+  &copy; Mark Mikofski 2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Breaking Bytes ",
+  "url" : "",
+  "image": "/images/70s_Marko_Mustache_cropped.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
