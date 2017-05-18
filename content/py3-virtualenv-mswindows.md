@@ -18,7 +18,7 @@ Anyway, for posterity...
 To publish my pages I use the `Makefile` that Pelican generates when you start
 your blog using `pelican-quickstart`. I may have editted the `Makefile` to
 target my GitHub `master` branch since I'm using
-[User Pages(http://docs.getpelican.com/en/stable/tips.html#user-pages) or maybe
+[User Pages](http://docs.getpelican.com/en/stable/tips.html#user-pages) or maybe
 Pelican asked me during the quickstart questionnaire, I can't remember. The
 `Makefile` uses a handy tool called
 [`ghp-import`](https://github.com/davisp/ghp-import) that copies the contents of
