@@ -11,13 +11,30 @@ the glib cliché, "usage is a snap". Here I am posting for the second time, and
 I'm wondering, "why didn't I just use the
 [built in Jekyll static site generator](https://help.github.com/articles/about-github-pages-and-jekyll/)?"
 
-Anyway, for posterity, there is a handy tool called
-[`ghp-import`](https://github.com/davisp/ghp-import) listed in the
-[Pelican Tips](http://docs.getpelican.com/en/stable/tips.html#publishing-to-github)
-on publishing to GitHub pages. Okay, I can't remeber exactly the reason, but
-this all worked better in Python-3 instead of Python-2, and so I created a
-virtual environment for Python-3.
+Anyway, for posterity...
 
+# Publishing to GH Pages
+
+To publish my pages I use the `Makefile` that Pelican generates when you start
+your blog using `pelican-quickstart`. I may have editted the `Makefile` to
+target my GitHub `master` branch since I'm using
+[User Pages(http://docs.getpelican.com/en/stable/tips.html#user-pages) or maybe
+Pelican asked me during the quickstart questionnaire, I can't remember. The
+`Makefile` uses a handy tool called
+[`ghp-import`](https://github.com/davisp/ghp-import) that copies the contents of
+the output directory to the target git branch. Then the `Makefile` publishes
+the blog by pushing to the targe branch to the target remote. The `ghp-import`
+package is described a bit in the
+[Pelican Tips](http://docs.getpelican.com/en/stable/tips.html#publishing-to-github)
+on publishing to GitHub pages, but the `Makefile` takes care of this for you. So
+you have to install `ghp-import`, then all I do to publish the post is execute:
+
+    make publish
+
+# Python-3 Virtual Environment
+
+Okay, I can't remeber exactly the reason, but `ghp-import` worked better in
+Python-3 than Python-2, and so I created a virtual environment for Python-3.
 This brings me finally to the title of this post. How does one create a virtual
 environment for Python-3? Well according to the
 [Python Packaging Authority (PyPA)](https://packaging.python.org/installing/#creating-virtual-environments)
