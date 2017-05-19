@@ -23,11 +23,11 @@ Pelican asked me during the quickstart questionnaire, I can't remember. The
 `Makefile` uses a handy tool called
 [`ghp-import`](https://github.com/davisp/ghp-import) that copies the contents of
 the output directory to the target git branch. Then the `Makefile` publishes
-the blog by pushing to the targe branch to the target remote. The `ghp-import`
+the blog by pushing the target branch to GitHub. The `ghp-import`
 package is described a bit in the
 [Pelican Tips](http://docs.getpelican.com/en/stable/tips.html#publishing-to-github)
-on publishing to GitHub pages, but the `Makefile` takes care of this for you. So
-you have to install `ghp-import`, then all I do to publish the post is execute:
+on publishing to GitHub pages, but the `Makefile` takes care of calling it. So
+all I have to do to publish my posts is execute:
 
     make publish
 
@@ -49,8 +49,8 @@ terminal or PowerShell whereas Ian Bicking's indispensible `virtualenv` package
 works in BaSH as well. This is an issue with Python on MS Windows that I
 encounter a lot, it's a PITA and breaks the whole concept of a common unified
 experience regardless of user's platform. I should be able to use Python exactly
-the same on any system with very minor exceptions. Since I tend to use mostly
-use BaSH, this means that in order to use the built in `venv` module I have to
+the same on any system with very minor exceptions. Since I tend to mostly
+use BaSH, this means that to use the built in `venv` module I have to
 switch to a MS Windows `CMD` shell. I guess it's not that big of a deal, but
 since `virtualenv` works fine with Python-3, I guess I'll stick with that.
 
@@ -66,7 +66,7 @@ top of the old one. But for the built in `venv` module you can just run:
 
 where `<my-py3-venv>` is the name of your Python-3 virtual environment. I think
 the source code for both are nearly the same, and I also think that under the
-hood the `--upgrade` options is really doing exactly the same thing as
+hood the `--upgrade` option is really doing exactly the same thing as
 `virtualenv`, the difference is that if you try to create a virtual environment
 on top of an existing one with the Python-3 `venv` module is will raise an
 exception.
