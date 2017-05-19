@@ -29,7 +29,9 @@ package is described a bit in the
 on publishing to GitHub pages, but the `Makefile` takes care of calling it. So
 all I have to do to publish my posts is execute:
 
-    make publish
+    make github
+
+You could even stick it into `.git/hooks/post-commit` to automate publishing.
 
 # Python-3 Virtual Environment
 
