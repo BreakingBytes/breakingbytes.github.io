@@ -122,10 +122,11 @@ package is described a bit in the
 <a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github">Pelican Tips</a>
 on publishing to GitHub pages, but the <code>Makefile</code> takes care of calling it. So
 all I have to do to publish my posts is execute:</p>
-<div class="highlight"><pre><span></span>make publish
+<div class="highlight"><pre><span></span>make github
 </pre></div>
 
 
+<p>You could even stick it into <code>.git/hooks/post-commit</code> to automate publishing.</p>
 <h1>Python-3 Virtual Environment</h1>
 <p>Okay, I can't remeber exactly the reason, but <code>ghp-import</code> worked better in
 Python-3 than Python-2, and so I created a virtual environment for Python-3.

@@ -19,10 +19,11 @@ package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
 on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of calling it. So
 all I have to do to publish my posts is execute:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make publish
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make github
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;You could even stick it into &lt;code&gt;.git/hooks/post-commit&lt;/code&gt; to automate publishing.&lt;/p&gt;
 &lt;h1&gt;Python-3 Virtual Environment&lt;/h1&gt;
 &lt;p&gt;Okay, I can't remeber exactly the reason, but &lt;code&gt;ghp-import&lt;/code&gt; worked better in
 Python-3 than Python-2, and so I created a virtual environment for Python-3.
