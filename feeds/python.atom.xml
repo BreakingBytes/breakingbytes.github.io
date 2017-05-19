@@ -14,11 +14,11 @@ Pelican asked me during the quickstart questionnaire, I can't remember. The
 &lt;code&gt;Makefile&lt;/code&gt; uses a handy tool called
 &lt;a href="https://github.com/davisp/ghp-import"&gt;&lt;code&gt;ghp-import&lt;/code&gt;&lt;/a&gt; that copies the contents of
 the output directory to the target git branch. Then the &lt;code&gt;Makefile&lt;/code&gt; publishes
-the blog by pushing to the targe branch to the target remote. The &lt;code&gt;ghp-import&lt;/code&gt;
+the blog by pushing the target branch to GitHub. The &lt;code&gt;ghp-import&lt;/code&gt;
 package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
-on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of this for you. So
-you have to install &lt;code&gt;ghp-import&lt;/code&gt;, then all I do to publish the post is execute:&lt;/p&gt;
+on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of calling it. So
+all I have to do to publish my posts is execute:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make publish
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -39,8 +39,8 @@ terminal or PowerShell whereas Ian Bicking's indispensible &lt;code&gt;virtualen
 works in BaSH as well. This is an issue with Python on MS Windows that I
 encounter a lot, it's a PITA and breaks the whole concept of a common unified
 experience regardless of user's platform. I should be able to use Python exactly
-the same on any system with very minor exceptions. Since I tend to use mostly
-use BaSH, this means that in order to use the built in &lt;code&gt;venv&lt;/code&gt; module I have to
+the same on any system with very minor exceptions. Since I tend to mostly
+use BaSH, this means that to use the built in &lt;code&gt;venv&lt;/code&gt; module I have to
 switch to a MS Windows &lt;code&gt;CMD&lt;/code&gt; shell. I guess it's not that big of a deal, but
 since &lt;code&gt;virtualenv&lt;/code&gt; works fine with Python-3, I guess I'll stick with that.&lt;/p&gt;
 &lt;p&gt;Okay, there's also one other important difference. Python-3 installs all of its
@@ -55,7 +55,7 @@ top of the old one. But for the built in &lt;code&gt;venv&lt;/code&gt; module yo
 
 &lt;p&gt;where &lt;code&gt;&amp;lt;my-py3-venv&amp;gt;&lt;/code&gt; is the name of your Python-3 virtual environment. I think
 the source code for both are nearly the same, and I also think that under the
-hood the &lt;code&gt;--upgrade&lt;/code&gt; options is really doing exactly the same thing as
+hood the &lt;code&gt;--upgrade&lt;/code&gt; option is really doing exactly the same thing as
 &lt;code&gt;virtualenv&lt;/code&gt;, the difference is that if you try to create a virtual environment
 on top of an existing one with the Python-3 &lt;code&gt;venv&lt;/code&gt; module is will raise an
 exception.&lt;/p&gt;

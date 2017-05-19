@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
+  <meta name="robots" content="" />
 
 
 <meta name="author" content="Mark Mikofski" />
@@ -117,11 +117,11 @@ Pelican asked me during the quickstart questionnaire, I can't remember. The
 <code>Makefile</code> uses a handy tool called
 <a href="https://github.com/davisp/ghp-import"><code>ghp-import</code></a> that copies the contents of
 the output directory to the target git branch. Then the <code>Makefile</code> publishes
-the blog by pushing to the targe branch to the target remote. The <code>ghp-import</code>
+the blog by pushing the target branch to GitHub. The <code>ghp-import</code>
 package is described a bit in the
 <a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github">Pelican Tips</a>
-on publishing to GitHub pages, but the <code>Makefile</code> takes care of this for you. So
-you have to install <code>ghp-import</code>, then all I do to publish the post is execute:</p>
+on publishing to GitHub pages, but the <code>Makefile</code> takes care of calling it. So
+all I have to do to publish my posts is execute:</p>
 <div class="highlight"><pre><span></span>make publish
 </pre></div>
 
@@ -142,8 +142,8 @@ terminal or PowerShell whereas Ian Bicking's indispensible <code>virtualenv</cod
 works in BaSH as well. This is an issue with Python on MS Windows that I
 encounter a lot, it's a PITA and breaks the whole concept of a common unified
 experience regardless of user's platform. I should be able to use Python exactly
-the same on any system with very minor exceptions. Since I tend to use mostly
-use BaSH, this means that in order to use the built in <code>venv</code> module I have to
+the same on any system with very minor exceptions. Since I tend to mostly
+use BaSH, this means that to use the built in <code>venv</code> module I have to
 switch to a MS Windows <code>CMD</code> shell. I guess it's not that big of a deal, but
 since <code>virtualenv</code> works fine with Python-3, I guess I'll stick with that.</p>
 <p>Okay, there's also one other important difference. Python-3 installs all of its
@@ -158,7 +158,7 @@ top of the old one. But for the built in <code>venv</code> module you can just r
 
 <p>where <code>&lt;my-py3-venv&gt;</code> is the name of your Python-3 virtual environment. I think
 the source code for both are nearly the same, and I also think that under the
-hood the <code>--upgrade</code> options is really doing exactly the same thing as
+hood the <code>--upgrade</code> option is really doing exactly the same thing as
 <code>virtualenv</code>, the difference is that if you try to create a virtual environment
 on top of an existing one with the Python-3 <code>venv</code> module is will raise an
 exception.</p>
@@ -182,7 +182,6 @@ want to use BaSH on MS Windows, stick with the original, otherwise try the new.<
   </div>
 
 
-    <div class="addthis_relatedposts_inline">
 
 
 </article>
@@ -220,6 +219,5 @@ want to use BaSH on MS Windows, stick with the original, otherwise try the new.<
   "description": ""
 }
 </script>
-
 </body>
 </html>
