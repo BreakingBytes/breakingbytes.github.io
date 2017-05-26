@@ -105,17 +105,43 @@ I change the size of the window. There were several StackOverflow answers that
 suggested creating a CSS class, which seemed perfect, but they didn't seem to
 work. Then I noticed they had some JavaScript in their file to pad the top of
 the login <code>&lt;div&gt;</code> element. I made some simplifications using jQuery and voila!</p>
-<div class="highlight"><pre><span></span><span class="cm">/* vertically center login form */</span>
-<span class="kd">function</span> <span class="nx">set_login_form_container_margin_top</span><span class="p">(</span><span class="nx">sp_banner</span><span class="p">,</span> <span class="nx">log_form</span><span class="p">,</span> <span class="nx">minht</span><span class="p">)</span> <span class="p">{</span>
-<span class="kd">var</span> <span class="nx">sp_banner_height</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="nx">sp_banner</span><span class="p">).</span><span class="nx">height</span><span class="p">();</span>  <span class="c1">// height of banner</span>
+<div class="highlight"><pre><span></span><span class="cm">/* Vertically center login form in window</span>
+<span class="cm"> *</span>
+<span class="cm"> * Args:</span>
+<span class="cm"> *     banner (str): id of any banner or navbar elements at the top of</span>
+<span class="cm"> *         window</span>
+<span class="cm"> *     log_form (str):  id of div containing log form to center</span>
+<span class="cm"> *     minht (int): a minimum height to separate div from banner</span>
+<span class="cm"> *</span>
+<span class="cm"> * Use this as the callback for jQuery&#39;s resize function.*/</span>
+
+<span class="kd">function</span> <span class="nx">set_login_form_container_margin_top</span><span class="p">(</span><span class="nx">banner</span><span class="p">,</span> <span class="nx">log_form</span><span class="p">,</span> <span class="nx">minht</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">banner_height</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="nx">banner</span><span class="p">).</span><span class="nx">height</span><span class="p">();</span>  <span class="c1">// height of banner</span>
 <span class="kd">var</span> <span class="nx">window_height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nb">window</span> <span class="p">).</span><span class="nx">height</span><span class="p">();</span>  <span class="c1">// window height</span>
 <span class="kd">var</span> <span class="nx">login_form_height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">log_form</span><span class="p">).</span><span class="nx">height</span><span class="p">();</span>  <span class="c1">// login form</span>
-<span class="c1">// find the new height = half difference between window and banner + login form</span>
-<span class="kd">var</span> <span class="nx">new_height</span> <span class="o">=</span> <span class="p">(</span><span class="nx">window_height</span> <span class="o">-</span> <span class="nx">login_form_height</span> <span class="o">-</span> <span class="nx">sp_banner_height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// new height = half difference between window and banner + login form</span>
+<span class="kd">var</span> <span class="nx">new_height</span> <span class="o">=</span> <span class="p">(</span><span class="nx">window_height</span> <span class="o">-</span> <span class="nx">login_form_height</span> <span class="o">-</span> <span class="nx">banner_height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;new_height = &#39;</span> <span class="o">+</span> <span class="nx">new_height</span><span class="p">);</span>
 <span class="c1">// set the margin on the top of the login form container</span>
 <span class="nx">$</span><span class="p">(</span><span class="nx">log_form</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;margin-top&#39;</span><span class="p">,</span> <span class="nx">new_height</span> <span class="o">&lt;</span> <span class="nx">minht</span> <span class="o">?</span> <span class="nx">minht</span> : <span class="kt">new_height</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>
 <span class="p">}</span>
+</pre></div>
+
+
+<p>Use it on your web page with <a href="https://api.jquery.com/resize/">jQuery's resize function</a>.</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;/static/js/vertically_center.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+  $(function(){
+    set_login_form_container_margin_top(
+        &quot;#my_banner&quot;,
+        &quot;#login-form-container&quot;, 0);
+  });
+  $( window ).resize(function(){
+    set_login_form_container_margin_top(
+        &quot;#my_banner&quot;,
+        &quot;#login-form-container&quot;, 0);
+  });
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
   </div>
   <div class="tag-cloud">
