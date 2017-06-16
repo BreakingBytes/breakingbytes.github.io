@@ -3,3 +3,5 @@ output/
 venv/
 venv3/
 py3venv/
+*.sublime-project
+*.sublime_workspace
