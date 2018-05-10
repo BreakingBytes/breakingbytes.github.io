@@ -51,11 +51,12 @@ on the target audience.
 >Always include a **Quickstart Tutorial** that is one page and has simple but
 >realistic examples!
 
-Include a detailed but simple user guide, a comprehensive API, and a developer
-guide that explains things like how to build the documentation, how the CI is
-set up, how the server is configured, how to deploy the software, and what
-conventions were used. Be detailed. Consider adding a cookbook of examples, a
-gallery, tutorials, or HOWTO sections. Your API should be 100% covered.
+Include a detailed but simple user guide, a separate, more detailed theory
+guide, a comprehensive API, and a developer guide that explains things like how
+to build the documentation, how the CI is set up, how the server is configured,
+how to deploy the software, and what conventions were used. Be detailed.
+Consider adding a cookbook of examples, a gallery, tutorials, or HOWTO
+sections. Your API should be 100% covered.
 
 ## Performance
 It just has to be fast enough. Usually there is a trade off between speed and
