@@ -1,6 +1,6 @@
 Title: SPACES: Mnemonic for core values of good modeling software
 Date: 2018-05-10 00:14
-Category: Python, Modeling, Code
+Category: Modeling
 Tags: rant, code
 Authors: Mark Mikofski
 Summary: What makes good modeling software? Repeat this three times out loud.
