@@ -80,7 +80,7 @@ Check the bias:
 * cross correlate against the inputs
 
 Calculate the mean bias difference (MBD) and root mean square difference (RMSD). All correlations should be random and bias should be uniformly distributed.
-Dont validate with your training data. Save a third of the data for validation.
+Don't validate with your training data. Save a third of the data for validation.
 
 Include high precision test data and use it in your unit tests.
 
