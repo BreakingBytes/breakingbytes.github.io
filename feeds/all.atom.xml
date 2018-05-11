@@ -58,7 +58,20 @@ removed wherever it's found. Don't repeat yourself. However, don't create overly
 &lt;h2&gt;Accuracy&lt;/h2&gt;
 &lt;p&gt;It just has to be accurate enough. Understand your uncertainties. Regardless,
 modeling software that is inaccurate is useless. Make sure it works the way
-it's expected.&lt;/p&gt;
+it's expected. Validate with publicly available data and publish
+your results in a notebook, like &lt;a href="https://jupyter.org"&gt;Jupyter&lt;/a&gt;,
+with the analysis code so others can run your calculations too.
+Check the bias:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;plot the distribution of the bias&lt;/li&gt;
+&lt;li&gt;auto correlate against the output&lt;/li&gt;
+&lt;li&gt;look for correlation versus time and location, by month and hour
+   of the day, and by vertical and horizontal position&lt;/li&gt;
+&lt;li&gt;cross correlate against the inputs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Calculate the mean bias difference (MBD) and root mean square difference (RMSD). All correlations should be random and bias should be uniformly distributed.
+Don't validate with your training data. Save a third of the data for validation.&lt;/p&gt;
+&lt;p&gt;Include high precision test data and use it in your unit tests.&lt;/p&gt;
 &lt;h2&gt;Collaboration&lt;/h2&gt;
 &lt;p&gt;Work together. Science is consensus. Others have already solved your problems.
 Others can find new problems. Use what is out there already. Don't reinvent the
