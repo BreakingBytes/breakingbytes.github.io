@@ -23,18 +23,24 @@
   <meta name="robots" content="" />
 
 
-    <meta name="author" content="Mark Mikofski" />
-    <meta name="description" content="" />
+<meta name="author" content="Mark Mikofski" />
+<meta name="description" content="Using a numerical solver to model solar power." />
+<meta name="keywords" content="code, solar">
 <meta property="og:site_name" content="Breaking Bytes"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="Breaking Bytes"/>
-<meta property="og:description" content=""/>
+<meta property="og:title" content="Examples of implicit versus explicit solutions for photovoltaic solar energy systems"/>
+<meta property="og:description" content="Using a numerical solver to model solar power."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://breakingbytes.github.io"/>
+<meta property="og:url" content="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-06-22 20:55:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://breakingbytes.github.io/author/mark-mikofski.html">
+<meta property="article:section" content="Modeling"/>
+<meta property="article:tag" content="code"/>
+<meta property="article:tag" content="solar"/>
 <meta property="og:image" content="/images/70s_Marko_Mustache_cropped.jpg">
 
-  <title>Breaking Bytes &ndash;     Tag code
-</title>
+  <title>Breaking Bytes &ndash; Examples of implicit versus explicit solutions for photovoltaic solar energy systems</title>
 
 </head>
 <body>
@@ -81,53 +87,75 @@
 
     </nav>
 
-
-
-<article>
+<article class="single">
   <header>
-    <h2><a href="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html#examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems">Examples of implicit versus explicit solutions for photovoltaic solar energy systems</a></h2>
+    <h1 id="examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems">Examples of implicit versus explicit solutions for photovoltaic solar energy systems</h1>
     <p>
           Posted on Fri 22 June 2018 in <a href="https://breakingbytes.github.io/category/modeling.html">Modeling</a>
 
 
-          &#8226;     Tagged with
-
-              <a href="https://breakingbytes.github.io/tag/code.html">code</a>,              <a href="https://breakingbytes.github.io/tag/solar.html">solar</a>
     </p>
   </header>
+
+
   <div>
-      <p>Using a numerical solver to model solar power.</p>
-      <br>
-      <a class="btn" href="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html#examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems">    Continue reading
-</a>
+    <h1>Full Scale PV Modeling</h1>
+<p>I want to explore different ways to find the operating conditions for max power
+of a PV system. I'm going to assume that we're using a single diode model (SDM)
+which is an analog curcuit of a solar cell composed from a current source, a
+diode, and a resistance in parallel, in series with another resistance.</p>
+<p><img alt="single diode model" src="https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png"></p>
+<p><em>source: <a href="https://pvpmc.sandia.gov/">Sandia National Labs: PV Performance Modeling Collaborative</a></em></p>
+<p>The cell current in the SDM can't be solved explicitly as a function of cell
+voltage without using the Lambert-W function. It can be solved implicitly by
+using an iterative solver such as a gradient descent method. And there is an
+explicit method that can be used to solve for cell current as a function of an
+intermediate parameter, the diode voltage, which can then be used to calculate
+the cell current. To get a specific voltage using this explicit parameterized
+approach, requires solving for several diode voltages and interpolating.</p>
+<p>A common use of the SDM is to solve for the ideal operating condition of an
+entire PV system by assuming all of the cells are identical. Another proposed
+usage of the SDM is to model all of the cells in an entire system to account
+for their differences either due to variance in manufacturing, ambient
+conditions, or degradation. This second problem poses some challenges
+computationally for very large systems.</p>
+<p>What is the best method to do full scale PV system modeling? I'm going to skip
+the Lambert-W function and focus on implict and explicit methods.</p>
+<h1>Conclusions</h1>
+<ul>
+<li>
+<p>The implicit approach is efficient at finding a single operating condition,
+even or especially when most of the cells are different, but it's slow at
+tracing the entire IV curve.</p>
+</li>
+<li>
+<p>The implicit approach is also efficient at determining the max power point.</p>
+</li>
+<li>
+<p>Nesting search methods is less efficient than a single closed solution.</p>
+</li>
+<li>
+<p>The explicit method is most efficient at tracing the entire IV curve, even
+when every cell is different.</p>
+</li>
+</ul>
+<h1>Gist</h1>
+<p>The following Gist contains examples for a full scale implicit approach and the
+explicit parameterized approach described. The Gist are best viewed on
+<a href="http://nbviewer.jupyter.org/gist/mikofski/df318d1f892767ac7c762e732fecaa7f">nbviewer</a>.</p>
+<script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"></script>
   </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html#spaces-mnemonic-for-core-values-of-good-modeling-software">SPACES: Mnemonic for core values of good modeling software</a></h2>
+  <div class="tag-cloud">
     <p>
-          Posted on Thu 10 May 2018 in <a href="https://breakingbytes.github.io/category/modeling.html">Modeling</a>
-
-
-          &#8226;     Tagged with
-
-              <a href="https://breakingbytes.github.io/tag/rant.html">rant</a>,              <a href="https://breakingbytes.github.io/tag/code.html">code</a>
+      <a href="https://breakingbytes.github.io/tag/code.html">code</a>
+      <a href="https://breakingbytes.github.io/tag/solar.html">solar</a>
     </p>
-  </header>
-  <div>
-      <p>What makes good modeling software? Repeat this three times out loud.</p>
-      <br>
-      <a class="btn" href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html#spaces-mnemonic-for-core-values-of-good-modeling-software">    Continue reading
-</a>
   </div>
+
+
+
+
 </article>
-
-  <div class="pagination">
-  </div>
-
-
-
 
     <footer>
 <p>
