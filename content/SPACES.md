@@ -23,7 +23,7 @@ Computers have revolutionalized the derivation and use of mathematical models
 to understand, describe, and predict our universe. We use code to interpret
 mathematics and science into a language that computers can use to perform
 calculations that would have taken us years to do by hand. But just like pencil
-and paper work there are ways to organize code to accomplish objectives. Good
+and paper work there are ways to organize code best to accomplish your objectives. Good
 modeling software is based on a set core values.
 
 # SPACES
@@ -63,12 +63,26 @@ It just has to be fast enough. Usually there is a trade off between speed and
 accuracy, so finding the balance is tricky. But in order to be useful, modeling
 software must not be slow. Efficiency where possible should always be a
 priority. Maybe not in the first draft, but in revisions inefficiency should be
-removed wherever it's found. Don't repeat yourself. However, don't create overly complicated code. Efficienty code should still be simple. Strive for elegance.
+removed wherever it's found. Don't repeat yourself. However, don't create overly complicated code. Efficient code should still be simple. Strive for elegance.
 
 ## Accuracy
 It just has to be accurate enough. Understand your uncertainties. Regardless,
 modeling software that is inaccurate is useless. Make sure it works the way
-it's expected.
+it's expected. Validate with publicly available data and publish
+your results in a notebook, like [Jupyter](https://jupyter.org),
+with the analysis code so others can run your calculations too.
+Check the bias:
+
+* plot the distribution of the bias
+* auto correlate against the output
+* look for correlation versus time and location, by month and hour
+   of the day, and by vertical and horizontal position
+* cross correlate against the inputs
+
+Calculate the mean bias difference (MBD) and root mean square difference (RMSD). All correlations should be random and bias should be uniformly distributed.
+Don't validate with your training data. Save a third of the data for validation.
+
+Include high precision test data and use it in your unit tests.
 
 ## Collaboration
 Work together. Science is consensus. Others have already solved your problems.
