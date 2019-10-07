@@ -25,13 +25,21 @@ Therefore you can deligate the work for both IO and CPU bound processes differen
 I would guess there are task managers other than Celery, but would have to Google around to find a curated list - and many examples recommend Celery, eg: [Heroku](https://devcenter.heroku.com/articles/celery-heroku).
 
 # Inter-Process Communication
-Note a task queue, threading, and MP all require a way to communicate with the thread, this is called [IPC or inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication).
+Note a task queue, threading, and MP all require a way for threads and processes to communicate with each other. Threads on a single machine can more easily share memory which makes them more efficient than MP. For Python threads, I typically use the standard Python [Queue lib](https://docs.python.org/3/library/queue.html).
 
-For threads and MP, I typically use a [Queue](https://docs.python.org/3/library/queue.html) but there are other options.
+Multiprocessing requires some form of [inter-process communication or IPC](https://en.wikipedia.org/wiki/Inter-process_communication), which attempts to serialize and deserialize objects between processes. Python provides [MP Queues and Pipes](https://docs.python.org/3/library/multiprocessing.html?highlight=process#pipes-and-queues) to [exchange objects between processes](https://docs.python.org/3/library/multiprocessing.html?highlight=process#exchanging-objects-between-processes). I prefer the MP Queue, because it nearly mimics the API of the standard Python Queue lib, but because it is IPC, I have to be careful to only pass in objects that can be easily serialized and deserialized like numbers, strings, sequences, and dictionaries.
 
 For distributed computing, the recommendation is to use a message queue like [RabbitMQ](https://www.rabbitmq.com/) or a shared memory server like [memcached](https://memcached.org/) or [reddis](https://redis.io/).
 
 Unfortunately, I don't have the expertise to say when to use an MQ verses memcache, but there are lots of articles on the internet discussing the pros/cons of each. I've used memcache and it works, but I believe for Celery they preffer MQ.
+
+## Queues
+For both threads and processes, IMHO it's a good idea to keep the communication simple. I recommend only pushing the primitive types that will be needed by the target function handled by the thread and then reconstructing more complicated objects in the main branch of execution as needed. I believe this will keep the communication overhead low as well as make it easier to serialize and deserialize target arguments and avoid race conditions.
+
+_Note_: Python also uses the GIL to avoid race conditions between threads. See below.
+
+### Thread Safety and Shared Memory
+This is at the edge of my experience, but Python does provide tools to lock and synchronize communication between [threads](https://docs.python.org/3/library/threading.html#lock-objects) and [processes](https://docs.python.org/3/library/multiprocessing.html#synchronization-between-processes) as well as a [shared memory map for multiprocessing](https://docs.python.org/3/library/multiprocessing.html?highlight=process#sharing-state-between-processes). Explore on your own.
 
 # The Difference Between IO and CPU Bound Process
 
