@@ -7,7 +7,7 @@ SITENAME = u'Breaking Bytes'
 SITEURL = ''
 SITELOGO = '/images/70s_Marko_Mustache_cropped.jpg'
 FAVICON = '/images/breakingbytes.ico'
-THEME = 'Flex'
+THEME = '../pelican-themes/Flex'
 PATH = 'content'
 STATIC_PATHS = ['images']
 
