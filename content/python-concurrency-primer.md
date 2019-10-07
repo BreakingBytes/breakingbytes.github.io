@@ -7,14 +7,15 @@ Summary: Asynchronous Python workflows for IO and CPU processes on a single mach
 
 # Python Threading versus Multiprocessing
 
-Threading works really well with IO, but not CPU bound processes, hence why there's an [asyncio lib](https://docs.python.org/3/library/asyncio.html) for IO and a [MP lib](https://docs.python.org/3/library/multiprocessing.html). Before Py3, you could manually create threads using the [threading lib](https://docs.python.org/3/library/threading.html) and some people don't like asyncio and prefer external libs like [trio](https://trio.readthedocs.io/en/stable/) and older packages like [gevents](http://www.gevent.org/), etc.
+Threading works really well with IO, but not CPU bound processes, hence why there's an [asyncio lib](https://docs.python.org/3/library/asyncio.html) for IO and a [MP lib](https://docs.python.org/3/library/multiprocessing.html). Before Py3, you could only manually create threads using the [threading lib](https://docs.python.org/3/library/threading.html) and some people who don't like asyncio still prefer to use the manual threading lib, an external lib like [trio](https://trio.readthedocs.io/en/stable/), or older packages like [gevents](http://www.gevent.org/), etc.
 
 For an example of using threading for an IO bound process see the [`pvlib.iotools.get_ecmwf_macc()` method](https://github.com/pvlib/pvlib-python/blob/master/pvlib/iotools/ecmwf_macc.py#L168) which returns the thread that calls the ECMWF api client because it is soooooo slow!
 
+
 # Concurrency in the Cloud
 
-Curve ball (⚾) - threading and MP work great for a single computer, but when you are on a cluster, such as web applications, then you have more options!
-​
+Curve ball (⚾) - threading and MP work great for a single computer, but when you are on a cluster, such as web applications, then you have more options!  
+
 In a web app, you usually have a load balancer in front of several workers who answer get requests.
 
 Therefore you can deligate the work for both IO and CPU bound processes differently than by using either threading, MP, asyncio, trio, gevent, etc.
