@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
+
+
+    <link rel="shortcut icon" href="/images/breakingbytes.ico" type="image/x-icon">
+    <link rel="icon" href="/images/breakingbytes.ico" type="image/x-icon">
+
+
+
+<meta name="author" content="Mark Mikofski" />
+<meta name="description" content="Asynchronous Python workflows for IO and CPU processes on a single machine versus a cluster." />
+<meta name="keywords" content="code, web">
+
+<meta property="og:site_name" content="Breaking Bytes"/>
+<meta property="og:title" content="Python Concurrency Primer"/>
+<meta property="og:description" content="Asynchronous Python workflows for IO and CPU processes on a single machine versus a cluster."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://breakingbytes.github.io/python-concurrency-primer.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-07 10:33:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://breakingbytes.github.io/author/mark-mikofski.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="code"/>
+<meta property="article:tag" content="web"/>
+<meta property="og:image" content="/images/70s_Marko_Mustache_cropped.jpg">
+
+  <title>Breaking Bytes &ndash; Python Concurrency Primer</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://breakingbytes.github.io">
+        <img src="/images/70s_Marko_Mustache_cropped.jpg" alt="" title="">
+      </a>
+      <h1><a href="https://breakingbytes.github.io"></a></h1>
+
+
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://poquitopicante.blogspot.com/" target="_blank">poquito picante</a></li>
+          <li><a href="https://mikofski.github.io/" target="_blank">bwanamarko</a></li>
+          <li><a href="https://breakingbytes.blogspot.com/" target="_blank">old breaking bytes</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="https://breakingbytes.github.io">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="https://breakingbytes.github.io/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="python-concurrency-primer">Python Concurrency Primer</h1>
+    <p>
+          Posted on Mon 07 October 2019 in <a href="https://breakingbytes.github.io/category/python.html">Python</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Python Threading versus Multiprocessing</h1>
+<p>Threading works really well with IO, but not CPU bound processes, hence why there's an asyncio lib (https://docs.python.org/3/library/asyncio.html) for IO and a MP lib (https://docs.python.org/3/library/multiprocessing.html). Before Py3, you could manually create threads using the threading lib (https://docs.python.org/3/library/threading.html) and some people don't like asyncio and prefer external libs like trio (https://trio.readthedocs.io/en/stable/) and older packages like <a href="http://www.gevent.org/">gevents</a>, etc.</p>
+<p>For an example of using threading for an IO bound process see the <code>pvlib.iotools.get_ecmwf_macc()</code> method (https://github.com/pvlib/pvlib-python/blob/master/pvlib/iotools/ecmwf_macc.py#L168) which returns the thread that calls the ECMWF api client because it is soooooo slow!</p>
+<h1>Concurrency in the Cloud</h1>
+<p>Curve ball (⚾) - threading and MP work great for a single computer, but when you are on a cluster, such as web applications, then you have more options!
+​
+In a web app, you usually have a load balancer in front of several workers who answer get requests.</p>
+<p>Therefore you can deligate the work for both IO and CPU bound processes differently than by using either threading, MP, asyncio, trio, gevent, etc</p>
+<p>Celery (http://www.celeryproject.org/) is probably the most popular task queue for distributed resources especially for web applications</p>
+<p>I would guess there are task managers other than Celery, but would have to Google around to find a curated list - and many examples recommend Celery, eg: Heroku (https://devcenter.heroku.com/articles/celery-heroku)</p>
+<h1>Inter-Process Communication</h1>
+<p>Note a task queue, threading, and MP all require a way to communicate with the thread, this is called IPC or inter-process communication (https://en.wikipedia.org/wiki/Inter-process_communication)</p>
+<p>For threads and MP, I typically use a Queue (https://docs.python.org/3/library/queue.html) but there are other options</p>
+<p>For distributed computing, the recommendation is to use a message queue like RabbitMQ (https://www.rabbitmq.com/) or a shared memory server like memcached (https://memcached.org/) or reddis (https://redis.io/)</p>
+<p>Unfortunately, I don't have the expertise to say when to use an MQ verses memcache, but there are lots of articles on the internet discussing the pros/cons of each. I've used memcache and it works, but I believe for Celery they preffer MQ.</p>
+<h1>The Difference Between IO and CPU Bound Process</h1>
+<ul>
+<li>
+<p>An IO bound process is like getting data from a URL, or writing a file</p>
+</li>
+<li>
+<p>A CPU bound process is like a big calculation like matrix inversion, a search routine, or optimization/minimzation problem</p>
+</li>
+</ul>
+<p>IO bound processes use Threads because threads do not block IO bound processes - IE: you can start an IO process in a thread and execution will continue to the next line unless you tell Python to wait. AsyncIO and Trio probably use threading in the background, IDK for sure.</p>
+<p>CPU bound processes use MP, because they need their own core to do their stuff. But unfortunately there is a lot of overhead with MP, and so the calculation needs to be really expensive to make it worthwhile.</p>
+<p>There's no limit to the number of threads you can create, but the number of MP processes is limited to the number of cores.</p>
+<p>These rules don't apply to distributed computing, and they may not apply in other computing languages either. IE: you can distribute both IO and CPU tasks to a task queue across a cluster. However, there may be task managers that are better suited for different types of tasks. EG: Dask (https://dask.org/) is probably better for distributed computing of CPU intense processes. But honestly, IDK, I'm at the edge of my personal research and experience here, and so I would probably recommend a little more exploration ...</p>
+<h1>Python Global Interpreter Lock</h1>
+<p>The reason there's this difference between IO/CPU and threads/processes in Python specifically, and perhaps not other languages, is because Python is single threaded by default due to the Global Interpreter Lock or GIL (https://wiki.python.org/moin/GlobalInterpreterLock). Other languages may or may not have similar design, IDK, however Python C-API does let you explicitly release the GIL (https://docs.python.org/3/c-api/init.html#thread-state-and-the-global-interpreter-lock) and manage threads manually. This is what packages like NumPy/SciPy (https://scipy-cookbook.readthedocs.io/items/ParallelProgramming.html) CPython (https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html) do.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://breakingbytes.github.io/tag/code.html">code</a>
+      <a href="https://breakingbytes.github.io/tag/web.html">web</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy;  2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Breaking Bytes ",
+  "url" : "https://breakingbytes.github.io",
+  "image": "/images/70s_Marko_Mustache_cropped.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
