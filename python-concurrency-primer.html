@@ -103,12 +103,11 @@
 
   <div>
     <h1>Python Threading versus Multiprocessing</h1>
-<p>Threading works really well with IO, but not CPU bound processes, hence why there's an <a href="https://docs.python.org/3/library/asyncio.html">asyncio lib</a> for IO and a <a href="https://docs.python.org/3/library/multiprocessing.html">MP lib</a>. Before Py3, you could manually create threads using the <a href="https://docs.python.org/3/library/threading.html">threading lib</a> and some people don't like asyncio and prefer external libs like <a href="https://trio.readthedocs.io/en/stable/">trio</a> and older packages like <a href="http://www.gevent.org/">gevents</a>, etc.</p>
+<p>Threading works really well with IO, but not CPU bound processes, hence why there's an <a href="https://docs.python.org/3/library/asyncio.html">asyncio lib</a> for IO and a <a href="https://docs.python.org/3/library/multiprocessing.html">MP lib</a>. Before Py3, you could only manually create threads using the <a href="https://docs.python.org/3/library/threading.html">threading lib</a> and some people who don't like asyncio still prefer to use the manual threading lib, an external lib like <a href="https://trio.readthedocs.io/en/stable/">trio</a>, or older packages like <a href="http://www.gevent.org/">gevents</a>, etc.</p>
 <p>For an example of using threading for an IO bound process see the <a href="https://github.com/pvlib/pvlib-python/blob/master/pvlib/iotools/ecmwf_macc.py#L168"><code>pvlib.iotools.get_ecmwf_macc()</code> method</a> which returns the thread that calls the ECMWF api client because it is soooooo slow!</p>
 <h1>Concurrency in the Cloud</h1>
-<p>Curve ball (⚾) - threading and MP work great for a single computer, but when you are on a cluster, such as web applications, then you have more options!
-​
-In a web app, you usually have a load balancer in front of several workers who answer get requests.</p>
+<p>Curve ball (⚾) - threading and MP work great for a single computer, but when you are on a cluster, such as web applications, then you have more options!  </p>
+<p>In a web app, you usually have a load balancer in front of several workers who answer get requests.</p>
 <p>Therefore you can deligate the work for both IO and CPU bound processes differently than by using either threading, MP, asyncio, trio, gevent, etc.</p>
 <p><a href="http://www.celeryproject.org/">Celery</a> is probably the most popular task queue for distributed resources especially for web applications.</p>
 <p>I would guess there are task managers other than Celery, but would have to Google around to find a curated list - and many examples recommend Celery, eg: <a href="https://devcenter.heroku.com/articles/celery-heroku">Heroku</a>.</p>
