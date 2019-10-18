@@ -56,11 +56,11 @@ should only be used with confidential clients that can keep secrets. The client
 registration must include a list of redirect URI to consume the authorization
 code from the authorization service.&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Then a registered client can use an authorization URL to redirect users to
-login with the identity provider and get an authorization code which can be
-exchanged by the client for an access token. For this post, we'll use this
-fictitious authorization URL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/authorize/
+&lt;p&gt;Then a registered client can send a &lt;code&gt;GET&lt;/code&gt; request to the authorization URL
+to redirect users to login with the identity provider and get an authorization
+code which can be exchanged by the client for an access token. For this example,
+we'll use the following fictitious authorization URL:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;authorize&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -68,11 +68,11 @@ fictitious authorization URL:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;The authorization URL is very picky. It must include a the following query
 string parameters:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;client_id&amp;quot;: &amp;lt;client-id&amp;gt;,
-&amp;quot;state&amp;quot;: &amp;lt;optional&amp;gt;,
-&amp;quot;response_type&amp;quot;: &amp;quot;code&amp;quot;,
-&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;,
-&amp;quot;scope&amp;quot;: &amp;quot;read write email name&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;client_id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;state&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;optional&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;response_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;redirect_uri&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;scope&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;read write email name&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -80,13 +80,13 @@ string parameters:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;The authorization can also include the desired scopes including any
 additional claims about the user such as: &lt;code&gt;email&lt;/code&gt;, &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;given_name&lt;/code&gt;,
-&lt;code&gt;family_name&lt;/code&gt;, &lt;code&gt;openid&lt;/code&gt;, &lt;em&gt;etc.&lt;/em&gt; that can be retrieved in the ID token from the
-&lt;code&gt;/identity-provider/userinfo/&lt;/code&gt; endpoint.&lt;/p&gt;
+&lt;code&gt;family_name&lt;/code&gt;, &lt;code&gt;openid&lt;/code&gt;, &lt;em&gt;etc.&lt;/em&gt; that can be retrieved in the ID token from
+the &lt;code&gt;/identity-provider/userinfo/&lt;/code&gt; endpoint.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;Optionally, the authorization request should also contain a unique &lt;code&gt;state&lt;/code&gt;
-code, a string of any length, used to prevent cross site forgery request. It's
-up to the client to save the state sent in the request, to validate it with the
-state returned in the response from the authorization server.&lt;/li&gt;
+code, a string of any length, used to prevent cross site forgery request.
+It's up to the client to save the state sent in the request and validate it
+with the state returned in the response from the authorization server.&lt;/li&gt;
 &lt;li&gt;Optionally there may be an &lt;code&gt;approval_prompt&lt;/code&gt; parameter that can be provided
 and set to either &lt;code&gt;force&lt;/code&gt; or &lt;code&gt;auto&lt;/code&gt;. If not set, and there is a "skip
 authorization" checkbox in the app registration form which is disabled, then
@@ -105,7 +105,7 @@ client. The code can then be exchanged for an access token.&lt;/li&gt;
 &lt;p&gt;The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
 &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/token/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -114,9 +114,9 @@ exchange the authorization code for an access token. This request is sent as a
 &lt;p&gt;The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;grant_type&amp;quot;: &amp;quot;authorization_code&amp;quot;,
-&amp;quot;code&amp;quot;: &amp;lt;code&amp;gt;,
-&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;grant_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;authorization_code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;redirect_uri&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -146,14 +146,14 @@ token to obtain the token owners identity and other claims such as &lt;code&gt;e
 &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;given_name&lt;/code&gt; and &lt;code&gt;family_name&lt;/code&gt;. These claims must be submitted as
 scopes when the authorization code is requested. Then the client can send a
 &lt;code&gt;GET&lt;/code&gt; request:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/userinfo/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;userinfo&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;code&gt;GET&lt;/code&gt; must have an authorization header containing the bearer token:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Authorization: &amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Authorization&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -163,21 +163,21 @@ scopes when the authorization code is requested. Then the client can send a
 signed by hashing the JWT using the client secret as the key. See
 &lt;a href="https://jwt.io/"&gt;jwt.io&lt;/a&gt; for more information and available bindings.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;The response status code should &lt;code&gt;200 OK&lt;/code&gt; and the content type is
+&lt;li&gt;The response status code should be &lt;code&gt;200 OK&lt;/code&gt; and the content type should be
 &lt;code&gt;application/jwt&lt;/code&gt;. The status code will be &lt;code&gt;405 METHOD NOT ALLOWED&lt;/code&gt; if the
 request does not use &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;403 FORBIDDEN&lt;/code&gt; if the bearer token is missing
 or invalid.&lt;/li&gt;
-&lt;li&gt;The JWT contains the user name as the subject &lt;code&gt;sub&lt;/code&gt; claim as well as any
+&lt;li&gt;The JWT contains the user name as the subject claim, &lt;code&gt;sub&lt;/code&gt;, as well as any
 additional claims requested as scopes.&lt;/li&gt;
-&lt;li&gt;Use the &lt;code&gt;groups&lt;/code&gt; scope to get a list of the xyz-app groups that a user
-belongs to including the &lt;em&gt;administrator&lt;/em&gt; group.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;groups&lt;/code&gt; scope to get access to groups a user belongs to on the
+identity provider such as the &lt;em&gt;administrator&lt;/em&gt; group.&lt;/li&gt;
 &lt;li&gt;It is up to the client to validate that the JWT is signed correctly. The hash
 algorithm is in the JWT as &lt;code&gt;alg&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;The JWT also has an issuer claim, &lt;code&gt;iss&lt;/code&gt; that should be set to the name of the
+&lt;li&gt;The JWT also has an issuer claim, &lt;code&gt;iss&lt;/code&gt;, that should be set to the name of the
 identity provider.&lt;/li&gt;
-&lt;li&gt;The JWT audience claim, &lt;code&gt;aud&lt;/code&gt; is the the client id.&lt;/li&gt;
+&lt;li&gt;The JWT audience claim, &lt;code&gt;aud&lt;/code&gt;, is the the client id.&lt;/li&gt;
 &lt;li&gt;It's up to the client to check the time frame of the JWT using issued at
-&lt;code&gt;iat&lt;/code&gt;, expires in &lt;code&gt;exp&lt;/code&gt; and not before &lt;code&gt;nbf&lt;/code&gt; claims.&lt;/li&gt;
+&lt;code&gt;iat&lt;/code&gt;, expires in &lt;code&gt;exp&lt;/code&gt;, and not before &lt;code&gt;nbf&lt;/code&gt; claims.&lt;/li&gt;
 &lt;li&gt;The client can also confirm that the correct token was used by examining the
 access token hash claim, &lt;code&gt;at_hash&lt;/code&gt;. Please see the the
 &lt;a href="http://openid.net/specs/openid-connect-core-1_0.html"&gt;OpenID Connect Core&lt;/a&gt;
@@ -861,16 +861,16 @@ the login &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element. I made some simp
 &lt;span class="cm"&gt; *&lt;/span&gt;
 &lt;span class="cm"&gt; * Use this as the callback for jQuery&amp;#39;s resize function.*/&lt;/span&gt;
 
-&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;banner_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// height of banner&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt; &lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// window height&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// login form&lt;/span&gt;
-&lt;span class="c1"&gt;// new height = half difference between window and banner + login form&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;banner_height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;new_height = &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="c1"&gt;// set the margin on the top of the login form container&lt;/span&gt;
-&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;margin-top&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt; : &lt;span class="kt"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;banner&lt;/span&gt;, &lt;span class="nv"&gt;log_form&lt;/span&gt;, &lt;span class="nv"&gt;minht&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;banner_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  $&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;banner&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // height of banner&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; $&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;window&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // window height&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; $&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;log_form&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // login form&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;half&lt;/span&gt; &lt;span class="nv"&gt;difference&lt;/span&gt; &lt;span class="nv"&gt;between&lt;/span&gt; &lt;span class="nv"&gt;window&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;banner&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="nv"&gt;form&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;banner_height&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;new_height = &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;new_height&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;margin&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;top&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="nv"&gt;form&lt;/span&gt; &lt;span class="nv"&gt;container&lt;/span&gt;
+$&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;log_form&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;css&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;margin-top&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nv"&gt;minht&lt;/span&gt; ? &lt;span class="nv"&gt;minht&lt;/span&gt; : &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;px&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -908,7 +908,7 @@ package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
 on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of calling it. So
 all I have to do to publish my posts is execute:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make github
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;github&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -939,7 +939,7 @@ which uses links mostly. This means that when you update your version of
 Python-3 you need to &lt;em&gt;also&lt;/em&gt; update your virtual environment.&lt;/p&gt;
 &lt;p&gt;For the &lt;code&gt;virtualenv&lt;/code&gt; package you'll have to create a new virtual environment on
 top of the old one. But for the built in &lt;code&gt;venv&lt;/code&gt; module you can just run:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;py -3 -m venv --upgrade &amp;lt;my-py3-venv&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="c1"&gt;--upgrade &amp;lt;my-py3-venv&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

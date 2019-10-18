@@ -13,7 +13,9 @@
     <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
 
   <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/solid.css">
 
 
     <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
@@ -67,11 +69,31 @@
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
-        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/mikofski" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank">
+            <i class="fab fa-linkedin">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank">
+            <i class="fab fa-google">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-rss" href="feeds/all.atom.xml" target="_blank">
+            <i class="fas fa-rss">
+            </i>
+          </a></li>
       </ul>
     </div>
 
@@ -162,11 +184,11 @@ should only be used with confidential clients that can keep secrets. The client
 registration must include a list of redirect URI to consume the authorization
 code from the authorization service.</li>
 <li>
-<p>Then a registered client can use an authorization URL to redirect users to
-login with the identity provider and get an authorization code which can be
-exchanged by the client for an access token. For this post, we'll use this
-fictitious authorization URL:</p>
-<div class="highlight"><pre><span></span>https://identity-provider/authorize/
+<p>Then a registered client can send a <code>GET</code> request to the authorization URL
+to redirect users to login with the identity provider and get an authorization
+code which can be exchanged by the client for an access token. For this example,
+we'll use the following fictitious authorization URL:</p>
+<div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">identity</span><span class="o">-</span><span class="n">provider</span><span class="o">/</span><span class="n">authorize</span><span class="o">/</span>
 </pre></div>
 
 
@@ -174,11 +196,11 @@ fictitious authorization URL:</p>
 <li>
 <p>The authorization URL is very picky. It must include a the following query
 string parameters:</p>
-<div class="highlight"><pre><span></span>&quot;client_id&quot;: &lt;client-id&gt;,
-&quot;state&quot;: &lt;optional&gt;,
-&quot;response_type&quot;: &quot;code&quot;,
-&quot;redirect_uri&quot;: &lt;redirect_uri&gt;,
-&quot;scope&quot;: &quot;read write email name&quot;
+<div class="highlight"><pre><span></span><span class="ss">&quot;client_id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">client</span><span class="o">-</span><span class="n">id</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;state&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">optional</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;response_type&quot;</span><span class="p">:</span> <span class="ss">&quot;code&quot;</span><span class="p">,</span>
+<span class="ss">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">redirect_uri</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;scope&quot;</span><span class="p">:</span> <span class="ss">&quot;read write email name&quot;</span>
 </pre></div>
 
 
@@ -186,13 +208,13 @@ string parameters:</p>
 <li>
 <p>The authorization can also include the desired scopes including any
 additional claims about the user such as: <code>email</code>, <code>name</code>, <code>given_name</code>,
-<code>family_name</code>, <code>openid</code>, <em>etc.</em> that can be retrieved in the ID token from the
-<code>/identity-provider/userinfo/</code> endpoint.</p>
+<code>family_name</code>, <code>openid</code>, <em>etc.</em> that can be retrieved in the ID token from
+the <code>/identity-provider/userinfo/</code> endpoint.</p>
 </li>
 <li>Optionally, the authorization request should also contain a unique <code>state</code>
-code, a string of any length, used to prevent cross site forgery request. It's
-up to the client to save the state sent in the request, to validate it with the
-state returned in the response from the authorization server.</li>
+code, a string of any length, used to prevent cross site forgery request.
+It's up to the client to save the state sent in the request and validate it
+with the state returned in the response from the authorization server.</li>
 <li>Optionally there may be an <code>approval_prompt</code> parameter that can be provided
 and set to either <code>force</code> or <code>auto</code>. If not set, and there is a "skip
 authorization" checkbox in the app registration form which is disabled, then
@@ -211,7 +233,7 @@ client. The code can then be exchanged for an access token.</li>
 <p>The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
 <code>POST</code>:</p>
-<div class="highlight"><pre><span></span>https://identity-provider/token/
+<div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">identity</span><span class="o">-</span><span class="n">provider</span><span class="o">/</span><span class="n">token</span><span class="o">/</span>
 </pre></div>
 
 
@@ -220,9 +242,9 @@ exchange the authorization code for an access token. This request is sent as a
 <p>The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the <code>POST</code>:</p>
-<div class="highlight"><pre><span></span>&quot;grant_type&quot;: &quot;authorization_code&quot;,
-&quot;code&quot;: &lt;code&gt;,
-&quot;redirect_uri&quot;: &lt;redirect_uri&gt;
+<div class="highlight"><pre><span></span><span class="ss">&quot;grant_type&quot;</span><span class="p">:</span> <span class="ss">&quot;authorization_code&quot;</span><span class="p">,</span>
+<span class="ss">&quot;code&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">redirect_uri</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -252,14 +274,14 @@ token to obtain the token owners identity and other claims such as <code>email</
 <code>name</code>, <code>given_name</code> and <code>family_name</code>. These claims must be submitted as
 scopes when the authorization code is requested. Then the client can send a
 <code>GET</code> request:</p>
-<div class="highlight"><pre><span></span>https://identity-provider/userinfo/
+<div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">identity</span><span class="o">-</span><span class="n">provider</span><span class="o">/</span><span class="n">userinfo</span><span class="o">/</span>
 </pre></div>
 
 
 <ul>
 <li>
 <p>The <code>GET</code> must have an authorization header containing the bearer token:</p>
-<div class="highlight"><pre><span></span>Authorization: &quot;Bearer &lt;token&gt;&quot;
+<div class="highlight"><pre><span></span><span class="k">Authorization</span><span class="p">:</span> <span class="ss">&quot;Bearer &lt;token&gt;&quot;</span>
 </pre></div>
 
 
@@ -269,21 +291,21 @@ scopes when the authorization code is requested. Then the client can send a
 signed by hashing the JWT using the client secret as the key. See
 <a href="https://jwt.io/">jwt.io</a> for more information and available bindings.</p>
 </li>
-<li>The response status code should <code>200 OK</code> and the content type is
+<li>The response status code should be <code>200 OK</code> and the content type should be
 <code>application/jwt</code>. The status code will be <code>405 METHOD NOT ALLOWED</code> if the
 request does not use <code>GET</code> and <code>403 FORBIDDEN</code> if the bearer token is missing
 or invalid.</li>
-<li>The JWT contains the user name as the subject <code>sub</code> claim as well as any
+<li>The JWT contains the user name as the subject claim, <code>sub</code>, as well as any
 additional claims requested as scopes.</li>
-<li>Use the <code>groups</code> scope to get a list of the xyz-app groups that a user
-belongs to including the <em>administrator</em> group.</li>
+<li>Use the <code>groups</code> scope to get access to groups a user belongs to on the
+identity provider such as the <em>administrator</em> group.</li>
 <li>It is up to the client to validate that the JWT is signed correctly. The hash
 algorithm is in the JWT as <code>alg</code>.</li>
-<li>The JWT also has an issuer claim, <code>iss</code> that should be set to the name of the
+<li>The JWT also has an issuer claim, <code>iss</code>, that should be set to the name of the
 identity provider.</li>
-<li>The JWT audience claim, <code>aud</code> is the the client id.</li>
+<li>The JWT audience claim, <code>aud</code>, is the the client id.</li>
 <li>It's up to the client to check the time frame of the JWT using issued at
-<code>iat</code>, expires in <code>exp</code> and not before <code>nbf</code> claims.</li>
+<code>iat</code>, expires in <code>exp</code>, and not before <code>nbf</code> claims.</li>
 <li>The client can also confirm that the correct token was used by examining the
 access token hash claim, <code>at_hash</code>. Please see the the
 <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core</a>
