@@ -102,7 +102,7 @@
 
 
   <div>
-    <h1>Modeling</h1>
+    <h1 id="modeling">Modeling</h1>
 <p>Mathematical models of scientific phenomena are essential in engineering. We
 use them to design experiments and select instruments based on estimates of the
 sensitivities of relationships between factors. We derive models from the
@@ -114,14 +114,14 @@ models ability to explain physical phenomena and describe relationships, we use
 them to predict. We can use predictive models to find solutions by optimizing
 our objectives. Good models are powerful, and they are the very essense of
 science.</p>
-<h1>Software</h1>
+<h1 id="software">Software</h1>
 <p>Computers have revolutionalized the derivation and use of mathematical models
 to understand, describe, and predict our universe. We use code to interpret
 mathematics and science into a language that computers can use to perform
 calculations that would have taken us years to do by hand. But just like pencil
 and paper work there are ways to organize code best to accomplish your objectives. Good
 modeling software is based on a set core values.</p>
-<h1>SPACES</h1>
+<h1 id="spaces">SPACES</h1>
 <p>SPACES is a mnemonic for the core values of good modeling software.</p>
 <ul>
 <li><strong>S</strong>imple</li>
@@ -131,7 +131,7 @@ modeling software is based on a set core values.</p>
 <li><strong>E</strong>xtensible</li>
 <li><strong>S</strong>table</li>
 </ul>
-<h2>Simplicity</h2>
+<h2 id="simplicity">Simplicity</h2>
 <p>Good modeling software is simple. It doesn't do more or less than what it needs
 to do. It doesn't create more problems than it solves. It isn't convoluted or
 difficult to explain. It may contain complex algorithms, but the art and beauty
@@ -152,13 +152,13 @@ to build the documentation, how the CI is set up, how the server is configured,
 how to deploy the software, and what conventions were used. Be detailed.
 Consider adding a cookbook of examples, a gallery, tutorials, or HOWTO
 sections. Your API should be 100% covered.</p>
-<h2>Performance</h2>
+<h2 id="performance">Performance</h2>
 <p>It just has to be fast enough. Usually there is a trade off between speed and
 accuracy, so finding the balance is tricky. But in order to be useful, modeling
 software must not be slow. Efficiency where possible should always be a
 priority. Maybe not in the first draft, but in revisions inefficiency should be
 removed wherever it's found. Don't repeat yourself. However, don't create overly complicated code. Efficient code should still be simple. Strive for elegance.</p>
-<h2>Accuracy</h2>
+<h2 id="accuracy">Accuracy</h2>
 <p>It just has to be accurate enough. Understand your uncertainties. Regardless,
 modeling software that is inaccurate is useless. Make sure it works the way
 it's expected. Validate with publicly available data and publish
@@ -175,11 +175,11 @@ Check the bias:</p>
 <p>Calculate the mean bias difference (MBD) and root mean square difference (RMSD). All correlations should be random and bias should be uniformly distributed.
 Don't validate with your training data. Save a third of the data for validation.</p>
 <p>Include high precision test data and use it in your unit tests.</p>
-<h2>Collaboration</h2>
+<h2 id="collaboration">Collaboration</h2>
 <p>Work together. Science is consensus. Others have already solved your problems.
 Others can find new problems. Use what is out there already. Don't reinvent the
 wheel. Ask for help. Get opinions. Listen. Consider alternatives. Collaborate.</p>
-<h2>Extensibility</h2>
+<h2 id="extensibility">Extensibility</h2>
 <p>Things change. Our understanding of the physical world changes. New
 technologies evolve. Build in the capacity for change in your modeling
 software. Anticipate that your code will need to adapt. Make it easy to
@@ -190,7 +190,7 @@ points. Consider making your application a stack with a common object that is
 passed from unit to unit, and can be serialized and deserialized when needed.
 This will make it easier to save and load state, and to scale and parallelize.
 It will also make it easier to test.</p>
-<h2>Stability</h2>
+<h2 id="stability">Stability</h2>
 <p>Good modeling software isn't fragile. It should be bomb proof. Test it. Use a
 unitest framework as well as some end-to-end tests. Strive for 100% coverage.
 Set up a CI server to test on every push to the master branch and on pulls.
@@ -202,7 +202,7 @@ watch out for overflows. Watch for interger division. It's okay to follow the
 practice of "easier to ask for forgiveness than permission" but errors have to
 be handled eventually, and users deserve meaningful feedback. Just make sure it
 always works as expected.</p>
-<h2>Spaces</h2>
+<h2 id="spaces_1">Spaces</h2>
 <p>Put spaces in your code. Don't be terse. Follow the coding guidelines common
 for the codebase.</p>
   </div>

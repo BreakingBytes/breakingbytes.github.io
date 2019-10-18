@@ -1,24 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2019-10-07T10:33:00-07:00</updated><entry><title>Python Concurrency Primer</title><link href="https://breakingbytes.github.io/python-concurrency-primer.html" rel="alternate"></link><published>2019-10-07T10:33:00-07:00</published><updated>2019-10-07T10:33:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-07:/python-concurrency-primer.html</id><summary type="html">&lt;p&gt;Asynchronous Python workflows for IO and CPU processes on a single machine versus a cluster.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Python Threading versus Multiprocessing&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2019-10-17T17:30:00-07:00</updated><entry><title>OAuth 2.0 and OpenID Connect Primer</title><link href="https://breakingbytes.github.io/oauth-20-and-openid-connect-primer.html" rel="alternate"></link><published>2019-10-17T17:30:00-07:00</published><updated>2019-10-17T17:30:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-17:/oauth-20-and-openid-connect-primer.html</id><summary type="html">&lt;p&gt;Authentication and authorization with OAuth 2.0 and OpenID Connect.&lt;/p&gt;</summary><content type="html">&lt;h1 id="authentication-and-authorization"&gt;Authentication and Authorization&lt;/h1&gt;
+&lt;p&gt;Web applications may contain both public and private data. Private data may
+be further restricted to only certain authorized users. Therefore the web
+application must first authenticate a user, and then determine what private
+data they are authorized to access. The OAuth 2.0 specification implements an
+alternative workflow which alows users to authorize another web application to
+access resources on their behalf. The specification states that
+&lt;a href="https://oauth.net/articles/authentication/"&gt;OAuth 2.0 is not an authentication protocol&lt;/a&gt;.
+However, &lt;a href="https://openid.net/connect/"&gt;OpenID Connect&lt;/a&gt; does use OAuth 2.0 to
+implement a standard for authentication. GitHub is an example of the OpenID 
+Connect standard, see &lt;a href="https://developer.github.com/v3/guides/basics-of-authentication/"&gt;Basics of Authentication&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="terms"&gt;Terms&lt;/h2&gt;
+&lt;p&gt;The following definitions are from from the linked reference by Alex Bilbie.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Resource (API) server&lt;/strong&gt;: The server hosting the protected resources,
+capable of accepting and responding to protected resource requests using access
+tokens.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Authorization server&lt;/strong&gt;: The server issuing access tokens to the client
+after successfully authenticating the resource owner and obtaining
+authorization.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource owner (the User)&lt;/strong&gt;: An entity capable of granting access to a
+protected resource. When the resource owner is a person, it is referred to as
+an end-user.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt;: An application making protected resource requests on behalf of
+the resource owner and with its authorization. The term client does not imply
+any particular implementation characteristics (e.g. whether the application
+executes on a server, a desktop, or other devices).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="authorizing-users-clients"&gt;Authorizing Users &amp;amp; Clients&lt;/h2&gt;
+&lt;p&gt;There are four workflows supported by OAuth 2.0 that allow users to authorize
+an applications to obtain a &lt;code&gt;Bearer&lt;/code&gt; token to gain access to resources in lieu
+of user credentials or client tokens.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#authorization-code"&gt;Authorization Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#resource-owner-password-credentials"&gt;Resource Owner Password Credentials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#client-credentials"&gt;Client Credentials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Implicit (not covered in this post)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="authorization-code"&gt;Authorization Code&lt;/h3&gt;
+&lt;p&gt;This is the most secure workflow and is the preferred workflow for applications
+running on remote web servers that can store credentials confidentially. The
+process is documented in the &lt;a href="https://oauth.net/2/"&gt;OAuth 2.0 specification&lt;/a&gt;
+and in the &lt;a href="#references"&gt;References&lt;/a&gt;. The authorization code workflow
+consists of the following steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ask an administrator to create a client application with the desired grant
+type. You should be given a &lt;code&gt;client_id&lt;/code&gt; and a &lt;code&gt;client_secret&lt;/code&gt;. These must be
+treated as secrets, &lt;em&gt;e.g.&lt;/em&gt; never transmit them over HTTP, only HTTPS, and don't
+commit them to repositories. The client type for the authorization code
+workflow should always be &lt;strong&gt;Confidential&lt;/strong&gt;. A &lt;em&gt;confidential&lt;/em&gt; client can keep a
+secret, while a &lt;em&gt;public&lt;/em&gt; client can't. An example of a confidential client
+would be a server, while a public client would be single-page JavaScript
+application, because anyone could view the page source. Authorization code
+should only be used with confidential clients that can keep secrets. The client
+registration must include a list of redirect URI to consume the authorization
+code from the authorization service.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then a registered client can use an authorization URL to redirect users to
+login with the identity provider and get an authorization code which can be
+exchanged by the client for an access token. For this post, we'll use this
+fictitious authorization URL:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/authorize/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The authorization URL is very picky. It must include a the following query
+string parameters:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;client_id&amp;quot;: &amp;lt;client-id&amp;gt;,
+&amp;quot;state&amp;quot;: &amp;lt;optional&amp;gt;,
+&amp;quot;response_type&amp;quot;: &amp;quot;code&amp;quot;,
+&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;,
+&amp;quot;scope&amp;quot;: &amp;quot;read write email name&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The authorization can also include the desired scopes including any
+additional claims about the user such as: &lt;code&gt;email&lt;/code&gt;, &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;given_name&lt;/code&gt;,
+&lt;code&gt;family_name&lt;/code&gt;, &lt;code&gt;openid&lt;/code&gt;, &lt;em&gt;etc.&lt;/em&gt; that can be retrieved in the ID token from the
+&lt;code&gt;/identity-provider/userinfo/&lt;/code&gt; endpoint.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Optionally, the authorization request should also contain a unique &lt;code&gt;state&lt;/code&gt;
+code, a string of any length, used to prevent cross site forgery request. It's
+up to the client to save the state sent in the request, to validate it with the
+state returned in the response from the authorization server.&lt;/li&gt;
+&lt;li&gt;Optionally there may be an &lt;code&gt;approval_prompt&lt;/code&gt; parameter that can be provided
+and set to either &lt;code&gt;force&lt;/code&gt; or &lt;code&gt;auto&lt;/code&gt;. If not set, and there is a "skip
+authorization" checkbox in the app registration form which is disabled, then
+the default may be &lt;code&gt;force&lt;/code&gt; which may ask users to authenticate everytime. To
+only ask users to authenticate the first time, try &lt;code&gt;auto&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The identity provider will ask the user for their credentials if not
+already cached in the user's browser.&lt;/li&gt;
+&lt;li&gt;Depending on the &lt;code&gt;approval_prompt&lt;/code&gt; parameter or the "skip authorization"
+checkbox, the user may be prompted to authorize the token, with a list of the
+claims and scopes that the token is requesting.&lt;/li&gt;
+&lt;li&gt;The authorization service returns a code and the state submitted by the
+client. The code can then be exchanged for an access token.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The redirect URI on the client side has 10 minutes, and one attempt to
+exchange the authorization code for an access token. This request is sent as a
+&lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/token/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The token URL is very picky. It must include the client's id and secret
+either as a basic authentication header or as payload data. Additionally the
+following data must also be in the payload of the &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;grant_type&amp;quot;: &amp;quot;authorization_code&amp;quot;,
+&amp;quot;code&amp;quot;: &amp;lt;code&amp;gt;,
+&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The response is a JSON string with the &lt;code&gt;access_token&lt;/code&gt;, &lt;code&gt;expires_in&lt;/code&gt;,
+&lt;code&gt;token_type&lt;/code&gt; (always &lt;code&gt;Bearer&lt;/code&gt;), &lt;code&gt;scopes&lt;/code&gt; and a &lt;code&gt;refresh_token&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="resource-owner-password-credentials"&gt;Resource Owner Password Credentials&lt;/h3&gt;
+&lt;p&gt;This can be used by trusted clients by passing users credentials directly to
+the authorization server, in return for a token. See the
+&lt;a href="#references"&gt;References&lt;/a&gt; for more info and examples.&lt;/p&gt;
+&lt;h3 id="client-credentials"&gt;Client Credentials&lt;/h3&gt;
+&lt;p&gt;This can be used by trusted clients to use the API directly on their own behalf
+with any user. See the &lt;a href="#references"&gt;References&lt;/a&gt; for more info and examples.&lt;/p&gt;
+&lt;h3 id="refresh-token"&gt;Refresh Token&lt;/h3&gt;
+&lt;p&gt;This can be used by any client to extend a token before it expires by
+exchanging a &lt;em&gt;refresh token&lt;/em&gt; for a new token without requiring the user to
+reenter their credentials. See the &lt;a href="#references"&gt;References&lt;/a&gt; for more info and
+examples.&lt;/p&gt;
+&lt;h2 id="getting-user-info"&gt;Getting User Info&lt;/h2&gt;
+&lt;p&gt;This part of the OpenID Connect specification allows a client to use the access
+token to obtain the token owners identity and other claims such as &lt;code&gt;email&lt;/code&gt;,
+&lt;code&gt;name&lt;/code&gt;, &lt;code&gt;given_name&lt;/code&gt; and &lt;code&gt;family_name&lt;/code&gt;. These claims must be submitted as
+scopes when the authorization code is requested. Then the client can send a
+&lt;code&gt;GET&lt;/code&gt; request:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/userinfo/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;GET&lt;/code&gt; must have an authorization header containing the bearer token:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Authorization: &amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The content of the response is JSON web token (JWT), a base-64 encoded string
+signed by hashing the JWT using the client secret as the key. See
+&lt;a href="https://jwt.io/"&gt;jwt.io&lt;/a&gt; for more information and available bindings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;The response status code should &lt;code&gt;200 OK&lt;/code&gt; and the content type is
+&lt;code&gt;application/jwt&lt;/code&gt;. The status code will be &lt;code&gt;405 METHOD NOT ALLOWED&lt;/code&gt; if the
+request does not use &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;403 FORBIDDEN&lt;/code&gt; if the bearer token is missing
+or invalid.&lt;/li&gt;
+&lt;li&gt;The JWT contains the user name as the subject &lt;code&gt;sub&lt;/code&gt; claim as well as any
+additional claims requested as scopes.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;groups&lt;/code&gt; scope to get a list of the xyz-app groups that a user
+belongs to including the &lt;em&gt;administrator&lt;/em&gt; group.&lt;/li&gt;
+&lt;li&gt;It is up to the client to validate that the JWT is signed correctly. The hash
+algorithm is in the JWT as &lt;code&gt;alg&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The JWT also has an issuer claim, &lt;code&gt;iss&lt;/code&gt; that should be set to the name of the
+identity provider.&lt;/li&gt;
+&lt;li&gt;The JWT audience claim, &lt;code&gt;aud&lt;/code&gt; is the the client id.&lt;/li&gt;
+&lt;li&gt;It's up to the client to check the time frame of the JWT using issued at
+&lt;code&gt;iat&lt;/code&gt;, expires in &lt;code&gt;exp&lt;/code&gt; and not before &lt;code&gt;nbf&lt;/code&gt; claims.&lt;/li&gt;
+&lt;li&gt;The client can also confirm that the correct token was used by examining the
+access token hash claim, &lt;code&gt;at_hash&lt;/code&gt;. Please see the the
+&lt;a href="http://openid.net/specs/openid-connect-core-1_0.html"&gt;OpenID Connect Core&lt;/a&gt;
+specification for more info.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="permissions"&gt;Permissions&lt;/h2&gt;
+&lt;p&gt;Access to resources can be limited in two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;permissions (not covered in this post)&lt;/li&gt;
+&lt;li&gt;token scopes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="token-scopes"&gt;Token Scopes&lt;/h3&gt;
+&lt;p&gt;If a user or an application is authenticated using an OAuth 2.0 token, then
+that token must have the scopes required for the desired action, &lt;em&gt;regardless&lt;/em&gt;
+of the owner's permissions or group membership! For example if an application
+has been authorized by a member of the &lt;em&gt;administrator&lt;/em&gt; group, then that token
+can only be used to edit data if it has the &lt;code&gt;write&lt;/code&gt; scope.&lt;/p&gt;
+&lt;h3 id="scopes-and-claims"&gt;Scopes and Claims&lt;/h3&gt;
+&lt;p&gt;Scopes can also used as claims to identify a token owner. The following scopes
+and claims may be available.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;read&lt;/td&gt;
+&lt;td&gt;Read scope&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;write&lt;/td&gt;
+&lt;td&gt;Write scope&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;groups&lt;/td&gt;
+&lt;td&gt;Access to your groups&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;JWT claim for user full name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;email&lt;/td&gt;
+&lt;td&gt;JWT claim for user email&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;given_name&lt;/td&gt;
+&lt;td&gt;JWT claim for first name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;family_name&lt;/td&gt;
+&lt;td&gt;JWT claim for last name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The &lt;code&gt;groups&lt;/code&gt; scope can also be used as a claim to get the groups that the token
+owner belongs to from the identity provider.&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://alexbilbie.com/guide-to-oauth-2-grants/"&gt;A Guide To Oauth 2.0 Grants by Alex Bilbie&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2"&gt;An Introduction to OAuth 2 by Digital Ocean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://aaronparecki.com/oauth-2-simplified/"&gt;OAuth 2 Simplified by Aaron Parecki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Authentication and Authorization"></category><category term="code"></category><category term="web"></category><category term="auth"></category><category term="oauth"></category><category term="openid"></category></entry><entry><title>Python Concurrency Primer</title><link href="https://breakingbytes.github.io/python-concurrency-primer.html" rel="alternate"></link><published>2019-10-07T10:33:00-07:00</published><updated>2019-10-07T10:33:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-07:/python-concurrency-primer.html</id><summary type="html">&lt;p&gt;Asynchronous Python workflows for IO and CPU processes on a single machine versus a cluster.&lt;/p&gt;</summary><content type="html">&lt;h1 id="python-threading-versus-multiprocessing"&gt;Python Threading versus Multiprocessing&lt;/h1&gt;
 &lt;p&gt;Threading works really well with IO, but not CPU bound processes, hence why there's an &lt;a href="https://docs.python.org/3/library/asyncio.html"&gt;asyncio lib&lt;/a&gt; for IO and a &lt;a href="https://docs.python.org/3/library/multiprocessing.html"&gt;MP lib&lt;/a&gt;. Before Py3, you could only manually create threads using the &lt;a href="https://docs.python.org/3/library/threading.html"&gt;threading lib&lt;/a&gt; and some people who don't like asyncio still prefer to use the manual threading lib, an external lib like &lt;a href="https://trio.readthedocs.io/en/stable/"&gt;trio&lt;/a&gt;, or older packages like &lt;a href="http://www.gevent.org/"&gt;gevents&lt;/a&gt;, etc.&lt;/p&gt;
 &lt;p&gt;For an example of using threading for an IO bound process see the &lt;a href="https://github.com/pvlib/pvlib-python/blob/master/pvlib/iotools/ecmwf_macc.py#L168"&gt;&lt;code&gt;pvlib.iotools.get_ecmwf_macc()&lt;/code&gt; method&lt;/a&gt; which returns the thread that calls the ECMWF api client because it is soooooo slow!&lt;/p&gt;
-&lt;h1&gt;Concurrency in the Cloud&lt;/h1&gt;
+&lt;h1 id="concurrency-in-the-cloud"&gt;Concurrency in the Cloud&lt;/h1&gt;
 &lt;p&gt;Curve ball (⚾) - threading and MP work great for a single computer, but when you are on a cluster, such as web applications, then you have more options!  &lt;/p&gt;
 &lt;p&gt;In a web app, you usually have a load balancer in front of several workers who answer get requests.&lt;/p&gt;
 &lt;p&gt;Therefore you can deligate the work for both IO and CPU bound processes differently than by using either threading, MP, asyncio, trio, gevent, etc.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.celeryproject.org/"&gt;Celery&lt;/a&gt; is probably the most popular task queue for distributed resources especially for web applications.&lt;/p&gt;
 &lt;p&gt;I would guess there are task managers other than Celery, but would have to Google around to find a curated list - and many examples recommend Celery, eg: &lt;a href="https://devcenter.heroku.com/articles/celery-heroku"&gt;Heroku&lt;/a&gt;.&lt;/p&gt;
-&lt;h1&gt;Inter-Process Communication&lt;/h1&gt;
+&lt;h1 id="inter-process-communication"&gt;Inter-Process Communication&lt;/h1&gt;
 &lt;p&gt;Note a task queue, threading, and MP all require a way for threads and processes to communicate with each other. Threads on a single machine can more easily share memory which makes them more efficient than MP. For Python threads, I typically use the standard Python &lt;a href="https://docs.python.org/3/library/queue.html"&gt;Queue lib&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Multiprocessing requires some form of &lt;a href="https://en.wikipedia.org/wiki/Inter-process_communication"&gt;inter-process communication or IPC&lt;/a&gt;, which attempts to serialize and deserialize objects between processes. Python provides &lt;a href="https://docs.python.org/3/library/multiprocessing.html?highlight=process#pipes-and-queues"&gt;MP Queues and Pipes&lt;/a&gt; to &lt;a href="https://docs.python.org/3/library/multiprocessing.html?highlight=process#exchanging-objects-between-processes"&gt;exchange objects between processes&lt;/a&gt;. I prefer the MP Queue, because it nearly mimics the API of the standard Python Queue lib, but because it is IPC, I have to be careful to only pass in objects that can be easily serialized and deserialized like numbers, strings, sequences, and dictionaries.&lt;/p&gt;
 &lt;p&gt;For distributed computing, the recommendation is to use a message queue like &lt;a href="https://www.rabbitmq.com/"&gt;RabbitMQ&lt;/a&gt; or a shared memory server like &lt;a href="https://memcached.org/"&gt;memcached&lt;/a&gt; or &lt;a href="https://redis.io/"&gt;reddis&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Unfortunately, I don't have the expertise to say when to use an MQ verses memcache, but there are lots of articles on the internet discussing the pros/cons of each. I've used memcache and it works, but I believe for Celery they preffer MQ.&lt;/p&gt;
-&lt;h2&gt;Queues&lt;/h2&gt;
+&lt;h2 id="queues"&gt;Queues&lt;/h2&gt;
 &lt;p&gt;For both threads and processes, IMHO it's a good idea to keep the communication simple. I recommend only pushing the primitive types that will be needed by the target function handled by the thread and then reconstructing more complicated objects in the main branch of execution as needed. I believe this will keep the communication overhead low as well as make it easier to serialize and deserialize target arguments and avoid race conditions.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: Python also uses the GIL to avoid race conditions between threads. See below.&lt;/p&gt;
-&lt;h3&gt;Thread Safety and Shared Memory&lt;/h3&gt;
+&lt;h3 id="thread-safety-and-shared-memory"&gt;Thread Safety and Shared Memory&lt;/h3&gt;
 &lt;p&gt;This is at the edge of my experience, but Python does provide tools to lock and synchronize communication between &lt;a href="https://docs.python.org/3/library/threading.html#lock-objects"&gt;threads&lt;/a&gt; and &lt;a href="https://docs.python.org/3/library/multiprocessing.html#synchronization-between-processes"&gt;processes&lt;/a&gt; as well as a &lt;a href="https://docs.python.org/3/library/multiprocessing.html?highlight=process#sharing-state-between-processes"&gt;shared memory map for multiprocessing&lt;/a&gt;. Explore on your own.&lt;/p&gt;
-&lt;h1&gt;The Difference Between IO and CPU Bound Process&lt;/h1&gt;
+&lt;h1 id="the-difference-between-io-and-cpu-bound-process"&gt;The Difference Between IO and CPU Bound Process&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;An IO bound process is like getting data from a URL, or writing a file&lt;/p&gt;
@@ -31,8 +275,8 @@
 &lt;p&gt;CPU bound processes use MP, because they need their own core to do their stuff. But unfortunately there is a lot of overhead with MP, and so the calculation needs to be really expensive to make it worthwhile.&lt;/p&gt;
 &lt;p&gt;There's no limit to the number of threads you can create, but the number of MP processes is limited to the number of cores.&lt;/p&gt;
 &lt;p&gt;These rules don't apply to distributed computing, and they may not apply in other computing languages either. IE: you can distribute both IO and CPU tasks to a task queue across a cluster. However, there may be task managers that are better suited for different types of tasks. EG: &lt;a href="https://dask.org/"&gt;Dask&lt;/a&gt; is probably better for distributed computing of CPU intense processes. But honestly, IDK, I'm at the edge of my personal research and experience here, and so I would probably recommend a little more exploration ...&lt;/p&gt;
-&lt;h1&gt;Python Global Interpreter Lock&lt;/h1&gt;
-&lt;p&gt;The reason there's this difference between IO/CPU and threads/processes in Python specifically, and perhaps not other languages, is because Python is single threaded by default due to the &lt;a href="https://wiki.python.org/moin/GlobalInterpreterLock"&gt;Global Interpreter Lock or GIL&lt;/a&gt;. Other languages may or may not have similar design, IDK, however Python C-API does let you explicitly &lt;a href="https://docs.python.org/3/c-api/init.html#thread-state-and-the-global-interpreter-lock"&gt;release the GIL&lt;/a&gt; and manage threads manually. This is what packages like &lt;a href="https://scipy-cookbook.readthedocs.io/items/ParallelProgramming.html"&gt;NumPy/SciPy&lt;/a&gt; and &lt;a href="https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html"&gt;CPython&lt;/a&gt; do.&lt;/p&gt;</content><category term="code"></category><category term="web"></category></entry><entry><title>Examples of implicit versus explicit solutions for photovoltaic solar energy systems</title><link href="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html" rel="alternate"></link><published>2018-06-22T20:55:00-07:00</published><updated>2018-06-22T20:55:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-06-22:/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html</id><summary type="html">&lt;p&gt;Using a numerical solver to model solar power.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Full Scale PV Modeling&lt;/h1&gt;
+&lt;h1 id="python-global-interpreter-lock"&gt;Python Global Interpreter Lock&lt;/h1&gt;
+&lt;p&gt;The reason there's this difference between IO/CPU and threads/processes in Python specifically, and perhaps not other languages, is because Python is single threaded by default due to the &lt;a href="https://wiki.python.org/moin/GlobalInterpreterLock"&gt;Global Interpreter Lock or GIL&lt;/a&gt;. Other languages may or may not have similar design, IDK, however Python C-API does let you explicitly &lt;a href="https://docs.python.org/3/c-api/init.html#thread-state-and-the-global-interpreter-lock"&gt;release the GIL&lt;/a&gt; and manage threads manually. This is what packages like &lt;a href="https://scipy-cookbook.readthedocs.io/items/ParallelProgramming.html"&gt;NumPy/SciPy&lt;/a&gt; and &lt;a href="https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html"&gt;CPython&lt;/a&gt; do.&lt;/p&gt;</content><category term="Python"></category><category term="code"></category><category term="web"></category></entry><entry><title>Examples of implicit versus explicit solutions for photovoltaic solar energy systems</title><link href="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html" rel="alternate"></link><published>2018-06-22T20:55:00-07:00</published><updated>2018-06-22T20:55:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-06-22:/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html</id><summary type="html">&lt;p&gt;Using a numerical solver to model solar power.&lt;/p&gt;</summary><content type="html">&lt;h1 id="full-scale-pv-modeling"&gt;Full Scale PV Modeling&lt;/h1&gt;
 &lt;p&gt;I want to explore different ways to find the operating conditions for max power
 of a PV system. I'm going to assume that we're using a single diode model (SDM)
 which is an analog curcuit of a solar cell composed from a current source, a
@@ -54,7 +298,7 @@ conditions, or degradation. This second problem poses some challenges
 computationally for very large systems.&lt;/p&gt;
 &lt;p&gt;What is the best method to do full scale PV system modeling? I'm going to skip
 the Lambert-W function and focus on implict and explicit methods.&lt;/p&gt;
-&lt;h1&gt;Conclusions&lt;/h1&gt;
+&lt;h1 id="conclusions"&gt;Conclusions&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The implicit approach is efficient at finding a single operating condition,
@@ -72,11 +316,11 @@ tracing the entire IV curve.&lt;/p&gt;
 when every cell is different.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;Gist&lt;/h1&gt;
+&lt;h1 id="gist"&gt;Gist&lt;/h1&gt;
 &lt;p&gt;The following Gist contains examples for a full scale implicit approach and the
 explicit parameterized approach described. The Gist are best viewed on
 &lt;a href="http://nbviewer.jupyter.org/gist/mikofski/df318d1f892767ac7c762e732fecaa7f"&gt;nbviewer&lt;/a&gt;.&lt;/p&gt;
-&lt;script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"&gt;&lt;/script&gt;</content><category term="code"></category><category term="solar"></category></entry><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Modeling&lt;/h1&gt;
+&lt;script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"&gt;&lt;/script&gt;</content><category term="Modeling"></category><category term="code"></category><category term="solar"></category></entry><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1 id="modeling"&gt;Modeling&lt;/h1&gt;
 &lt;p&gt;Mathematical models of scientific phenomena are essential in engineering. We
 use them to design experiments and select instruments based on estimates of the
 sensitivities of relationships between factors. We derive models from the
@@ -88,14 +332,14 @@ models ability to explain physical phenomena and describe relationships, we use
 them to predict. We can use predictive models to find solutions by optimizing
 our objectives. Good models are powerful, and they are the very essense of
 science.&lt;/p&gt;
-&lt;h1&gt;Software&lt;/h1&gt;
+&lt;h1 id="software"&gt;Software&lt;/h1&gt;
 &lt;p&gt;Computers have revolutionalized the derivation and use of mathematical models
 to understand, describe, and predict our universe. We use code to interpret
 mathematics and science into a language that computers can use to perform
 calculations that would have taken us years to do by hand. But just like pencil
 and paper work there are ways to organize code best to accomplish your objectives. Good
 modeling software is based on a set core values.&lt;/p&gt;
-&lt;h1&gt;SPACES&lt;/h1&gt;
+&lt;h1 id="spaces"&gt;SPACES&lt;/h1&gt;
 &lt;p&gt;SPACES is a mnemonic for the core values of good modeling software.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;imple&lt;/li&gt;
@@ -105,7 +349,7 @@ modeling software is based on a set core values.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;E&lt;/strong&gt;xtensible&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;table&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Simplicity&lt;/h2&gt;
+&lt;h2 id="simplicity"&gt;Simplicity&lt;/h2&gt;
 &lt;p&gt;Good modeling software is simple. It doesn't do more or less than what it needs
 to do. It doesn't create more problems than it solves. It isn't convoluted or
 difficult to explain. It may contain complex algorithms, but the art and beauty
@@ -126,13 +370,13 @@ to build the documentation, how the CI is set up, how the server is configured,
 how to deploy the software, and what conventions were used. Be detailed.
 Consider adding a cookbook of examples, a gallery, tutorials, or HOWTO
 sections. Your API should be 100% covered.&lt;/p&gt;
-&lt;h2&gt;Performance&lt;/h2&gt;
+&lt;h2 id="performance"&gt;Performance&lt;/h2&gt;
 &lt;p&gt;It just has to be fast enough. Usually there is a trade off between speed and
 accuracy, so finding the balance is tricky. But in order to be useful, modeling
 software must not be slow. Efficiency where possible should always be a
 priority. Maybe not in the first draft, but in revisions inefficiency should be
 removed wherever it's found. Don't repeat yourself. However, don't create overly complicated code. Efficient code should still be simple. Strive for elegance.&lt;/p&gt;
-&lt;h2&gt;Accuracy&lt;/h2&gt;
+&lt;h2 id="accuracy"&gt;Accuracy&lt;/h2&gt;
 &lt;p&gt;It just has to be accurate enough. Understand your uncertainties. Regardless,
 modeling software that is inaccurate is useless. Make sure it works the way
 it's expected. Validate with publicly available data and publish
@@ -149,11 +393,11 @@ Check the bias:&lt;/p&gt;
 &lt;p&gt;Calculate the mean bias difference (MBD) and root mean square difference (RMSD). All correlations should be random and bias should be uniformly distributed.
 Don't validate with your training data. Save a third of the data for validation.&lt;/p&gt;
 &lt;p&gt;Include high precision test data and use it in your unit tests.&lt;/p&gt;
-&lt;h2&gt;Collaboration&lt;/h2&gt;
+&lt;h2 id="collaboration"&gt;Collaboration&lt;/h2&gt;
 &lt;p&gt;Work together. Science is consensus. Others have already solved your problems.
 Others can find new problems. Use what is out there already. Don't reinvent the
 wheel. Ask for help. Get opinions. Listen. Consider alternatives. Collaborate.&lt;/p&gt;
-&lt;h2&gt;Extensibility&lt;/h2&gt;
+&lt;h2 id="extensibility"&gt;Extensibility&lt;/h2&gt;
 &lt;p&gt;Things change. Our understanding of the physical world changes. New
 technologies evolve. Build in the capacity for change in your modeling
 software. Anticipate that your code will need to adapt. Make it easy to
@@ -164,7 +408,7 @@ points. Consider making your application a stack with a common object that is
 passed from unit to unit, and can be serialized and deserialized when needed.
 This will make it easier to save and load state, and to scale and parallelize.
 It will also make it easier to test.&lt;/p&gt;
-&lt;h2&gt;Stability&lt;/h2&gt;
+&lt;h2 id="stability"&gt;Stability&lt;/h2&gt;
 &lt;p&gt;Good modeling software isn't fragile. It should be bomb proof. Test it. Use a
 unitest framework as well as some end-to-end tests. Strive for 100% coverage.
 Set up a CI server to test on every push to the master branch and on pulls.
@@ -176,9 +420,9 @@ watch out for overflows. Watch for interger division. It's okay to follow the
 practice of "easier to ask for forgiveness than permission" but errors have to
 be handled eventually, and users deserve meaningful feedback. Just make sure it
 always works as expected.&lt;/p&gt;
-&lt;h2&gt;Spaces&lt;/h2&gt;
+&lt;h2 id="spaces_1"&gt;Spaces&lt;/h2&gt;
 &lt;p&gt;Put spaces in your code. Don't be terse. Follow the coding guidelines common
-for the codebase.&lt;/p&gt;</content><category term="rant"></category><category term="code"></category></entry><entry><title>Iterative Project Planning in Research and Development</title><link href="https://breakingbytes.github.io/iterative-project-planning-in-research-and-development.html" rel="alternate"></link><published>2017-06-16T13:04:39-07:00</published><updated>2017-06-16T13:04:39-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-06-16:/iterative-project-planning-in-research-and-development.html</id><summary type="html">&lt;p&gt;Iterative planning is a a successful strategy for research and development.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Objectives and Scope&lt;/h1&gt;
+for the codebase.&lt;/p&gt;</content><category term="Modeling"></category><category term="rant"></category><category term="code"></category></entry><entry><title>Iterative Project Planning in Research and Development</title><link href="https://breakingbytes.github.io/iterative-project-planning-in-research-and-development.html" rel="alternate"></link><published>2017-06-16T13:04:39-07:00</published><updated>2017-06-16T13:04:39-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-06-16:/iterative-project-planning-in-research-and-development.html</id><summary type="html">&lt;p&gt;Iterative planning is a a successful strategy for research and development.&lt;/p&gt;</summary><content type="html">&lt;h1 id="objectives-and-scope"&gt;Objectives and Scope&lt;/h1&gt;
 &lt;p&gt;The purpose of this document is to outline a successful strategy for the optimal
 preparation, execution and measurement of plans for open-ended research and
 development projects. In particular this document demonstrates the effective use
@@ -188,9 +432,9 @@ document are not applicable to projects which have well-known execution times
 such as engineering, procurement and construction (EPC). Also while short-term
 iteration cycle planning may work well for open-ended research questions, they
 may be combined with traditional waterfall techniques in time-limited projects.&lt;/p&gt;
-&lt;h1&gt;Methods&lt;/h1&gt;
+&lt;h1 id="methods"&gt;Methods&lt;/h1&gt;
 &lt;p&gt;In a nutshell, an iterative project plan has these major features:&lt;/p&gt;
-&lt;h2&gt;Mission&lt;/h2&gt;
+&lt;h2 id="mission"&gt;Mission&lt;/h2&gt;
 &lt;p&gt;All projects should have a big giant overriding mission statement. This is what
 you look at when you're really lost and trying to re-inspire your team. In other
 words, this is what it's all about. For example a school projects mission might
@@ -198,7 +442,7 @@ be the following:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;To empower students to become agents of their own learning&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;Goals or Objectives&lt;/h2&gt;
+&lt;h2 id="goals-or-objectives"&gt;Goals or Objectives&lt;/h2&gt;
 &lt;p&gt;In order to accomplish the mission, you need a few long-term, broad goals or
 objectives that point out what direction you think you need to follow. Don't be
 too specific here. Continuing the school environment example, some goals might
@@ -208,21 +452,21 @@ be the following:&lt;/p&gt;
 &lt;li&gt;Reinforce literacy in every interaction&lt;/li&gt;
 &lt;li&gt;Create a strong sense of community&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Release Cycle&lt;/h2&gt;
+&lt;h2 id="release-cycle"&gt;Release Cycle&lt;/h2&gt;
 &lt;p&gt;Pick a long-term time frame to work in, during which you hope to make progress
 in the same direction as these goals. This is your "release cycle". For example
 in a school setting the release cycle might be every three months.&lt;/p&gt;
-&lt;h2&gt;Milestones or Epics&lt;/h2&gt;
+&lt;h2 id="milestones-or-epics"&gt;Milestones or Epics&lt;/h2&gt;
 &lt;p&gt;Narrow down milestones for each of the broad goals that you think can be
 accomplished during each release cycle. These milestones are sometimes called
 "epics" or "projects"&lt;/p&gt;
-&lt;h2&gt;Iteration Cycle&lt;/h2&gt;
+&lt;h2 id="iteration-cycle"&gt;Iteration Cycle&lt;/h2&gt;
 &lt;p&gt;Pick a short-term iteration cycle during which you can meet with your team and
 measure progress on your "epics". Iteration cycles vary anywhere from weekly to
 monthly, but a good compromise is every two weeks. This time-frame is your
 "iteration" or "scrum" because you will often meet your group for a quick tally
 kind of like a rugby scrum.&lt;/p&gt;
-&lt;h2&gt;Tasks&lt;/h2&gt;
+&lt;h2 id="tasks"&gt;Tasks&lt;/h2&gt;
 &lt;p&gt;Brainstorm the detailed, small, atomic tasks that you think would be required to
 complete the epics and put them on cards in a list called your backlog. There
 are many online tools like &lt;a href="https://trello.com/"&gt;Trello&lt;/a&gt; that are designed to
@@ -230,7 +474,7 @@ make this easy, but a large cork board works just fine. An atomic task is nearly
 the smallest discreet unit of work you can think of that would need to be done
 in order to accomplish the milestone. Tasks are easily measured, and it should
 also be easier to predict the time necessary to complete them.&lt;/p&gt;
-&lt;h2&gt;Effort&lt;/h2&gt;
+&lt;h2 id="effort"&gt;Effort&lt;/h2&gt;
 &lt;p&gt;Assign each card or task an effort score. Keep the scale small; think of it as a
 rubric, not a linear scale, but it could loosely be proportional to time. A
 common effort scale might be the following:&lt;/p&gt;
@@ -272,7 +516,7 @@ to do it as a single task anyway. Effort is used to measure progress; the data
 is used to normalize and prioritize future iteration cycles. Since any data is
 useful as long as it is carefully measured and calibrated, you may adjust your
 effort scale to fit your needs after several iterations and releases.&lt;/p&gt;
-&lt;h3&gt;Kanban&lt;/h3&gt;
+&lt;h3 id="kanban"&gt;Kanban&lt;/h3&gt;
 &lt;p&gt;Kanban, Scrum and Agile have many similarities. See this
 &lt;a href="https://www.smartsheet.com/agile-vs-scrum-vs-waterfall-vs-kanban"&gt;Smartsheet article for a side-by-side comparison&lt;/a&gt;.
 In a nutshell, Agile is a philosophy, while Scrum and Kanban are
@@ -294,7 +538,7 @@ workflow for a new Trello board:&lt;/p&gt;
 &lt;li&gt;in review - almost done&lt;/li&gt;
 &lt;li&gt;on deck - in between backlog and current work&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Pomodoro&lt;/h3&gt;
+&lt;h3 id="pomodoro"&gt;Pomodoro&lt;/h3&gt;
 &lt;p&gt;One aspect of an iterative workflow that can create anxiety is the measurement
 of progress and the evaluation or prediction of the time to complete a task or
 milestone. The
@@ -304,18 +548,18 @@ between units of work and units of time. One pomodoro is typically equivalent to
 30-minutes. Using the Pomodoro technique is a diagnostic tool that eliminates
 the need to normalize burndown rates since converting between pomodoros and time
 is not subjective.&lt;/p&gt;
-&lt;h4&gt;Trello and Pomello&lt;/h4&gt;
+&lt;h4 id="trello-and-pomello"&gt;Trello and Pomello&lt;/h4&gt;
 &lt;p&gt;Trello is an online tool that offers a Kanban-esque board to organize tasks and
 iterations. The &lt;a href="http://www.pomelloapp.com/"&gt;Pomello app&lt;/a&gt; is a plugin for Trello
 that integrates Pomodoro. It logs time on task, measures the number of pomodoros
 spent on a task and lets you move completed tasks to their swimlane when done.&lt;/p&gt;
-&lt;h2&gt;Current Work (Option 1: Kanban)&lt;/h2&gt;
+&lt;h2 id="current-work-option-1-kanban"&gt;Current Work (Option 1: Kanban)&lt;/h2&gt;
 &lt;p&gt;This is my personal preference because IMO the workflow is much simpler since
 there are only 3 swimlanes. I use this with the Pomodoro Technique. At the
 beginning of each iteration, pull cards into the current work list and count
 the number of pomodoros used on each. When a task is done, move it to the
 "completed"  list and pull a new item from the backlog. That's it!&lt;/p&gt;
-&lt;h2&gt;Current Iteration (Option 2: Scrum)&lt;/h2&gt;
+&lt;h2 id="current-iteration-option-2-scrum"&gt;Current Iteration (Option 2: Scrum)&lt;/h2&gt;
 &lt;p&gt;Note this method won't work with Pomello, it's better to use
 &lt;a href="http://scrumfortrello.com/"&gt;Scrum for Trello&lt;/a&gt; and
 &lt;a href="https://www.burndownfortrello.com/"&gt;Burndown for Trello&lt;/a&gt;.&lt;/p&gt;
@@ -337,13 +581,13 @@ following:&lt;/p&gt;
 &lt;li&gt;Reclassify a tasks as an epic and break it into to subtasks.&lt;/li&gt;
 &lt;li&gt;Reassign individuals and teams to tasks.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Burndown (Scrum)&lt;/h3&gt;
+&lt;h3 id="burndown-scrum"&gt;Burndown (Scrum)&lt;/h3&gt;
 &lt;p&gt;At the end of the iteration, tally up the effort points completed, add it to the
 previous total and divide by the total number of iterations. Plot this data for
 everyone, for individuals, for all iterations cumulatively and for each
 iteration. These are your burndown rates. Use them to normalize team members and
 to determine how much effort can be accomplished per iteration.&lt;/p&gt;
-&lt;h4&gt;Table 1: Example Effort per Iteration&lt;/h4&gt;
+&lt;h4 id="table-1-example-effort-per-iteration"&gt;Table 1: Example Effort per Iteration&lt;/h4&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -390,7 +634,7 @@ to determine how much effort can be accomplished per iteration.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4&gt;Table 2: Example Cummulative Effort&lt;/h4&gt;
+&lt;h4 id="table-2-example-cummulative-effort"&gt;Table 2: Example Cummulative Effort&lt;/h4&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -437,7 +681,7 @@ to determine how much effort can be accomplished per iteration.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4&gt;Table 3: Example Burndown Calculation&lt;/h4&gt;
+&lt;h4 id="table-3-example-burndown-calculation"&gt;Table 3: Example Burndown Calculation&lt;/h4&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -501,26 +745,26 @@ observations:&lt;/p&gt;
   him to deliver around 4 effort in the remaining time, so choose tasks summing
   up to this or less.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Reprioritization&lt;/h2&gt;
+&lt;h2 id="reprioritization"&gt;Reprioritization&lt;/h2&gt;
 &lt;p&gt;After calculating burndown your team can reprioritize tasks and epics, both in
 response to data on progress but also due to a shift in the team mission and
 associated objectives. Move incomplete tasks from the current iteration either
 to epics because they were just too big to do in a single iteration, back to the
 backlog because you over allocated effort or to a board called the “Icebox” or
 “Parking Lot” to revisit on a rainy day.&lt;/p&gt;
-&lt;h2&gt;Release&lt;/h2&gt;
+&lt;h2 id="release"&gt;Release&lt;/h2&gt;
 &lt;p&gt;At the end of the release, publish what you have. Report on it. Re-evaluate your
 milestones and compare to your broad long term goals and your mission.  Adjust
 your milestones as needed. Then celebrate!&lt;/p&gt;
-&lt;h1&gt;Examples&lt;/h1&gt;
+&lt;h1 id="examples"&gt;Examples&lt;/h1&gt;
 &lt;p&gt;Here are some typical workflows and how you can set them up using Trello.&lt;/p&gt;
-&lt;h2&gt;Kanban&lt;/h2&gt;
+&lt;h2 id="kanban_1"&gt;Kanban&lt;/h2&gt;
 &lt;p&gt;Just take the default Trello layout and start working. Put ideas that come up
 into the backlog. Break them up into tasks as needed. Each week move some items
 into the current work list. When an item is finished move it to the completed
 list. Use the Pomello app to measure how many pomodoros they take, and use that
 info to make predictions about when projects will get done. That's it!&lt;/p&gt;
-&lt;h2&gt;Scrum&lt;/h2&gt;
+&lt;h2 id="scrum"&gt;Scrum&lt;/h2&gt;
 &lt;p&gt;One way to use Trello for Scrum is to set up 4 boards:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Epics&lt;/li&gt;
@@ -533,10 +777,10 @@ with the date. I move cards around all the time. I only assign effort to tasks
 in the backlog which get dragged to the current iteration. I create links from
 tasks to epics and vice-versa. I put lots of comments on the cards as I make
 progress.&lt;/p&gt;
-&lt;h1&gt;Rationale&lt;/h1&gt;
+&lt;h1 id="rationale"&gt;Rationale&lt;/h1&gt;
 &lt;p&gt;There are many arguments for using short-term iteration cycle planning. I will
 list the major salient points here.&lt;/p&gt;
-&lt;h2&gt;Uncertainty is Hyperbolic&lt;/h2&gt;
+&lt;h2 id="uncertainty-is-hyperbolic"&gt;Uncertainty is Hyperbolic&lt;/h2&gt;
 &lt;p&gt;Research and development projects are inherently unknowns. There may be some
 data that indicates around doing small isolated tasks, but predicting a string
 of tasks and how they will proceed from one another is not possible because as
@@ -544,16 +788,16 @@ predictions move out of the data centroid and extrapolate to larger projects and
 longer time-frames the uncertainty explodes hyperbolically. Therefore better
 predictions can only be made close to the data centroid centered on small atomic
 tasks.&lt;/p&gt;
-&lt;h2&gt;Humans are Meta Cognitively Wired&lt;/h2&gt;
+&lt;h2 id="humans-are-meta-cognitively-wired"&gt;Humans are Meta Cognitively Wired&lt;/h2&gt;
 &lt;p&gt;Meta cognition is understanding about how we think, and we know a lot about how
 we think we work.&lt;/p&gt;
-&lt;h3&gt;We get a rush from checking off tasks. (Dopamine)&lt;/h3&gt;
+&lt;h3 id="we-get-a-rush-from-checking-off-tasks-dopamine"&gt;We get a rush from checking off tasks. (Dopamine)&lt;/h3&gt;
 &lt;p&gt;Using iterative project planning with shorter term iterations allows
 contributors to feel more sense of accomplishment because they complete more
 tasks, they receive recognition for completed work and have a clear sense of
 expectations because data is explicit and meaningful. The feeling comes from
 dopamine released each time we tick off a task.&lt;/p&gt;
-&lt;h3&gt;We dislike wasted effort. (Endorphins)&lt;/h3&gt;
+&lt;h3 id="we-dislike-wasted-effort-endorphins"&gt;We dislike wasted effort. (Endorphins)&lt;/h3&gt;
 &lt;p&gt;Only tasks are S.M.A.R.T.  Milestones, objectives and mission statements are
 only loosely structured allowing teams to concentrate on the task at hand. By
 spending less time planning out long-term objectives teams feel a strong sense
@@ -565,7 +809,7 @@ scoring small victories. Even a few small failures here are seen as positive
 data toward the correct course of action because there isn’t a lot riding on
 them. Working hard releases endorphins, which soothes anxiety and makes us feel
 accomplished. A lack of endorphins however leads to anger and stress.&lt;/p&gt;
-&lt;h3&gt;We are more productive when we feel self-directed and that our work has purpose. (Serotonin)&lt;/h3&gt;
+&lt;h3 id="we-are-more-productive-when-we-feel-self-directed-and-that-our-work-has-purpose-serotonin"&gt;We are more productive when we feel self-directed and that our work has purpose. (Serotonin)&lt;/h3&gt;
 &lt;p&gt;Iterative project planning allows teams to be more productive with less oversite
 since they participate in creating tasks and their current workload by taking
 tasks from the backlog. Also by leverage Agile project management software to
@@ -573,17 +817,17 @@ organize tasks in iterations and calculate burndown, companies can allow
 management to focus on the “Big Picture” giving the entire organization a
 stronger sense of unity and focus. This sense of purpose and self-value comes
 from serotonin released as we partake in planning our own work.&lt;/p&gt;
-&lt;h3&gt;We like to work in groups. (Oxytocin)&lt;/h3&gt;
+&lt;h3 id="we-like-to-work-in-groups-oxytocin"&gt;We like to work in groups. (Oxytocin)&lt;/h3&gt;
 &lt;p&gt;Iterative project planning is inherently designed for groups. Working together
 on a project build trust intimacy and ultimately synergy which multiply
 productivity. Understanding and valuing each other’s strengths and weaknesses
 makes us closer even in a professional setting. This releases oxytocin which
 makes us feel appreciated and loved.&lt;/p&gt;
-&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;IMHO iterative project planning is a no brainer for any research and development
 group. It increases productivity while reducing costs by leveraging more
 individual contributors and sharing leadership.&lt;/p&gt;
-&lt;h1&gt;Links&lt;/h1&gt;
+&lt;h1 id="links"&gt;Links&lt;/h1&gt;
 &lt;p&gt;Wikipedia Articles and Perspectives:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.hanselman.com/blog/OptimizeForTinyVictories.aspx"&gt;Optimize for tiny victories - Scott Hanselman&lt;/a&gt;&lt;/li&gt;
@@ -602,7 +846,7 @@ individual contributors and sharing leadership.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://gantt-chart.com/"&gt;ganttify for Trello&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.pivotaltracker.com/"&gt;Pivotal Tracker&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://redbooth.com/"&gt;Redbooth&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="agile"></category><category term="kanban"></category><category term="scrum"></category><category term="development"></category><category term="research"></category><category term="time-management"></category><category term="project-managment"></category><category term="project-planning"></category></entry><entry><title>Vertically Centered</title><link href="https://breakingbytes.github.io/vertically-centered.html" rel="alternate"></link><published>2017-05-25T23:48:00-07:00</published><updated>2017-05-25T23:48:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-05-25:/vertically-centered.html</id><summary type="html">&lt;p&gt;Use jQuery to vertically center an element in a window.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I am porting a site, and the original login box would verticaly center, even as
+&lt;/ul&gt;</content><category term="Productivity"></category><category term="agile"></category><category term="kanban"></category><category term="scrum"></category><category term="development"></category><category term="research"></category><category term="time-management"></category><category term="project-managment"></category><category term="project-planning"></category></entry><entry><title>Vertically Centered</title><link href="https://breakingbytes.github.io/vertically-centered.html" rel="alternate"></link><published>2017-05-25T23:48:00-07:00</published><updated>2017-05-25T23:48:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-05-25:/vertically-centered.html</id><summary type="html">&lt;p&gt;Use jQuery to vertically center an element in a window.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I am porting a site, and the original login box would verticaly center, even as
 I change the size of the window. There were several StackOverflow answers that
 suggested creating a CSS class, which seemed perfect, but they didn't seem to
 work. Then I noticed they had some JavaScript in their file to pad the top of
@@ -644,13 +888,13 @@ the login &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element. I made some simp
         &amp;quot;#login-form-container&amp;quot;, 0);
   });
 &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="HTML"></category><category term="web"></category><category term="jQuery"></category></entry><entry><title>Python-3 Virtual Environments on MS Windows</title><link href="https://breakingbytes.github.io/python-3-virtual-environments-on-ms-windows.html" rel="alternate"></link><published>2017-05-18T11:01:00-07:00</published><updated>2017-05-18T11:01:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-05-18:/python-3-virtual-environments-on-ms-windows.html</id><summary type="html">&lt;p&gt;Python-3 venv module vs virtualenv package&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a follow up from my &lt;a href="https://breakingbytes.github.io/moving-to-pelican-at-github-pages.html"&gt;first post&lt;/a&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="JavaScript"></category><category term="HTML"></category><category term="web"></category><category term="jQuery"></category></entry><entry><title>Python-3 Virtual Environments on MS Windows</title><link href="https://breakingbytes.github.io/python-3-virtual-environments-on-ms-windows.html" rel="alternate"></link><published>2017-05-18T11:01:00-07:00</published><updated>2017-05-18T11:01:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-05-18:/python-3-virtual-environments-on-ms-windows.html</id><summary type="html">&lt;p&gt;Python-3 venv module vs virtualenv package&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a follow up from my &lt;a href="https://breakingbytes.github.io/moving-to-pelican-at-github-pages.html"&gt;first post&lt;/a&gt;
 on this new Pelican blog. I should have logged how I set up this, instead of
 the glib cliché, "usage is a snap". Here I am posting for the second time, and
 I'm wondering, "why didn't I just use the
 &lt;a href="https://help.github.com/articles/about-github-pages-and-jekyll/"&gt;built in Jekyll static site generator&lt;/a&gt;?"&lt;/p&gt;
 &lt;p&gt;Anyway, for posterity...&lt;/p&gt;
-&lt;h1&gt;Publishing to GH Pages&lt;/h1&gt;
+&lt;h1 id="publishing-to-gh-pages"&gt;Publishing to GH Pages&lt;/h1&gt;
 &lt;p&gt;To publish my pages I use the &lt;code&gt;Makefile&lt;/code&gt; that Pelican generates when you start
 your blog using &lt;code&gt;pelican-quickstart&lt;/code&gt;. I may have editted the &lt;code&gt;Makefile&lt;/code&gt; to
 target my GitHub &lt;code&gt;master&lt;/code&gt; branch since I'm using
@@ -669,7 +913,7 @@ all I have to do to publish my posts is execute:&lt;/p&gt;
 
 
 &lt;p&gt;You could even stick it into &lt;code&gt;.git/hooks/post-commit&lt;/code&gt; to automate publishing.&lt;/p&gt;
-&lt;h1&gt;Python-3 Virtual Environment&lt;/h1&gt;
+&lt;h1 id="python-3-virtual-environment"&gt;Python-3 Virtual Environment&lt;/h1&gt;
 &lt;p&gt;Okay, I can't remeber exactly the reason, but &lt;code&gt;ghp-import&lt;/code&gt; worked better in
 Python-3 than Python-2, and so I created a virtual environment for Python-3.
 This brings me finally to the title of this post. How does one create a virtual
@@ -712,7 +956,7 @@ provided. Now, if an existing directory is specified, its contents are removed
 and the directory is processed as if it had been newly created.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;In conclusion, I don't see much difference between the two methods. So if you
-want to use BaSH on MS Windows, stick with the original, otherwise try the new.&lt;/p&gt;</content><category term="virtualenv"></category><category term="pelican"></category><category term="windows"></category><category term="bash"></category><category term="rant"></category></entry><entry><title>Moving to Pelican at GitHub Pages</title><link href="https://breakingbytes.github.io/moving-to-pelican-at-github-pages.html" rel="alternate"></link><published>2017-04-03T13:02:00-07:00</published><updated>2017-04-03T13:02:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-04-03:/moving-to-pelican-at-github-pages.html</id><summary type="html">&lt;p&gt;So this is goodbye to Google Blogger and my old blog at
+want to use BaSH on MS Windows, stick with the original, otherwise try the new.&lt;/p&gt;</content><category term="Python"></category><category term="virtualenv"></category><category term="pelican"></category><category term="windows"></category><category term="bash"></category><category term="rant"></category></entry><entry><title>Moving to Pelican at GitHub Pages</title><link href="https://breakingbytes.github.io/moving-to-pelican-at-github-pages.html" rel="alternate"></link><published>2017-04-03T13:02:00-07:00</published><updated>2017-04-03T13:02:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-04-03:/moving-to-pelican-at-github-pages.html</id><summary type="html">&lt;p&gt;So this is goodbye to Google Blogger and my old blog at
 &lt;a href="http://poquitopicante.blogspot.com/"&gt;Poquito Picante&lt;/a&gt;, although I'll try to
 keep &lt;a href="https://breakingbytes.blogspot.com/"&gt;Breaking Bytes&lt;/a&gt; up to date if I can
 figure out how to make a commit hook that posts the generated content using the
@@ -737,4 +981,4 @@ Google Blogger?&lt;/p&gt;
 &lt;li&gt;I prefer my &lt;code&gt;breakingbytes&lt;/code&gt; handle to "Poquito Picante" which is just a
   silly alliteration.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For more info about me please visit &lt;a href="https://mikofski.github.io/"&gt;me here&lt;/a&gt;.&lt;/p&gt;</content></entry></feed>
+&lt;p&gt;For more info about me please visit &lt;a href="https://mikofski.github.io/"&gt;me here&lt;/a&gt;.&lt;/p&gt;</content><category term="Announcements"></category></entry></feed>

@@ -111,7 +111,7 @@ the glib cliché, "usage is a snap". Here I am posting for the second time, and
 I'm wondering, "why didn't I just use the
 <a href="https://help.github.com/articles/about-github-pages-and-jekyll/">built in Jekyll static site generator</a>?"</p>
 <p>Anyway, for posterity...</p>
-<h1>Publishing to GH Pages</h1>
+<h1 id="publishing-to-gh-pages">Publishing to GH Pages</h1>
 <p>To publish my pages I use the <code>Makefile</code> that Pelican generates when you start
 your blog using <code>pelican-quickstart</code>. I may have editted the <code>Makefile</code> to
 target my GitHub <code>master</code> branch since I'm using
@@ -130,7 +130,7 @@ all I have to do to publish my posts is execute:</p>
 
 
 <p>You could even stick it into <code>.git/hooks/post-commit</code> to automate publishing.</p>
-<h1>Python-3 Virtual Environment</h1>
+<h1 id="python-3-virtual-environment">Python-3 Virtual Environment</h1>
 <p>Okay, I can't remeber exactly the reason, but <code>ghp-import</code> worked better in
 Python-3 than Python-2, and so I created a virtual environment for Python-3.
 This brings me finally to the title of this post. How does one create a virtual

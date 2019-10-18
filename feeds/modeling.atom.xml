@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes - Modeling</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/modeling.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2018-06-22T20:55:00-07:00</updated><entry><title>Examples of implicit versus explicit solutions for photovoltaic solar energy systems</title><link href="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html" rel="alternate"></link><published>2018-06-22T20:55:00-07:00</published><updated>2018-06-22T20:55:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-06-22:/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html</id><summary type="html">&lt;p&gt;Using a numerical solver to model solar power.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Full Scale PV Modeling&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes - Modeling</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/modeling.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2018-06-22T20:55:00-07:00</updated><entry><title>Examples of implicit versus explicit solutions for photovoltaic solar energy systems</title><link href="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html" rel="alternate"></link><published>2018-06-22T20:55:00-07:00</published><updated>2018-06-22T20:55:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-06-22:/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html</id><summary type="html">&lt;p&gt;Using a numerical solver to model solar power.&lt;/p&gt;</summary><content type="html">&lt;h1 id="full-scale-pv-modeling"&gt;Full Scale PV Modeling&lt;/h1&gt;
 &lt;p&gt;I want to explore different ways to find the operating conditions for max power
 of a PV system. I'm going to assume that we're using a single diode model (SDM)
 which is an analog curcuit of a solar cell composed from a current source, a
@@ -21,7 +21,7 @@ conditions, or degradation. This second problem poses some challenges
 computationally for very large systems.&lt;/p&gt;
 &lt;p&gt;What is the best method to do full scale PV system modeling? I'm going to skip
 the Lambert-W function and focus on implict and explicit methods.&lt;/p&gt;
-&lt;h1&gt;Conclusions&lt;/h1&gt;
+&lt;h1 id="conclusions"&gt;Conclusions&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The implicit approach is efficient at finding a single operating condition,
@@ -39,11 +39,11 @@ tracing the entire IV curve.&lt;/p&gt;
 when every cell is different.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;Gist&lt;/h1&gt;
+&lt;h1 id="gist"&gt;Gist&lt;/h1&gt;
 &lt;p&gt;The following Gist contains examples for a full scale implicit approach and the
 explicit parameterized approach described. The Gist are best viewed on
 &lt;a href="http://nbviewer.jupyter.org/gist/mikofski/df318d1f892767ac7c762e732fecaa7f"&gt;nbviewer&lt;/a&gt;.&lt;/p&gt;
-&lt;script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"&gt;&lt;/script&gt;</content><category term="code"></category><category term="solar"></category></entry><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Modeling&lt;/h1&gt;
+&lt;script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"&gt;&lt;/script&gt;</content><category term="Modeling"></category><category term="code"></category><category term="solar"></category></entry><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1 id="modeling"&gt;Modeling&lt;/h1&gt;
 &lt;p&gt;Mathematical models of scientific phenomena are essential in engineering. We
 use them to design experiments and select instruments based on estimates of the
 sensitivities of relationships between factors. We derive models from the
@@ -55,14 +55,14 @@ models ability to explain physical phenomena and describe relationships, we use
 them to predict. We can use predictive models to find solutions by optimizing
 our objectives. Good models are powerful, and they are the very essense of
 science.&lt;/p&gt;
-&lt;h1&gt;Software&lt;/h1&gt;
+&lt;h1 id="software"&gt;Software&lt;/h1&gt;
 &lt;p&gt;Computers have revolutionalized the derivation and use of mathematical models
 to understand, describe, and predict our universe. We use code to interpret
 mathematics and science into a language that computers can use to perform
 calculations that would have taken us years to do by hand. But just like pencil
 and paper work there are ways to organize code best to accomplish your objectives. Good
 modeling software is based on a set core values.&lt;/p&gt;
-&lt;h1&gt;SPACES&lt;/h1&gt;
+&lt;h1 id="spaces"&gt;SPACES&lt;/h1&gt;
 &lt;p&gt;SPACES is a mnemonic for the core values of good modeling software.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;imple&lt;/li&gt;
@@ -72,7 +72,7 @@ modeling software is based on a set core values.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;E&lt;/strong&gt;xtensible&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;table&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Simplicity&lt;/h2&gt;
+&lt;h2 id="simplicity"&gt;Simplicity&lt;/h2&gt;
 &lt;p&gt;Good modeling software is simple. It doesn't do more or less than what it needs
 to do. It doesn't create more problems than it solves. It isn't convoluted or
 difficult to explain. It may contain complex algorithms, but the art and beauty
@@ -93,13 +93,13 @@ to build the documentation, how the CI is set up, how the server is configured,
 how to deploy the software, and what conventions were used. Be detailed.
 Consider adding a cookbook of examples, a gallery, tutorials, or HOWTO
 sections. Your API should be 100% covered.&lt;/p&gt;
-&lt;h2&gt;Performance&lt;/h2&gt;
+&lt;h2 id="performance"&gt;Performance&lt;/h2&gt;
 &lt;p&gt;It just has to be fast enough. Usually there is a trade off between speed and
 accuracy, so finding the balance is tricky. But in order to be useful, modeling
 software must not be slow. Efficiency where possible should always be a
 priority. Maybe not in the first draft, but in revisions inefficiency should be
 removed wherever it's found. Don't repeat yourself. However, don't create overly complicated code. Efficient code should still be simple. Strive for elegance.&lt;/p&gt;
-&lt;h2&gt;Accuracy&lt;/h2&gt;
+&lt;h2 id="accuracy"&gt;Accuracy&lt;/h2&gt;
 &lt;p&gt;It just has to be accurate enough. Understand your uncertainties. Regardless,
 modeling software that is inaccurate is useless. Make sure it works the way
 it's expected. Validate with publicly available data and publish
@@ -116,11 +116,11 @@ Check the bias:&lt;/p&gt;
 &lt;p&gt;Calculate the mean bias difference (MBD) and root mean square difference (RMSD). All correlations should be random and bias should be uniformly distributed.
 Don't validate with your training data. Save a third of the data for validation.&lt;/p&gt;
 &lt;p&gt;Include high precision test data and use it in your unit tests.&lt;/p&gt;
-&lt;h2&gt;Collaboration&lt;/h2&gt;
+&lt;h2 id="collaboration"&gt;Collaboration&lt;/h2&gt;
 &lt;p&gt;Work together. Science is consensus. Others have already solved your problems.
 Others can find new problems. Use what is out there already. Don't reinvent the
 wheel. Ask for help. Get opinions. Listen. Consider alternatives. Collaborate.&lt;/p&gt;
-&lt;h2&gt;Extensibility&lt;/h2&gt;
+&lt;h2 id="extensibility"&gt;Extensibility&lt;/h2&gt;
 &lt;p&gt;Things change. Our understanding of the physical world changes. New
 technologies evolve. Build in the capacity for change in your modeling
 software. Anticipate that your code will need to adapt. Make it easy to
@@ -131,7 +131,7 @@ points. Consider making your application a stack with a common object that is
 passed from unit to unit, and can be serialized and deserialized when needed.
 This will make it easier to save and load state, and to scale and parallelize.
 It will also make it easier to test.&lt;/p&gt;
-&lt;h2&gt;Stability&lt;/h2&gt;
+&lt;h2 id="stability"&gt;Stability&lt;/h2&gt;
 &lt;p&gt;Good modeling software isn't fragile. It should be bomb proof. Test it. Use a
 unitest framework as well as some end-to-end tests. Strive for 100% coverage.
 Set up a CI server to test on every push to the master branch and on pulls.
@@ -143,6 +143,6 @@ watch out for overflows. Watch for interger division. It's okay to follow the
 practice of "easier to ask for forgiveness than permission" but errors have to
 be handled eventually, and users deserve meaningful feedback. Just make sure it
 always works as expected.&lt;/p&gt;
-&lt;h2&gt;Spaces&lt;/h2&gt;
+&lt;h2 id="spaces_1"&gt;Spaces&lt;/h2&gt;
 &lt;p&gt;Put spaces in your code. Don't be terse. Follow the coding guidelines common
-for the codebase.&lt;/p&gt;</content><category term="rant"></category><category term="code"></category></entry></feed>
+for the codebase.&lt;/p&gt;</content><category term="Modeling"></category><category term="rant"></category><category term="code"></category></entry></feed>
