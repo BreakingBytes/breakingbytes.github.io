@@ -66,10 +66,10 @@ application, because anyone could view the page source. Authorization code
 should only be used with confidential clients that can keep secrets. The client
 registration must include a list of redirect URI to consume the authorization
 code from the authorization service.
-2. Then a registered client can use an authorization URL to redirect users to
-login with the identity provider and get an authorization code which can be
-exchanged by the client for an access token. For this post, we'll use this
-fictitious authorization URL:
+2. Then a registered client can send a `GET` request to the authorization URL
+to redirect users to login with the identity provider and get an authorization
+code which can be exchanged by the client for an access token. For this example,
+we'll use the following fictitious authorization URL:
 
         https://identity-provider/authorize/
 
@@ -85,12 +85,12 @@ fictitious authorization URL:
 
     * The authorization can also include the desired scopes including any
     additional claims about the user such as: `email`, `name`, `given_name`,
-    `family_name`, `openid`, _etc._ that can be retrieved in the ID token from the
-    `/identity-provider/userinfo/` endpoint.
+    `family_name`, `openid`, _etc._ that can be retrieved in the ID token from
+    the `/identity-provider/userinfo/` endpoint.
     * Optionally, the authorization request should also contain a unique `state`
-    code, a string of any length, used to prevent cross site forgery request. It's
-    up to the client to save the state sent in the request, to validate it with the
-    state returned in the response from the authorization server.
+    code, a string of any length, used to prevent cross site forgery request.
+    It's up to the client to save the state sent in the request and validate it
+    with the state returned in the response from the authorization server.
     * Optionally there may be an `approval_prompt` parameter that can be provided
     and set to either `force` or `auto`. If not set, and there is a "skip
     authorization" checkbox in the app registration form which is disabled, then
@@ -157,21 +157,21 @@ scopes when the authorization code is requested. Then the client can send a
 * The content of the response is JSON web token (JWT), a base-64 encoded string
 signed by hashing the JWT using the client secret as the key. See
 [jwt.io](https://jwt.io/) for more information and available bindings.
-* The response status code should `200 OK` and the content type is
+* The response status code should be `200 OK` and the content type should be
 `application/jwt`. The status code will be `405 METHOD NOT ALLOWED` if the
 request does not use `GET` and `403 FORBIDDEN` if the bearer token is missing
 or invalid.
-* The JWT contains the user name as the subject `sub` claim as well as any
+* The JWT contains the user name as the subject claim, `sub`, as well as any
 additional claims requested as scopes.
-* Use the `groups` scope to get a list of the xyz-app groups that a user
-belongs to including the _administrator_ group.
+* Use the `groups` scope to get access to groups a user belongs to on the
+identity provider such as the _administrator_ group.
 * It is up to the client to validate that the JWT is signed correctly. The hash
 algorithm is in the JWT as `alg`.
-* The JWT also has an issuer claim, `iss` that should be set to the name of the
+* The JWT also has an issuer claim, `iss`, that should be set to the name of the
 identity provider.
-* The JWT audience claim, `aud` is the the client id.
+* The JWT audience claim, `aud`, is the the client id.
 * It's up to the client to check the time frame of the JWT using issued at
-`iat`, expires in `exp` and not before `nbf` claims.
+`iat`, expires in `exp`, and not before `nbf` claims.
 * The client can also confirm that the correct token was used by examining the
 access token hash claim, `at_hash`. Please see the the
 [OpenID Connect Core](http://openid.net/specs/openid-connect-core-1_0.html)
