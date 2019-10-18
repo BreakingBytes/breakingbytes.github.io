@@ -12,13 +12,16 @@ be further restricted to only certain authorized users. Therefore the web
 application must first authenticate a user, and then determine what private
 data they are authorized to access. The OAuth 2.0 specification implements an
 alternative workflow which alows users to authorize another web application to
-access resource on their behalf. The specification states that
-[OAuth 2.0 is not an authentication protocol](https://oauth.net/articles/authentication/). [OpenID Connect](https://openid.net/connect/) utilizes OAuth 2.0 to implement
-a standard for authentication.
+access resources on their behalf. The specification states that
+[OAuth 2.0 is not an authentication protocol](https://oauth.net/articles/authentication/).
+However, [OpenID Connect](https://openid.net/connect/) does use OAuth 2.0 to
+implement a standard for authentication. GitHub is an example of the OpenID 
+Connect standard, see [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/).
 
 ## Terms
 
 The following definitions are from from the linked reference by Alex Bilbie.
+
 - **Resource (API) server**: The server hosting the protected resources,
 capable of accepting and responding to protected resource requests using access
 tokens.
