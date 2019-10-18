@@ -38,11 +38,9 @@ executes on a server, a desktop, or other devices).
 
 ## Authorizing Users & Clients
 
-xyz-app uses OAuth 2.0 to allow users to authorize 3rd party applications to
-access resources from xyz-app on their behalf. There are three workflows
-supported by xyz-app that can be used to obtain a `Bearer` token to gain access
-to resources in lieu of user credentials or client tokens.
-
+There are four workflows supported by OAuth 2.0 that allow users to authorize
+an applications to obtain a `Bearer` token to gain access to resources in lieu
+of user credentials or client tokens.
 
 1. [Authorization Code](#authorization-code)
 2. [Resource Owner Password Credentials](#resource-owner-password-credentials)
