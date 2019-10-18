@@ -194,8 +194,8 @@ can only be used to edit data if it has the `write` scope.
 Scopes can also used as claims to identify a token owner. The following scopes
 and claims may be available.
 
-|------------|-----------------------------|
 |Name        |Description                  |
+|------------|-----------------------------|
 |read        |Read scope                   |
 |write       |Write scope                  |
 |groups      |Access to your groups        |
