@@ -167,7 +167,8 @@ additional claims requested as scopes.
 belongs to including the _administrator_ group.
 * It is up to the client to validate that the JWT is signed correctly. The hash
 algorithm is in the JWT as `alg`.
-* The JWT also has an issuer claim, `iss` that should be set to "xyz-app".
+* The JWT also has an issuer claim, `iss` that should be set to the name of the
+identity provider.
 * The JWT audience claim, `aud` is the the client id.
 * It's up to the client to check the time frame of the JWT using issued at
 `iat`, expires in `exp` and not before `nbf` claims.
@@ -178,9 +179,9 @@ specification for more info.
 
 ## Permissions
 
-Access to resources are limited in two ways:
+Access to resources can be limited in two ways:
 
-* permissions
+* permissions (not covered in this post)
 * token scopes
 
 ### Token Scopes
@@ -188,7 +189,7 @@ Access to resources are limited in two ways:
 If a user or an application is authenticated using an OAuth 2.0 token, then
 that token must have the scopes required for the desired action, _regardless_
 of the owner's permissions or group membership! For example if an application
-has been authorized by a member of the _administrator_ group, the that token
+has been authorized by a member of the _administrator_ group, then that token
 can only be used to edit data if it has the `write` scope.
 
 ### Scopes and Claims
@@ -206,8 +207,8 @@ and claims may be available.
 |given_name  |JWT claim for first name     |
 |family_name |JWT claim for last name      |
 
-The `groups` scope can also be used as a claim to get the xyz-app groups that
-the token owner belongs to.
+The `groups` scope can also be used as a claim to get the groups that the token
+owner belongs to from the identity provider.
 
 ## References
 
