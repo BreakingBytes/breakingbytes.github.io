@@ -73,36 +73,36 @@ fictitious authorization URL:
 
         https://identity-provider/authorize/
 
-* The authorization URL is very picky. It must include a the following query
-string parameters:
+    * The authorization URL is very picky. It must include a the following query
+    string parameters:
 
-        "client_id": <client-id>,
-        "state": <optional>,
-        "response_type": "code",
-        "redirect_uri": <redirect_uri>,
-        "scope": "read write email name"
+            "client_id": <client-id>,
+            "state": <optional>,
+            "response_type": "code",
+            "redirect_uri": <redirect_uri>,
+            "scope": "read write email name"
 
 
-* The authorization can also include the desired scopes including any
-additional claims about the user such as: `email`, `name`, `given_name`,
-`family_name`, `openid`, _etc._ that can be retrieved in the ID token from the
-`/identity-provider/userinfo/` endpoint.
-* Optionally, the authorization request should also contain a unique `state`
-code, a string of any length, used to prevent cross site forgery request. It's
-up to the client to save the state sent in the request, to validate it with the
-state returned in the response from the authorization server.
-* Optionally there may be an `approval_prompt` parameter that can be provided
-and set to either `force` or `auto`. If not set, and there is a "skip
-authorization" checkbox in the app registration form which is disabled, then
-the default may be `force` which may ask users to authenticate everytime. To
-only ask users to authenticate the first time, use `auto`.
-* xyz-app will ask the user for credentials if their credentials are not
-already cached in the user's browser.
-* Depending on the `approval_prompt` parameter or the "skip authorization"
-checkbox, the user may be prompted to authorize the token, with a list of the
-claims and scopes that the token is requesting.
-* The authorization service returns a code and the state submitted by the
-client. The code can then be exchanged for an access token.
+    * The authorization can also include the desired scopes including any
+    additional claims about the user such as: `email`, `name`, `given_name`,
+    `family_name`, `openid`, _etc._ that can be retrieved in the ID token from the
+    `/identity-provider/userinfo/` endpoint.
+    * Optionally, the authorization request should also contain a unique `state`
+    code, a string of any length, used to prevent cross site forgery request. It's
+    up to the client to save the state sent in the request, to validate it with the
+    state returned in the response from the authorization server.
+    * Optionally there may be an `approval_prompt` parameter that can be provided
+    and set to either `force` or `auto`. If not set, and there is a "skip
+    authorization" checkbox in the app registration form which is disabled, then
+    the default may be `force` which may ask users to authenticate everytime. To
+    only ask users to authenticate the first time, try `auto`.
+    * The identity provider will ask the user for their credentials if not
+    already cached in the user's browser.
+    * Depending on the `approval_prompt` parameter or the "skip authorization"
+    checkbox, the user may be prompted to authorize the token, with a list of the
+    claims and scopes that the token is requesting.
+    * The authorization service returns a code and the state submitted by the
+    client. The code can then be exchanged for an access token.
 
 3. The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
@@ -110,16 +110,16 @@ exchange the authorization code for an access token. This request is sent as a
 
         https://identity-provider/token/
 
-* The token URL is very picky. It must include the client's id and secret
-either as a basic authentication header or as payload data. Additionally the
-following data must also be in the payload of the `POST`:
+    * The token URL is very picky. It must include the client's id and secret
+    either as a basic authentication header or as payload data. Additionally the
+    following data must also be in the payload of the `POST`:
 
-        "grant_type": "authorization_code",
-        "code": <code>,
-        "redirect_uri": <redirect_uri>
+            "grant_type": "authorization_code",
+            "code": <code>,
+            "redirect_uri": <redirect_uri>
 
-* The response is a JSON string with the `access_token`, `expires_in`,
-`token_type` (always `Bearer`), `scopes` and a `refresh_token`.
+    * The response is a JSON string with the `access_token`, `expires_in`,
+    `token_type` (always `Bearer`), `scopes` and a `refresh_token`.
 
 
 ### Resource Owner Password Credentials
