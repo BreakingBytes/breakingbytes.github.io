@@ -108,7 +108,7 @@ client. The code can then be exchanged for an access token.
 exchange the authorization code for an access token. This request is sent as a
 `POST`:
 
-        https://xyz-app.xyz.com/identity-provider/token/
+        https://identity-provider/token/
 
 * The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
@@ -148,7 +148,7 @@ token to obtain the token owners identity and other claims such as `email`,
 scopes when the authorization code is requested. Then the client can send a
 `GET` request:
 
-    https://xyz-app.xyz.com/identity-provider/userinfo/
+    https://identity-provider/userinfo/
 
 * The `GET` must have an authorization header containing the bearer token:
 
