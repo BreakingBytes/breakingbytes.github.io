@@ -45,6 +45,7 @@ of user credentials or client tokens.
 1. [Authorization Code](#authorization-code)
 2. [Resource Owner Password Credentials](#resource-owner-password-credentials)
 3. [Client Credentials](#client-credentials)
+4. Implicit (not covered in this post)
 
 ### Authorization Code
 
@@ -54,9 +55,9 @@ process is documented in the [OAuth 2.0 specification](https://oauth.net/2/)
 and in the [References](#references). The authorization code workflow
 consists of the following steps:
 
-1. Ask a xyz-app admin to create a client application with the desired grant
+1. Ask an administrator to create a client application with the desired grant
 type. You should be given a `client_id` and a `client_secret`. These must be
-treated as secrets, e.g. never transmit them over HTTP, only HTTPS, and don't
+treated as secrets, _e.g._ never transmit them over HTTP, only HTTPS, and don't
 commit them to repositories. The client type for the authorization code
 workflow should always be **Confidential**. A _confidential_ client can keep a
 secret, while a _public_ client can't. An example of a confidential client
@@ -66,10 +67,11 @@ should only be used with confidential clients that can keep secrets. The client
 registration must include a list of redirect URI to consume the authorization
 code from the authorization service.
 2. Then a registered client can use an authorization URL to redirect users to
-login with xyz-app and get an authorization code which can be exchanged by the
-client for an access token:
+login with the identity provider and get an authorization code which can be
+exchanged by the client for an access token. For this post, we'll use this
+fictitious authorization URL:
 
-        https://xyz-app.xyz.com/identity-provider/authorize/
+        https://identity-provider/authorize/
 
 * The authorization URL is very picky. It must include a the following query
 string parameters:
