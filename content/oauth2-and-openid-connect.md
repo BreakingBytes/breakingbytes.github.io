@@ -39,7 +39,7 @@ executes on a server, a desktop, or other devices).
 ## Authorizing Users & Clients
 
 There are four workflows supported by OAuth 2.0 that allow users to authorize
-an applications to obtain a `Bearer` token to gain access to resources in lieu
+an application to obtain a `Bearer` token to gain access to resources in lieu
 of user credentials or client tokens.
 
 1. [Authorization Code](#authorization-code)
