@@ -43,13 +43,20 @@ is sent to the grid.
 
 Here's a typical PV system at the National Institute of Standards and Technology:
 
-![NIST ground mount racks](./images/ground-mount-racks.jpg)
 ![NIST Google](./images/NIST_Google.png)
+![NIST ground mount racks](./images/ground-mount-racks.jpg)
 
-# Electrical Mismatch
+## PV Cells and Modulea
 
-So why does non-uniform shade cause a non-linear effect? This effect, called
-_electrical mismatch_ in PV lingo is due to two laws about electric circuits:
+The cells in a PV module can be considered roughly as diodes, which are
+semiconductor, or a material that conducts current in one direction, called
+forward bias. When a negative voltage, or reverse bias is applied to the cell,
+it won't 
+
+# Electric Circuit Theory
+
+So why does non-uniform shade cause this non-linear effect? If we consider the
+PV system as an electric circuit, then it must obey the following two laws:
 
 * [Ohm's Law](https://en.wikipedia.org/wiki/Ohm%27s_law)
 * [Kirchhoff's Law](https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws)
@@ -57,7 +64,7 @@ _electrical mismatch_ in PV lingo is due to two laws about electric circuits:
 ## Ohms Law
 
 According to Ohm's law because the cells and modules in a PV system are all in
-series, then they all must carry the same current, `I`, the total votlage of
+series, then they must all carry the same current, `I`, the total votlage of
 each module, `Vmod`, is the sum of the cell voltages in that module, and the
 total string voltage, `Vstr`, is the sum of the modules voltages in the string.
 In the equation below, `Z` represents the impedance of each cell in a module or
@@ -72,10 +79,29 @@ but hopefully this will do to explain electrical mismatch for now. The relation
 between the flux of charge and solar cell voltage is described by
 [Poisson Energy Transport Equation](https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation) but in practice a 1-diode circuit is a
 useful analog. See this post on
-[examples of implicit vs. explicit solutions for PV systems](/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html)
+[examples of implicit vs. explicit solutions for PV systems](./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html)
 for more info.
 
 ## Kirchhoff's Law
 
-Kirchhoff's law applies to 
+Kirchhoff's law requires the voltage across all of the parallel strings to be
+the same as the voltage across the inverter, and the total current at the
+inverter nodes to be the sum of the currents from all parallel strings
+connected to it.
 
+![Kirchhoff's Law](https://latex.codecogs.com/png.latex?I%20%3D%20%5Csum%7BI%7D)
+
+_LaTeX provided by [CodeCogs Equation Editor](https://www.codecogs.com/latex/eqneditor.php)_
+
+# Electrical Mismatch 
+
+The combined effect of enforcing Ohm's and Kirchhoff's laws on a PV system that
+is partially shaded can cause what's called _electrical mismatch_. In other
+words, the shaded cells can't match the current being carried by the rest of
+the module, or the string with shaded modules can't carry the same voltage as
+the PV system, and therefore the entire system has to find a new operating
+condition to satisfy Ohm's and Kirchhoff's laws.
+
+## The Single Diode Model
+
+How 
