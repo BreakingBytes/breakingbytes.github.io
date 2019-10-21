@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="english">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
+
+
+    <link rel="shortcut icon" href="/images/breakingbytes.ico" type="image/x-icon">
+    <link rel="icon" href="/images/breakingbytes.ico" type="image/x-icon">
+
+
+
+<meta name="author" content="Mark Mikofski" />
+<meta name="description" content="Why does shade just across the bottom row of cells cause 90% power loss?" />
+<meta name="keywords" content="solar, modeling, code">
+
+<meta property="og:site_name" content="Breaking Bytes"/>
+<meta property="og:title" content="Electric Mismatch in Silicon-Cell PV is Not Intuitive"/>
+<meta property="og:description" content="Why does shade just across the bottom row of cells cause 90% power loss?"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-18 15:23:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://breakingbytes.github.io/author/mark-mikofski.html">
+<meta property="article:section" content="Solar"/>
+<meta property="article:tag" content="solar"/>
+<meta property="article:tag" content="modeling"/>
+<meta property="article:tag" content="code"/>
+<meta property="og:image" content="/images/70s_Marko_Mustache_cropped.jpg">
+
+  <title>Breaking Bytes &ndash; Electric Mismatch in Silicon-Cell PV is Not Intuitive</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://breakingbytes.github.io">
+        <img src="/images/70s_Marko_Mustache_cropped.jpg" alt="" title="">
+      </a>
+      <h1><a href="https://breakingbytes.github.io"></a></h1>
+
+
+      <nav>
+        <ul class="list">
+
+          <li><a href="https://poquitopicante.blogspot.com/" target="_blank">poquito picante</a></li>
+          <li><a href="https://mikofski.github.io/" target="_blank">bwanamarko</a></li>
+          <li><a href="https://breakingbytes.blogspot.com/" target="_blank">old breaking bytes</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="https://breakingbytes.github.io">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="https://breakingbytes.github.io/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="electric-mismatch-in-silicon-cell-pv-is-not-intuitive">Electric Mismatch in Silicon-Cell PV is Not Intuitive</h1>
+    <p>
+          Posted on Fri 18 October 2019 in <a href="https://breakingbytes.github.io/category/solar.html">Solar</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1 id="uniform-versus-non-uniform-shade">Uniform Versus Non-Uniform Shade</h1>
+<p>Photovoltaic solar energy panels, <em>aka</em> PV, have a very unintuitive resonse to
+shade, that surprises most people.</p>
+<blockquote>
+<p>Shade across a relatively small portion of the panel can cause a
+disproportionately much larger power loss.</p>
+</blockquote>
+<p><em>IE</em> Shade across just the bottom row of cells, only 6 cells out of 60, only
+10% of the PV panel, will cause 90% power loss! Why does this happen? Did you
+think it would cause only 10% power loss? Why isn't power loss <em>linear</em> with
+shade?</p>
+<p>OK, to be fair, if the entire array is uniformly shaded or merely illuminated
+with a less intense light, then the decrease in power <em>would</em> be proportional
+to the decrease in light intensity. For example if a giant rain cloud passed
+over the sun, or the sun slowly sank behind a mountain, so that the same light
+was cast everywhere, but just lower intensity, say 50%, then the power would be
+50% lower as well.</p>
+<p>So just to be <em>completely clear</em>, in this post we are <strong>not</strong> going to talk
+about the effects of changes in light intensity that are totally uniform
+everywhere, but instead we're going to focus on what happens when there are
+non-uniform differences in light intensity across the PV system. Here's an
+example of a PV system with non-uniform shade.</p>
+<p><img alt="non uniform shade on a roof" src="./images/20150923_170418.jpg"></p>
+<h1 id="pv-primer">PV Primer</h1>
+<p>In PV lingo a panel is called a "module" which is made up of smaller solar
+"cells" which are connected in series in most silicon PV modules. Modules are
+most often connected in series to form "strings" of modules, which are in
+parallel and connected to an "inverter" which converts DC current to AC which
+is sent to the grid.</p>
+<p>Here's a typical PV system at the National Institute of Standards and
+Technology (NIST) in Gaithersburg, MD which has a single 260-kW inverter
+connected to 96 strings each with twelve 235=W modules. The first four rows are
+5 modules deep, but the last row is only 4 modules deep. The modules are all in
+landscape and have straight stringing:</p>
+<p><img alt="NIST Google" src="./images/NIST_Google.png">
+<img alt="NIST ground mount racks" src="./images/ground-mount-racks.jpg"></p>
+<h2 id="pv-cells-and-reverse-bias-breakdown">PV Cells and Reverse Bias Breakdown</h2>
+<p>The cells in a PV module can be considered roughly as a current source in
+parallel with a diode and some resistive elements. Diodes are semiconductors,
+in other words, they only conducts current in one direction, called the forward
+bias. When a negative voltage, or a reverse bias is applied to the cell, the
+semiconductor won't conduct a current. However, if enough reverse bias is
+applied, all semiconductors will eventually breakdown, and carry a current.
+This phenomema is called <strong>Reverse Bias Breakdown</strong>, and the <strong>breakdown
+voltage</strong> varies between cell technology. A typical front contact p-type
+silicon solar cell may breakdown at around -20 volts, while a back-contact
+n-type silicon solar cell may breakdown at -5 volts. There are many factors,
+beyond the scope of this primer, that affect reverse bias breakdown, such as
+purity of the substrate as well as type and concentration of dopant. The most
+important thing to understand about reverse bias breakdown is this:</p>
+<blockquote>
+<p>When a cell is in reverse breakdown, it can carry nearly any current, but
+because the voltage is negative, then the cell will dissipate energy and will
+get hot as it exchanges heat with the environment around it.</p>
+</blockquote>
+<h3 id="the-single-diode-model">The Single Diode Model</h3>
+<p>The electric circuit analog used to describe a solar cell is called the single
+diode model. Here's a schematic:</p>
+<p><img alt="Single Diode Model" src="https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png"></p>
+<p>Image credit:
+<a href="https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/diode-equivalent-circuit-models/">Sandia PV Performance Modeling Collaborative</a></p>
+<p>The solar cell current-voltage relation, or IV curve, shown below demonstrates
+the forward and reverse bias characteristics of a solar cell. The single diode
+model matches this response close enough to be used for predictions.</p>
+<p><img alt="3-quadrant IV curve" src="http://www.pveducation.org/sites/default/files/PVCDROM/Modules/Images/NONIDEAL.gif"></p>
+<p>Image credit:
+<a href="http://www.pveducation.org/pvcdrom/modules-and-arrays/mismatch-effects">PV Education, UNSW, ASU, <em>et al.</em></a></p>
+<h2 id="pv-modules-and-bypass-diodes">PV Modules and Bypass Diodes</h2>
+<p>PV modules are usually designed with bypass diodes to avoid energy loss and hot
+spots due to cells in reverse bias breakdown by allowing current to bypass the
+cells in reverse bias breakdown. The figure below shows a 72-cell module with
+3 bypass diodes, each in parallel with a 24-cell submodule (<em>aka</em>: substring).</p>
+<p><img alt="Circuit diagram of the solar module with 72 cells" src="./images/Circuit-diagram-of-the-solar-module-with-72-cells_W640.jpg"></p>
+<p>Credit: <em>Analysis of Power Loss for Crystalline Silicon Solar Module during the
+Course of Encapsulation</em> by Hong Yang <em>et al.</em>, April 2015, International
+Journal of Photoenergy 2015:1-5 <a href="https://doi.org/10.1155/2015/251615">DOI: 10.1155/2015/251615</a></p>
+<p>When the voltage in the submodule exceeds a small trigger voltage in the bypass
+diode, due to a cell or cells in reverse bias breakdown, then current will flow
+through the bypass diode, bypassing the entire submodule. For example, if one
+cell in the submodule is in reverse bias breakdown at -20 volts, and the other
+23 cells are all normal at 0.6 volts, then the total voltage of the submodule
+is -6.2 volts.</p>
+<div class="highlight"><pre><span></span>V_sub = -20[V] + 23 * 0.6[V] = -20[V] - 13.8[V] = -6.2[V]
+</pre></div>
+
+
+<p>So if the trigger voltage of the bypass diode is -0.5 volts, then the current
+will pass through the bypass diode. If the module current is 6 amps, then the
+bypass diode dissipates only 3 watts and avoids losing 36 watts from the bad
+submodule. What's more important than saving energy though, is that the bypass
+diode is also a safety device, because the single cell in reverse bias
+breakdown would have dissipated 120 watts, which could potentially cause a
+fire, and most likely would cause permanent damage to the cell and the module
+encapsulant or backsheet. </p>
+<h1 id="electric-circuit-theory">Electric Circuit Theory</h1>
+<p>So why does non-uniform shade cause this non-linear effect? If we consider the
+PV system as an electric circuit, then it must obey the following two laws:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Ohm%27s_law">Ohm's Law</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws">Kirchhoff's Law</a></li>
+</ul>
+<h2 id="ohms-law">Ohms Law</h2>
+<p>According to Ohm's law because the cells and modules in a PV system are all in
+series, then they must all carry the same current, <code>I</code>, the total votlage of
+each module, <code>Vmod</code>, is the sum of the cell voltages in that module, and the
+total string voltage, <code>Vstr</code>, is the sum of the modules voltages in the string.
+In the equation below, <code>Z</code> represents the impedance of each cell in a module or
+each module in a string.</p>
+<p><img alt="Ohm's Law" src="https://latex.codecogs.com/png.latex?V%20%3D%20%5Csum%7BV%7D%20%3D%20I%20%5Csum%7BZ%7D"></p>
+<p><em>LaTeX provided by <a href="https://www.codecogs.com/latex/eqneditor.php">CodeCogs Equation Editor</a></em></p>
+<p>The actual relation in a cell is actually a bit more complicated than <code>V=IZ</code>,
+but hopefully this will do to explain electrical mismatch for now. The relation
+between the flux of charge and solar cell voltage is described by
+<a href="https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation">Poisson Energy Transport Equation</a>
+but in practice a 1-diode circuit is a useful analog. See this post on
+<a href="./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html">examples of implicit vs. explicit solutions for PV systems</a>
+for more info.</p>
+<h2 id="kirchhoffs-law">Kirchhoff's Law</h2>
+<p>Kirchhoff's law requires the voltage across all of the parallel strings to be
+the same as the voltage across the inverter, and the total current at the
+inverter nodes to be the sum of the currents from all parallel strings
+connected to it.</p>
+<p><img alt="Kirchhoff's Law" src="https://latex.codecogs.com/png.latex?I%20%3D%20%5Csum%7BI%7D"></p>
+<p><em>LaTeX provided by <a href="https://www.codecogs.com/latex/eqneditor.php">CodeCogs Equation Editor</a></em></p>
+<h1 id="electrical-mismatch">Electrical Mismatch</h1>
+<p>The combined effect of enforcing Ohm's and Kirchhoff's laws on a PV system that
+is partially shaded can cause what's called <em>electrical mismatch</em>. In other
+words, the shaded cells can't <em>match</em> the current being carried by the rest of
+the module, or the string with shaded modules can't carry the same voltage as
+the PV system, and therefore the entire system has to find a new operating
+condition to satisfy Ohm's and Kirchhoff's laws.</p>
+<h2 id="a-rule-of-thumb">A Rule of Thumb</h2>
+<p>The counter intuitive behavior of a PV array with partial shade can be
+understood by remembering the following rule of thumb:</p>
+<blockquote>
+<p>A submodule will perform as well as its most shaded cell.</p>
+</blockquote>
+<p>Imagine a submodule has the bottom cells completely shaded, so they are only
+getting diffuse light, say 10% of the total plane of array irradiance that's
+incident on the other cells in the module. The rest of the PV array is
+operating normally, so the current and voltage of each string might be 7.8 amps
+and 360 volts, assuming <a href="#pv-primer">the NIST site above</a> with
+<a href="http://pvfree.herokuapp.com/cec_modules/14735/">Sharp NUU235F2</a> modules. So as
+described in the section on
+<a href="#pv-cells-and-reverse-bias-breakdown">PV Cells and Reverse Bias Breakdown</a>
+the two shaded cells can only carry this current in reverse bias breakdown,
+which would trigger the bypass diode to activate, and cause the string to lose
+one-third of a module's voltage. However, the strings all have to have the same
+voltage, and the maximum power of the system is not going to be at lower
+voltage, so the bad submodule can't activate it's bypass diode, and the string
+will have to operate at a lower current - the same current as the bad cell.</p>
+<h2 id="pvmismatch">PVMismatch</h2>
+<p>We can analyze this using <a href="https://sunpower.github.io/PVMismatch/">PVMismatch</a>
+Python package by SunPower.</p>
+<blockquote>
+<p><strong>TL;DR</strong>: A PV system with just 10% of cells shaded in only 1 string, loses
+nearly all of the power in that string.</p>
+</blockquote>
+<h3 id="script">Script</h3>
+<p>The following scrpt uses PVMismatch to model a PV system at STC with 10 strings
+of 10 <a href="http://pvfree.herokuapp.com/pvmodules/1517/">SunPower SPR-315E-WHT</a>
+96-cell modules per string. Then analyzes the same system, but with the bottom
+row of cells shaded 80%, <em>eg</em>: only diffuseirradiance left:</p>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">analyze and plot a 10x10 system with bottom cells of one row shaded</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># import the pvmismatch library</span>
+<span class="kn">from</span> <span class="nn">pvmismatch</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># import the matplotlib plotting library</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># make a 10x10 system of SPR-E20-315 96-cell panels at stc</span>
+<span class="n">pvsys</span> <span class="o">=</span> <span class="n">pvsystem</span><span class="o">.</span><span class="n">PVsystem</span><span class="p">()</span>
+
+<span class="c1"># plot the system</span>
+<span class="n">pvsys</span><span class="o">.</span><span class="n">plotSys</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># shade the bottom cell of all modules in the 1st string by 80%</span>
+<span class="n">pvsys</span><span class="o">.</span><span class="n">setSuns</span><span class="p">(</span>
+    <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;cells&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">84</span><span class="p">),</span>
+        <span class="s1">&#39;Ee&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">,)</span> <span class="o">*</span> <span class="mi">8</span><span class="p">}</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}})</span>
+
+<span class="c1"># plot the btm row shaded system</span>
+<span class="n">pvsys</span><span class="o">.</span><span class="n">plotSys</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># btm row shaded system max power</span>
+<span class="n">pvsys</span><span class="o">.</span><span class="n">Pmp</span>
+<span class="c1"># 29607.549997102204</span>
+
+<span class="c1"># make a new stc system for comparison</span>
+<span class="n">pvsys_stc</span> <span class="o">=</span> <span class="n">pvsystem</span><span class="o">.</span><span class="n">PVsystem</span><span class="p">()</span>
+
+<span class="c1"># stc system max power</span>
+<span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span>
+<span class="c1"># 32119.317380452303</span>
+
+<span class="c1"># calculate loss</span>
+<span class="p">(</span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span> <span class="o">-</span> <span class="n">pvsys</span><span class="o">.</span><span class="n">Pmp</span><span class="p">)</span> <span class="o">/</span> <span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span>
+<span class="c1"># 0.07820114461332704</span>
+
+<span class="c1"># btm row shaded string max power</span>
+<span class="n">pvsys</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="c1"># 720.6607971888608</span>
+
+<span class="c1"># stc string max power</span>
+<span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="c1"># 3212.7324983909575</span>
+
+<span class="c1"># calculate loss</span>
+<span class="p">(</span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">pvsys</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">/</span> <span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="c1"># 0.7756860250426105</span>
+
+<span class="c1"># plot stc string</span>
+<span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plotStr</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># plot btm row shaded string</span>
+<span class="n">pvsys</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plotStr</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="PV system at STC" src="./images/pvsys_stc.png"> </p>
+<p>The maximum power at STC is 32,119 [W].</p>
+<p><img alt="PV system with bottom row shaded" src="./images/pvsys_bot_row.png"></p>
+<p>The maximum power with bottom row shaded) is 29,607 [W]. The calculated the
+relative loss, <code>(pvsys_stc – pvys_btm_row) / pvsys_stc</code>, is 7.8%.</p>
+<p><img alt="PV string at STC" src="./images/pvstr_stc.png"></p>
+<p>The string power at STC is 3213 [W].</p>
+<p><img alt="PV string with bottom row shaded" src="./images/pvstr_bot_row.png"></p>
+<p>The string power with the bottom row shaded is 721 [W], and the calculated
+relative loss, <code>(pvstr_stc – pvstr_btm_row) / pvstr_stc</code>, is 78%.</p>
+<p>(Sorry the resolution is a bit poor around the knee, this was a quick
+simulation using only 100 points.)</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://breakingbytes.github.io/tag/solar.html">solar</a>
+      <a href="https://breakingbytes.github.io/tag/modeling.html">modeling</a>
+      <a href="https://breakingbytes.github.io/tag/code.html">code</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy;  2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Breaking Bytes ",
+  "url" : "https://breakingbytes.github.io",
+  "image": "/images/70s_Marko_Mustache_cropped.jpg",
+  "description": ""
+}
+</script>
+
+</body>
+</html>

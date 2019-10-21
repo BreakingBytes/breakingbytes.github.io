@@ -1,49 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes - Modeling</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/modeling.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2018-06-22T20:55:00-07:00</updated><entry><title>Examples of implicit versus explicit solutions for photovoltaic solar energy systems</title><link href="https://breakingbytes.github.io/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html" rel="alternate"></link><published>2018-06-22T20:55:00-07:00</published><updated>2018-06-22T20:55:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-06-22:/examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html</id><summary type="html">&lt;p&gt;Using a numerical solver to model solar power.&lt;/p&gt;</summary><content type="html">&lt;h1 id="full-scale-pv-modeling"&gt;Full Scale PV Modeling&lt;/h1&gt;
-&lt;p&gt;I want to explore different ways to find the operating conditions for max power
-of a PV system. I'm going to assume that we're using a single diode model (SDM)
-which is an analog curcuit of a solar cell composed from a current source, a
-diode, and a resistance in parallel, in series with another resistance.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="single diode model" src="https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;source: &lt;a href="https://pvpmc.sandia.gov/"&gt;Sandia National Labs: PV Performance Modeling Collaborative&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The cell current in the SDM can't be solved explicitly as a function of cell
-voltage without using the Lambert-W function. It can be solved implicitly by
-using an iterative solver such as a gradient descent method. And there is an
-explicit method that can be used to solve for cell current as a function of an
-intermediate parameter, the diode voltage, which can then be used to calculate
-the cell current. To get a specific voltage using this explicit parameterized
-approach, requires solving for several diode voltages and interpolating.&lt;/p&gt;
-&lt;p&gt;A common use of the SDM is to solve for the ideal operating condition of an
-entire PV system by assuming all of the cells are identical. Another proposed
-usage of the SDM is to model all of the cells in an entire system to account
-for their differences either due to variance in manufacturing, ambient
-conditions, or degradation. This second problem poses some challenges
-computationally for very large systems.&lt;/p&gt;
-&lt;p&gt;What is the best method to do full scale PV system modeling? I'm going to skip
-the Lambert-W function and focus on implict and explicit methods.&lt;/p&gt;
-&lt;h1 id="conclusions"&gt;Conclusions&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The implicit approach is efficient at finding a single operating condition,
-even or especially when most of the cells are different, but it's slow at
-tracing the entire IV curve.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The implicit approach is also efficient at determining the max power point.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Nesting search methods is less efficient than a single closed solution.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The explicit method is most efficient at tracing the entire IV curve, even
-when every cell is different.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id="gist"&gt;Gist&lt;/h1&gt;
-&lt;p&gt;The following Gist contains examples for a full scale implicit approach and the
-explicit parameterized approach described. The Gist are best viewed on
-&lt;a href="http://nbviewer.jupyter.org/gist/mikofski/df318d1f892767ac7c762e732fecaa7f"&gt;nbviewer&lt;/a&gt;.&lt;/p&gt;
-&lt;script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"&gt;&lt;/script&gt;</content><category term="Modeling"></category><category term="code"></category><category term="solar"></category></entry><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1 id="modeling"&gt;Modeling&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes - Modeling</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/modeling.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2018-05-10T00:14:00-07:00</updated><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1 id="modeling"&gt;Modeling&lt;/h1&gt;
 &lt;p&gt;Mathematical models of scientific phenomena are essential in engineering. We
 use them to design experiments and select instruments based on estimates of the
 sensitivities of relationships between factors. We derive models from the

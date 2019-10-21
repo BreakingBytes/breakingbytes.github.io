@@ -1,5 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2019-10-17T17:30:00-07:00</updated><entry><title>OAuth 2.0 and OpenID Connect Primer</title><link href="https://breakingbytes.github.io/oauth-20-and-openid-connect-primer.html" rel="alternate"></link><published>2019-10-17T17:30:00-07:00</published><updated>2019-10-17T17:30:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-17:/oauth-20-and-openid-connect-primer.html</id><summary type="html">&lt;p&gt;Authentication and authorization with OAuth 2.0 and OpenID Connect.&lt;/p&gt;</summary><content type="html">&lt;h1 id="authentication-and-authorization"&gt;Authentication and Authorization&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2019-10-18T15:23:00-07:00</updated><entry><title>Electric Mismatch in Silicon-Cell PV is Not Intuitive</title><link href="https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html" rel="alternate"></link><published>2019-10-18T15:23:00-07:00</published><updated>2019-10-18T15:23:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-18:/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html</id><summary type="html">&lt;p&gt;Why does shade just across the bottom row of cells cause 90% power loss?&lt;/p&gt;</summary><content type="html">&lt;h1 id="uniform-versus-non-uniform-shade"&gt;Uniform Versus Non-Uniform Shade&lt;/h1&gt;
+&lt;p&gt;Photovoltaic solar energy panels, &lt;em&gt;aka&lt;/em&gt; PV, have a very unintuitive resonse to
+shade, that surprises most people.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Shade across a relatively small portion of the panel can cause a
+disproportionately much larger power loss.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;IE&lt;/em&gt; Shade across just the bottom row of cells, only 6 cells out of 60, only
+10% of the PV panel, will cause 90% power loss! Why does this happen? Did you
+think it would cause only 10% power loss? Why isn't power loss &lt;em&gt;linear&lt;/em&gt; with
+shade?&lt;/p&gt;
+&lt;p&gt;OK, to be fair, if the entire array is uniformly shaded or merely illuminated
+with a less intense light, then the decrease in power &lt;em&gt;would&lt;/em&gt; be proportional
+to the decrease in light intensity. For example if a giant rain cloud passed
+over the sun, or the sun slowly sank behind a mountain, so that the same light
+was cast everywhere, but just lower intensity, say 50%, then the power would be
+50% lower as well.&lt;/p&gt;
+&lt;p&gt;So just to be &lt;em&gt;completely clear&lt;/em&gt;, in this post we are &lt;strong&gt;not&lt;/strong&gt; going to talk
+about the effects of changes in light intensity that are totally uniform
+everywhere, but instead we're going to focus on what happens when there are
+non-uniform differences in light intensity across the PV system. Here's an
+example of a PV system with non-uniform shade.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="non uniform shade on a roof" src="./images/20150923_170418.jpg"&gt;&lt;/p&gt;
+&lt;h1 id="pv-primer"&gt;PV Primer&lt;/h1&gt;
+&lt;p&gt;In PV lingo a panel is called a "module" which is made up of smaller solar
+"cells" which are connected in series in most silicon PV modules. Modules are
+most often connected in series to form "strings" of modules, which are in
+parallel and connected to an "inverter" which converts DC current to AC which
+is sent to the grid.&lt;/p&gt;
+&lt;p&gt;Here's a typical PV system at the National Institute of Standards and
+Technology (NIST) in Gaithersburg, MD which has a single 260-kW inverter
+connected to 96 strings each with twelve 235=W modules. The first four rows are
+5 modules deep, but the last row is only 4 modules deep. The modules are all in
+landscape and have straight stringing:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="NIST Google" src="./images/NIST_Google.png"&gt;
+&lt;img alt="NIST ground mount racks" src="./images/ground-mount-racks.jpg"&gt;&lt;/p&gt;
+&lt;h2 id="pv-cells-and-reverse-bias-breakdown"&gt;PV Cells and Reverse Bias Breakdown&lt;/h2&gt;
+&lt;p&gt;The cells in a PV module can be considered roughly as a current source in
+parallel with a diode and some resistive elements. Diodes are semiconductors,
+in other words, they only conducts current in one direction, called the forward
+bias. When a negative voltage, or a reverse bias is applied to the cell, the
+semiconductor won't conduct a current. However, if enough reverse bias is
+applied, all semiconductors will eventually breakdown, and carry a current.
+This phenomema is called &lt;strong&gt;Reverse Bias Breakdown&lt;/strong&gt;, and the &lt;strong&gt;breakdown
+voltage&lt;/strong&gt; varies between cell technology. A typical front contact p-type
+silicon solar cell may breakdown at around -20 volts, while a back-contact
+n-type silicon solar cell may breakdown at -5 volts. There are many factors,
+beyond the scope of this primer, that affect reverse bias breakdown, such as
+purity of the substrate as well as type and concentration of dopant. The most
+important thing to understand about reverse bias breakdown is this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When a cell is in reverse breakdown, it can carry nearly any current, but
+because the voltage is negative, then the cell will dissipate energy and will
+get hot as it exchanges heat with the environment around it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="the-single-diode-model"&gt;The Single Diode Model&lt;/h3&gt;
+&lt;p&gt;The electric circuit analog used to describe a solar cell is called the single
+diode model. Here's a schematic:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Single Diode Model" src="https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png"&gt;&lt;/p&gt;
+&lt;p&gt;Image credit:
+&lt;a href="https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/diode-equivalent-circuit-models/"&gt;Sandia PV Performance Modeling Collaborative&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The solar cell current-voltage relation, or IV curve, shown below demonstrates
+the forward and reverse bias characteristics of a solar cell. The single diode
+model matches this response close enough to be used for predictions.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3-quadrant IV curve" src="http://www.pveducation.org/sites/default/files/PVCDROM/Modules/Images/NONIDEAL.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Image credit:
+&lt;a href="http://www.pveducation.org/pvcdrom/modules-and-arrays/mismatch-effects"&gt;PV Education, UNSW, ASU, &lt;em&gt;et al.&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="pv-modules-and-bypass-diodes"&gt;PV Modules and Bypass Diodes&lt;/h2&gt;
+&lt;p&gt;PV modules are usually designed with bypass diodes to avoid energy loss and hot
+spots due to cells in reverse bias breakdown by allowing current to bypass the
+cells in reverse bias breakdown. The figure below shows a 72-cell module with
+3 bypass diodes, each in parallel with a 24-cell submodule (&lt;em&gt;aka&lt;/em&gt;: substring).&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Circuit diagram of the solar module with 72 cells" src="./images/Circuit-diagram-of-the-solar-module-with-72-cells_W640.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Credit: &lt;em&gt;Analysis of Power Loss for Crystalline Silicon Solar Module during the
+Course of Encapsulation&lt;/em&gt; by Hong Yang &lt;em&gt;et al.&lt;/em&gt;, April 2015, International
+Journal of Photoenergy 2015:1-5 &lt;a href="https://doi.org/10.1155/2015/251615"&gt;DOI: 10.1155/2015/251615&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When the voltage in the submodule exceeds a small trigger voltage in the bypass
+diode, due to a cell or cells in reverse bias breakdown, then current will flow
+through the bypass diode, bypassing the entire submodule. For example, if one
+cell in the submodule is in reverse bias breakdown at -20 volts, and the other
+23 cells are all normal at 0.6 volts, then the total voltage of the submodule
+is -6.2 volts.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;V_sub = -20[V] + 23 * 0.6[V] = -20[V] - 13.8[V] = -6.2[V]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So if the trigger voltage of the bypass diode is -0.5 volts, then the current
+will pass through the bypass diode. If the module current is 6 amps, then the
+bypass diode dissipates only 3 watts and avoids losing 36 watts from the bad
+submodule. What's more important than saving energy though, is that the bypass
+diode is also a safety device, because the single cell in reverse bias
+breakdown would have dissipated 120 watts, which could potentially cause a
+fire, and most likely would cause permanent damage to the cell and the module
+encapsulant or backsheet. &lt;/p&gt;
+&lt;h1 id="electric-circuit-theory"&gt;Electric Circuit Theory&lt;/h1&gt;
+&lt;p&gt;So why does non-uniform shade cause this non-linear effect? If we consider the
+PV system as an electric circuit, then it must obey the following two laws:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Ohm%27s_law"&gt;Ohm's Law&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws"&gt;Kirchhoff's Law&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="ohms-law"&gt;Ohms Law&lt;/h2&gt;
+&lt;p&gt;According to Ohm's law because the cells and modules in a PV system are all in
+series, then they must all carry the same current, &lt;code&gt;I&lt;/code&gt;, the total votlage of
+each module, &lt;code&gt;Vmod&lt;/code&gt;, is the sum of the cell voltages in that module, and the
+total string voltage, &lt;code&gt;Vstr&lt;/code&gt;, is the sum of the modules voltages in the string.
+In the equation below, &lt;code&gt;Z&lt;/code&gt; represents the impedance of each cell in a module or
+each module in a string.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Ohm's Law" src="https://latex.codecogs.com/png.latex?V%20%3D%20%5Csum%7BV%7D%20%3D%20I%20%5Csum%7BZ%7D"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;LaTeX provided by &lt;a href="https://www.codecogs.com/latex/eqneditor.php"&gt;CodeCogs Equation Editor&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The actual relation in a cell is actually a bit more complicated than &lt;code&gt;V=IZ&lt;/code&gt;,
+but hopefully this will do to explain electrical mismatch for now. The relation
+between the flux of charge and solar cell voltage is described by
+&lt;a href="https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation"&gt;Poisson Energy Transport Equation&lt;/a&gt;
+but in practice a 1-diode circuit is a useful analog. See this post on
+&lt;a href="./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html"&gt;examples of implicit vs. explicit solutions for PV systems&lt;/a&gt;
+for more info.&lt;/p&gt;
+&lt;h2 id="kirchhoffs-law"&gt;Kirchhoff's Law&lt;/h2&gt;
+&lt;p&gt;Kirchhoff's law requires the voltage across all of the parallel strings to be
+the same as the voltage across the inverter, and the total current at the
+inverter nodes to be the sum of the currents from all parallel strings
+connected to it.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kirchhoff's Law" src="https://latex.codecogs.com/png.latex?I%20%3D%20%5Csum%7BI%7D"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;LaTeX provided by &lt;a href="https://www.codecogs.com/latex/eqneditor.php"&gt;CodeCogs Equation Editor&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="electrical-mismatch"&gt;Electrical Mismatch&lt;/h1&gt;
+&lt;p&gt;The combined effect of enforcing Ohm's and Kirchhoff's laws on a PV system that
+is partially shaded can cause what's called &lt;em&gt;electrical mismatch&lt;/em&gt;. In other
+words, the shaded cells can't &lt;em&gt;match&lt;/em&gt; the current being carried by the rest of
+the module, or the string with shaded modules can't carry the same voltage as
+the PV system, and therefore the entire system has to find a new operating
+condition to satisfy Ohm's and Kirchhoff's laws.&lt;/p&gt;
+&lt;h2 id="a-rule-of-thumb"&gt;A Rule of Thumb&lt;/h2&gt;
+&lt;p&gt;The counter intuitive behavior of a PV array with partial shade can be
+understood by remembering the following rule of thumb:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A submodule will perform as well as its most shaded cell.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Imagine a submodule has the bottom cells completely shaded, so they are only
+getting diffuse light, say 10% of the total plane of array irradiance that's
+incident on the other cells in the module. The rest of the PV array is
+operating normally, so the current and voltage of each string might be 7.8 amps
+and 360 volts, assuming &lt;a href="#pv-primer"&gt;the NIST site above&lt;/a&gt; with
+&lt;a href="http://pvfree.herokuapp.com/cec_modules/14735/"&gt;Sharp NUU235F2&lt;/a&gt; modules. So as
+described in the section on
+&lt;a href="#pv-cells-and-reverse-bias-breakdown"&gt;PV Cells and Reverse Bias Breakdown&lt;/a&gt;
+the two shaded cells can only carry this current in reverse bias breakdown,
+which would trigger the bypass diode to activate, and cause the string to lose
+one-third of a module's voltage. However, the strings all have to have the same
+voltage, and the maximum power of the system is not going to be at lower
+voltage, so the bad submodule can't activate it's bypass diode, and the string
+will have to operate at a lower current - the same current as the bad cell.&lt;/p&gt;
+&lt;h2 id="pvmismatch"&gt;PVMismatch&lt;/h2&gt;
+&lt;p&gt;We can analyze this using &lt;a href="https://sunpower.github.io/PVMismatch/"&gt;PVMismatch&lt;/a&gt;
+Python package by SunPower.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: A PV system with just 10% of cells shaded in only 1 string, loses
+nearly all of the power in that string.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="script"&gt;Script&lt;/h3&gt;
+&lt;p&gt;The following scrpt uses PVMismatch to model a PV system at STC with 10 strings
+of 10 &lt;a href="http://pvfree.herokuapp.com/pvmodules/1517/"&gt;SunPower SPR-315E-WHT&lt;/a&gt;
+96-cell modules per string. Then analyzes the same system, but with the bottom
+row of cells shaded 80%, &lt;em&gt;eg&lt;/em&gt;: only diffuseirradiance left:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;analyze and plot a 10x10 system with bottom cells of one row shaded&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# import the pvmismatch library&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pvmismatch&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="c1"&gt;# import the matplotlib plotting library&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;
+
+&lt;span class="c1"&gt;# make a 10x10 system of SPR-E20-315 96-cell panels at stc&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pvsystem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PVsystem&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# plot the system&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotSys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# shade the bottom cell of all modules in the 1st string by 80%&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setSuns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;cells&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;59&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;83&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;Ee&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)}})&lt;/span&gt;
+
+&lt;span class="c1"&gt;# plot the btm row shaded system&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotSys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# btm row shaded system max power&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;
+&lt;span class="c1"&gt;# 29607.549997102204&lt;/span&gt;
+
+&lt;span class="c1"&gt;# make a new stc system for comparison&lt;/span&gt;
+&lt;span class="n"&gt;pvsys_stc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pvsystem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PVsystem&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# stc system max power&lt;/span&gt;
+&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;
+&lt;span class="c1"&gt;# 32119.317380452303&lt;/span&gt;
+
+&lt;span class="c1"&gt;# calculate loss&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;
+&lt;span class="c1"&gt;# 0.07820114461332704&lt;/span&gt;
+
+&lt;span class="c1"&gt;# btm row shaded string max power&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# 720.6607971888608&lt;/span&gt;
+
+&lt;span class="c1"&gt;# stc string max power&lt;/span&gt;
+&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# 3212.7324983909575&lt;/span&gt;
+
+&lt;span class="c1"&gt;# calculate loss&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# 0.7756860250426105&lt;/span&gt;
+
+&lt;span class="c1"&gt;# plot stc string&lt;/span&gt;
+&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotStr&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gcf&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# plot btm row shaded string&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotStr&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gcf&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="PV system at STC" src="./images/pvsys_stc.png"&gt; &lt;/p&gt;
+&lt;p&gt;The maximum power at STC is 32,119 [W].&lt;/p&gt;
+&lt;p&gt;&lt;img alt="PV system with bottom row shaded" src="./images/pvsys_bot_row.png"&gt;&lt;/p&gt;
+&lt;p&gt;The maximum power with bottom row shaded) is 29,607 [W]. The calculated the
+relative loss, &lt;code&gt;(pvsys_stc – pvys_btm_row) / pvsys_stc&lt;/code&gt;, is 7.8%.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="PV string at STC" src="./images/pvstr_stc.png"&gt;&lt;/p&gt;
+&lt;p&gt;The string power at STC is 3213 [W].&lt;/p&gt;
+&lt;p&gt;&lt;img alt="PV string with bottom row shaded" src="./images/pvstr_bot_row.png"&gt;&lt;/p&gt;
+&lt;p&gt;The string power with the bottom row shaded is 721 [W], and the calculated
+relative loss, &lt;code&gt;(pvstr_stc – pvstr_btm_row) / pvstr_stc&lt;/code&gt;, is 78%.&lt;/p&gt;
+&lt;p&gt;(Sorry the resolution is a bit poor around the knee, this was a quick
+simulation using only 100 points.)&lt;/p&gt;</content><category term="Solar"></category><category term="solar"></category><category term="modeling"></category><category term="code"></category></entry><entry><title>OAuth 2.0 and OpenID Connect Primer</title><link href="https://breakingbytes.github.io/oauth-20-and-openid-connect-primer.html" rel="alternate"></link><published>2019-10-17T17:30:00-07:00</published><updated>2019-10-17T17:30:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-17:/oauth-20-and-openid-connect-primer.html</id><summary type="html">&lt;p&gt;Authentication and authorization with OAuth 2.0 and OpenID Connect.&lt;/p&gt;</summary><content type="html">&lt;h1 id="authentication-and-authorization"&gt;Authentication and Authorization&lt;/h1&gt;
 &lt;p&gt;Web applications may contain both public and private data. Private data may
 be further restricted to only certain authorized users. Therefore the web
 application must first authenticate a user, and then determine what private
@@ -60,7 +303,7 @@ code from the authorization service.&lt;/li&gt;
 to redirect users to login with the identity provider and get an authorization
 code which can be exchanged by the client for an access token. For this example,
 we'll use the following fictitious authorization URL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;authorize&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/authorize/
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -68,11 +311,11 @@ we'll use the following fictitious authorization URL:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;The authorization URL is very picky. It must include a the following query
 string parameters:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;client_id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="ss"&gt;&amp;quot;state&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;optional&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="ss"&gt;&amp;quot;response_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="ss"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;redirect_uri&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="ss"&gt;&amp;quot;scope&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;read write email name&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;client_id&amp;quot;: &amp;lt;client-id&amp;gt;,
+&amp;quot;state&amp;quot;: &amp;lt;optional&amp;gt;,
+&amp;quot;response_type&amp;quot;: &amp;quot;code&amp;quot;,
+&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;,
+&amp;quot;scope&amp;quot;: &amp;quot;read write email name&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -105,7 +348,7 @@ client. The code can then be exchanged for an access token.&lt;/li&gt;
 &lt;p&gt;The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
 &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/token/
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -114,9 +357,9 @@ exchange the authorization code for an access token. This request is sent as a
 &lt;p&gt;The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;grant_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;authorization_code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="ss"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="ss"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;redirect_uri&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;grant_type&amp;quot;: &amp;quot;authorization_code&amp;quot;,
+&amp;quot;code&amp;quot;: &amp;lt;code&amp;gt;,
+&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -146,14 +389,14 @@ token to obtain the token owners identity and other claims such as &lt;code&gt;e
 &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;given_name&lt;/code&gt; and &lt;code&gt;family_name&lt;/code&gt;. These claims must be submitted as
 scopes when the authorization code is requested. Then the client can send a
 &lt;code&gt;GET&lt;/code&gt; request:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;userinfo&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/userinfo/
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;code&gt;GET&lt;/code&gt; must have an authorization header containing the bearer token:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Authorization&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Authorization: &amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -320,7 +563,7 @@ when every cell is different.&lt;/p&gt;
 &lt;p&gt;The following Gist contains examples for a full scale implicit approach and the
 explicit parameterized approach described. The Gist are best viewed on
 &lt;a href="http://nbviewer.jupyter.org/gist/mikofski/df318d1f892767ac7c762e732fecaa7f"&gt;nbviewer&lt;/a&gt;.&lt;/p&gt;
-&lt;script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"&gt;&lt;/script&gt;</content><category term="Modeling"></category><category term="code"></category><category term="solar"></category></entry><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1 id="modeling"&gt;Modeling&lt;/h1&gt;
+&lt;script src="https://gist.github.com/mikofski/df318d1f892767ac7c762e732fecaa7f.js"&gt;&lt;/script&gt;</content><category term="Solar"></category><category term="code"></category><category term="solar"></category><category term="modeling"></category></entry><entry><title>SPACES: Mnemonic for core values of good modeling software</title><link href="https://breakingbytes.github.io/spaces-mnemonic-for-core-values-of-good-modeling-software.html" rel="alternate"></link><published>2018-05-10T00:14:00-07:00</published><updated>2018-05-10T00:14:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2018-05-10:/spaces-mnemonic-for-core-values-of-good-modeling-software.html</id><summary type="html">&lt;p&gt;What makes good modeling software? Repeat this three times out loud.&lt;/p&gt;</summary><content type="html">&lt;h1 id="modeling"&gt;Modeling&lt;/h1&gt;
 &lt;p&gt;Mathematical models of scientific phenomena are essential in engineering. We
 use them to design experiments and select instruments based on estimates of the
 sensitivities of relationships between factors. We derive models from the
@@ -861,16 +1104,16 @@ the login &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element. I made some simp
 &lt;span class="cm"&gt; *&lt;/span&gt;
 &lt;span class="cm"&gt; * Use this as the callback for jQuery&amp;#39;s resize function.*/&lt;/span&gt;
 
-&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;banner&lt;/span&gt;, &lt;span class="nv"&gt;log_form&lt;/span&gt;, &lt;span class="nv"&gt;minht&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;banner_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  $&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;banner&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // height of banner&lt;/span&gt;
-&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; $&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;window&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // window height&lt;/span&gt;
-&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; $&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;log_form&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // login form&lt;/span&gt;
-&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;half&lt;/span&gt; &lt;span class="nv"&gt;difference&lt;/span&gt; &lt;span class="nv"&gt;between&lt;/span&gt; &lt;span class="nv"&gt;window&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;banner&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="nv"&gt;form&lt;/span&gt;
-&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;banner_height&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;new_height = &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;new_height&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;margin&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;top&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="nv"&gt;form&lt;/span&gt; &lt;span class="nv"&gt;container&lt;/span&gt;
-$&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;log_form&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;css&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;margin-top&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nv"&gt;minht&lt;/span&gt; ? &lt;span class="nv"&gt;minht&lt;/span&gt; : &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;px&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-}
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;banner_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// height of banner&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt; &lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// window height&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// login form&lt;/span&gt;
+&lt;span class="c1"&gt;// new height = half difference between window and banner + login form&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;banner_height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;new_height = &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="c1"&gt;// set the margin on the top of the login form container&lt;/span&gt;
+&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;margin-top&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt; : &lt;span class="kt"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -908,7 +1151,7 @@ package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
 on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of calling it. So
 all I have to do to publish my posts is execute:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;github&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make github
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -939,7 +1182,7 @@ which uses links mostly. This means that when you update your version of
 Python-3 you need to &lt;em&gt;also&lt;/em&gt; update your virtual environment.&lt;/p&gt;
 &lt;p&gt;For the &lt;code&gt;virtualenv&lt;/code&gt; package you'll have to create a new virtual environment on
 top of the old one. But for the built in &lt;code&gt;venv&lt;/code&gt; module you can just run:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="c1"&gt;--upgrade &amp;lt;my-py3-venv&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;py -3 -m venv --upgrade &amp;lt;my-py3-venv&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
