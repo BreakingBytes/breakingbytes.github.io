@@ -46,12 +46,55 @@ Here's a typical PV system at the National Institute of Standards and Technology
 ![NIST Google](./images/NIST_Google.png)
 ![NIST ground mount racks](./images/ground-mount-racks.jpg)
 
-## PV Cells and Modulea
+## PV Cells and Reverse Bias Breakdownx
 
-The cells in a PV module can be considered roughly as diodes, which are
-semiconductor, or a material that conducts current in one direction, called
-forward bias. When a negative voltage, or reverse bias is applied to the cell,
-it won't 
+The cells in a PV module can be considered roughly as diodes, which are a type
+of semiconductor, or a material that conducts current in one direction, called
+the forward bias. When a negative voltage, or a reverse bias is applied to the
+cell, the semiconductor won't conduct a current. However, if enough reverse bias
+is applied, all semiconductors will eventually breakdown, and carry a current.
+This phenomema is called **Reverse Bias Breakdown**, and the **breakdown voltage**
+varies between cell technology. A typical front contact p-type silicon solar
+cell may breakdown at around -20 volts, while a back-contact n-type silicon
+solar cell may breakdown at -5 volts. There are many factors, beyond the scope
+of this primer, that affect reverse bias breakdown, such as purity of the
+substrate as well as type and concentration of dopant. The most important thing
+to understand about reverse bias breakdown is this:
+
+>When a cell is in reverse breakdown, it can carry nearly any current, but
+because the voltage is negative, then the cell will dissipate energy and will
+get hot as it exchanges heat with the environment around it.
+
+### PV Modules and Bypass Diodes
+
+PV modules are usually designed with bypass diodes to avoid energy loss and hot
+spots due to cells in reverse bias breakdown by allowing current to bypass the
+cells in reverse bias breakdown. The figure below shows a 72-cell module with
+3 bypass diodes, each in parallel with a 24-cell submodule (_aka_: substring).
+
+![Circuit diagram of the solar module with 72 cells](./images/Circuit-diagram-of-the-solar-module-with-72-cells_W640.jpg)
+
+Credit: _Analysis of Power Loss for Crystalline Silicon Solar Module during the
+Course of Encapsulation_ by Hong Yang _et al._, April 2015, International
+Journal of Photoenergy 2015:1-5 [DOI: 10.1155/2015/251615](https://doi.org/10.1155/2015/251615)
+
+When the voltage in the submodule exceeds a small trigger voltage in the bypass
+diode, due to a cell or cells in reverse bias breakdown, then current will flow
+through the bypass diode, bypassing the entire submodule. For example, if one
+cell in the submodule is in reverse bias breakdown at -20 volts, and the other
+23 cells are all normal at 0.6 volts, then the total voltage of the submodule
+is -6.8 volts.
+
+    V_sub = -20[V] + 23 * 0.6[V] = -20[V] - 13.8[V] = -6.2[V]
+
+So if the trigger voltage of the bypass diode is -0.5 volts, then the current
+will pass through the bypass diode. If the module current is 6 amps, then the
+bypass diode dissipates only 3 watts and avoids losing 36 watts from the bad
+submodule. What's more important than saving energy though, is that the bypass
+diode is also a safety device, because the single cell in reverse bias breakdown
+would have dissipated 120 watts, which could potentially cause a fire, and most
+likely would cause permanent damage to the cell and the module encapsulant or
+backsheet. 
 
 # Electric Circuit Theory
 
@@ -105,3 +148,12 @@ condition to satisfy Ohm's and Kirchhoff's laws.
 ## The Single Diode Model
 
 How 
+
+![Single Diode Model](https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png)
+
+Image credit:
+[Sandia PV Performance Modeling Collaborative](https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/diode-equivalent-circuit-models/)
+
+![3-quadrant IV curve](http://www.pveducation.org/sites/default/files/PVCDROM/Modules/Images/NONIDEAL.gif)
+
+Image credit: [PV Education, UNSW, ASU, _et al._](http://www.pveducation.org/pvcdrom/modules-and-arrays/mismatch-effects)
