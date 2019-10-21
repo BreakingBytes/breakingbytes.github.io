@@ -7,7 +7,7 @@ Summary: Why does shade just across the bottom row of cells cause 90% power loss
 
 # Uniform Versus Non-Uniform Shade
 
-Photovoltaic solar energy panels, _aka_ PV, have a very unintuitive resonse to
+Photovoltaic solar energy panels, _aka_ PV, have a counter-intuitive resonse to
 shade, that surprises most people.
 
 > Shade across a relatively small portion of the panel can cause a
