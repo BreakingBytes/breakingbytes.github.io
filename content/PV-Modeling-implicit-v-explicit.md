@@ -1,7 +1,7 @@
 Title: Examples of implicit versus explicit solutions for photovoltaic solar energy systems
 Date: 2018-06-22 20:55
-Category: Modeling
-Tags: code, solar
+Category: Solar
+Tags: code, solar, modeling
 Authors: Mark Mikofski
 Summary: Using a numerical solver to model solar power.
 

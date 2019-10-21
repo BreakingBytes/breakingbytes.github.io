@@ -25,11 +25,11 @@ over the sun, or the sun slowly sank behind a mountain, so that the same light
 was cast everywhere, but just lower intensity, say 50%, then the power would be
 50% lower as well.
 
-So just to be _completely clear_, in this post we are **not** going to talk about
-the effects of changes in light intensity that are totally uniform everywhere,
-but instead we're going to focus on what happens when there are non-uniform
-differences in light intensity across the PV system. Here's an example of a PV
-system with non-uniform shade.
+So just to be _completely clear_, in this post we are **not** going to talk
+about the effects of changes in light intensity that are totally uniform
+everywhere, but instead we're going to focus on what happens when there are
+non-uniform differences in light intensity across the PV system. Here's an
+example of a PV system with non-uniform shade.
 
 ![non uniform shade on a roof](./images/20150923_170418.jpg)
 
@@ -41,31 +41,55 @@ most often connected in series to form "strings" of modules, which are in
 parallel and connected to an "inverter" which converts DC current to AC which
 is sent to the grid.
 
-Here's a typical PV system at the National Institute of Standards and Technology:
+Here's a typical PV system at the National Institute of Standards and
+Technology (NIST) in Gaithersburg, MD which has a single 260-kW inverter
+connected to 96 strings each with twelve 235=W modules. The first four rows are
+5 modules deep, but the last row is only 4 modules deep. The modules are all in
+landscape and have straight stringing:
 
 ![NIST Google](./images/NIST_Google.png)
 ![NIST ground mount racks](./images/ground-mount-racks.jpg)
 
-## PV Cells and Reverse Bias Breakdownx
+## PV Cells and Reverse Bias Breakdown
 
-The cells in a PV module can be considered roughly as diodes, which are a type
-of semiconductor, or a material that conducts current in one direction, called
-the forward bias. When a negative voltage, or a reverse bias is applied to the
-cell, the semiconductor won't conduct a current. However, if enough reverse bias
-is applied, all semiconductors will eventually breakdown, and carry a current.
-This phenomema is called **Reverse Bias Breakdown**, and the **breakdown voltage**
-varies between cell technology. A typical front contact p-type silicon solar
-cell may breakdown at around -20 volts, while a back-contact n-type silicon
-solar cell may breakdown at -5 volts. There are many factors, beyond the scope
-of this primer, that affect reverse bias breakdown, such as purity of the
-substrate as well as type and concentration of dopant. The most important thing
-to understand about reverse bias breakdown is this:
+The cells in a PV module can be considered roughly as a current source in
+parallel with a diode and some resistive elements. Diodes are semiconductors,
+in other words, they only conducts current in one direction, called the forward
+bias. When a negative voltage, or a reverse bias is applied to the cell, the
+semiconductor won't conduct a current. However, if enough reverse bias is
+applied, all semiconductors will eventually breakdown, and carry a current.
+This phenomema is called **Reverse Bias Breakdown**, and the **breakdown
+voltage** varies between cell technology. A typical front contact p-type
+silicon solar cell may breakdown at around -20 volts, while a back-contact
+n-type silicon solar cell may breakdown at -5 volts. There are many factors,
+beyond the scope of this primer, that affect reverse bias breakdown, such as
+purity of the substrate as well as type and concentration of dopant. The most
+important thing to understand about reverse bias breakdown is this:
 
 >When a cell is in reverse breakdown, it can carry nearly any current, but
 because the voltage is negative, then the cell will dissipate energy and will
 get hot as it exchanges heat with the environment around it.
 
-### PV Modules and Bypass Diodes
+### The Single Diode Model
+
+The electric circuit analog used to describe a solar cell is called the single
+diode model. Here's a schematic:
+
+![Single Diode Model](https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png)
+
+Image credit:
+[Sandia PV Performance Modeling Collaborative](https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/diode-equivalent-circuit-models/)
+
+The solar cell current-voltage relation, or IV curve, shown below demonstrates
+the forward and reverse bias characteristics of a solar cell. The single diode
+model matches this response close enough to be used for predictions.
+
+![3-quadrant IV curve](http://www.pveducation.org/sites/default/files/PVCDROM/Modules/Images/NONIDEAL.gif)
+
+Image credit:
+[PV Education, UNSW, ASU, _et al._](http://www.pveducation.org/pvcdrom/modules-and-arrays/mismatch-effects)
+
+## PV Modules and Bypass Diodes
 
 PV modules are usually designed with bypass diodes to avoid energy loss and hot
 spots due to cells in reverse bias breakdown by allowing current to bypass the
@@ -91,10 +115,10 @@ So if the trigger voltage of the bypass diode is -0.5 volts, then the current
 will pass through the bypass diode. If the module current is 6 amps, then the
 bypass diode dissipates only 3 watts and avoids losing 36 watts from the bad
 submodule. What's more important than saving energy though, is that the bypass
-diode is also a safety device, because the single cell in reverse bias breakdown
-would have dissipated 120 watts, which could potentially cause a fire, and most
-likely would cause permanent damage to the cell and the module encapsulant or
-backsheet. 
+diode is also a safety device, because the single cell in reverse bias
+breakdown would have dissipated 120 watts, which could potentially cause a
+fire, and most likely would cause permanent damage to the cell and the module
+encapsulant or backsheet. 
 
 # Electric Circuit Theory
 
@@ -120,8 +144,8 @@ _LaTeX provided by [CodeCogs Equation Editor](https://www.codecogs.com/latex/eqn
 The actual relation in a cell is actually a bit more complicated than `V=IZ`,
 but hopefully this will do to explain electrical mismatch for now. The relation
 between the flux of charge and solar cell voltage is described by
-[Poisson Energy Transport Equation](https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation) but in practice a 1-diode circuit is a
-useful analog. See this post on
+[Poisson Energy Transport Equation](https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation)
+but in practice a 1-diode circuit is a useful analog. See this post on
 [examples of implicit vs. explicit solutions for PV systems](./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html)
 for more info.
 
@@ -140,20 +164,129 @@ _LaTeX provided by [CodeCogs Equation Editor](https://www.codecogs.com/latex/eqn
 
 The combined effect of enforcing Ohm's and Kirchhoff's laws on a PV system that
 is partially shaded can cause what's called _electrical mismatch_. In other
-words, the shaded cells can't match the current being carried by the rest of
+words, the shaded cells can't _match_ the current being carried by the rest of
 the module, or the string with shaded modules can't carry the same voltage as
 the PV system, and therefore the entire system has to find a new operating
 condition to satisfy Ohm's and Kirchhoff's laws.
 
-## The Single Diode Model
+## A Rule of Thumb
+The counter intuitive behavior of a PV array with partial shade can be
+understood by remembering the following rule of thumb:
 
-How 
+>A submodule will perform as well as its most shaded cell.
 
-![Single Diode Model](https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png)
+Imagine a submodule has the bottom cells completely shaded, so they are only
+getting diffuse light, say 10% of the total plane of array irradiance that's
+incident on the other cells in the module. The rest of the PV array is
+operating normally, so the current and voltage of each string might be 7.8 amps
+and 360 volts, assuming [the NIST site above](#pv-primer) with
+[Sharp NUU235F2](http://pvfree.herokuapp.com/cec_modules/14735/) modules. So as
+described in the section on
+[PV Cells and Reverse Bias Breakdown](#pv-cells-and-reverse-bias-breakdown)
+the two shaded cells can only carry this current in reverse bias breakdown,
+which would trigger the bypass diode to activate, and cause the string to lose
+one-third of a module's voltage. However, the strings all have to have the same
+voltage, and the maximum power of the system is not going to be at lower
+voltage, so the bad submodule can't activate it's bypass diode, and the string
+will have to operate at a lower current - the same current as the bad cell.
 
-Image credit:
-[Sandia PV Performance Modeling Collaborative](https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/diode-equivalent-circuit-models/)
+## PVMismatch
+We can analyze this using [PVMismatch](https://sunpower.github.io/PVMismatch/)
+Python package by SunPower.
 
-![3-quadrant IV curve](http://www.pveducation.org/sites/default/files/PVCDROM/Modules/Images/NONIDEAL.gif)
+>**TL;DR**: A PV system with just 10% of cells shaded in only 1 string, loses
+nearly all of the power in that string.
 
-Image credit: [PV Education, UNSW, ASU, _et al._](http://www.pveducation.org/pvcdrom/modules-and-arrays/mismatch-effects)
+### Script 
+The following scrpt uses PVMismatch to model a PV system at STC with 10 strings
+of 10 [SunPower SPR-315E-WHT](http://pvfree.herokuapp.com/pvmodules/1517/)
+96-cell modules per string. Then analyzes the same system, but with the bottom
+row of cells shaded 80%, _eg_: only diffuseirradiance left:
+
+    """
+    analyze and plot a 10x10 system with bottom cells of one row shaded
+    """
+
+    # import the pvmismatch library
+    from pvmismatch import *
+
+    # import the matplotlib plotting library
+    from matplotlib import pyplot as plt
+
+    # make a 10x10 system of SPR-E20-315 96-cell panels at stc
+    pvsys = pvsystem.PVsystem()
+
+    # plot the system
+    pvsys.plotSys()
+    plt.tight_layout()
+
+    # shade the bottom cell of all modules in the 1st string by 80%
+    pvsys.setSuns(
+        {0: {m: {
+            'cells': (11, 12, 35, 36, 59, 60, 83, 84),
+            'Ee': (0.2,) * 8} for m in range(10)}})
+
+    # plot the btm row shaded system
+    pvsys.plotSys()
+    plt.tight_layout()
+
+    # btm row shaded system max power
+    pvsys.Pmp
+    # 29607.549997102204
+
+    # make a new stc system for comparison
+    pvsys_stc = pvsystem.PVsystem()
+
+    # stc system max power
+    pvsys_stc.Pmp
+    # 32119.317380452303
+
+    # calculate loss
+    (pvsys_stc.Pmp - pvsys.Pmp) / pvsys_stc.Pmp
+    # 0.07820114461332704
+
+    # btm row shaded string max power
+    pvsys.pvstrs[0].Pstring.max()
+    # 720.6607971888608
+
+    # stc string max power
+    pvsys_stc.pvstrs[0].Pstring.max()
+    # 3212.7324983909575
+
+    # calculate loss
+    (pvsys_stc.pvstrs[0].Pstring.max() - pvsys.pvstrs[0].Pstring.max()) / pvsys_stc.pvstrs[0].Pstring.max()
+    # 0.7756860250426105
+
+    # plot stc string
+    pvsys_stc.pvstrs[0].plotStr()
+    f = plt.gcf()
+    f.axes[0].set_ylim([0, 8])
+    plt.tight_layout()
+
+    # plot btm row shaded string
+    pvsys.pvstrs[0].plotStr()
+    f = plt.gcf()
+    f.axes[0].set_ylim([0, 8])
+    f.axes[1].set_ylim([-100, 1000])
+    plt.tight_layout()
+
+![PV system at STC](./images/pvsys_stc.png) 
+
+The maximum power at STC is 32,119 [W].
+
+![PV system with bottom row shaded](./images/pvsys_bot_row.png)
+
+The maximum power with bottom row shaded) is 29,607 [W]. The calculated the
+relative loss, `(pvsys_stc – pvys_btm_row) / pvsys_stc`, is 7.8%.
+
+![PV string at STC](./images/pvstr_stc.png)
+
+The string power at STC is 3213 [W].
+
+![PV string with bottom row shaded](./images/pvstr_bot_row.png)
+
+The string power with the bottom row shaded is 721 [W], and the calculated
+relative loss, `(pvstr_stc – pvstr_btm_row) / pvstr_stc`, is 78%.
+
+(Sorry the resolution is a bit poor around the knee, this was a quick
+simulation using only 100 points.)
