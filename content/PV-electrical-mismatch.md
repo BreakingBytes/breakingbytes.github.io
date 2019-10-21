@@ -83,7 +83,7 @@ diode, due to a cell or cells in reverse bias breakdown, then current will flow
 through the bypass diode, bypassing the entire submodule. For example, if one
 cell in the submodule is in reverse bias breakdown at -20 volts, and the other
 23 cells are all normal at 0.6 volts, then the total voltage of the submodule
-is -6.8 volts.
+is -6.2 volts.
 
     V_sub = -20[V] + 23 * 0.6[V] = -20[V] - 13.8[V] = -6.2[V]
 
