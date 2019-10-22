@@ -7,16 +7,16 @@ Summary: Why does shade just across the bottom row of cells cause 90% power loss
 
 # Uniform Versus Non-Uniform Shade
 
-Photovoltaic solar energy panels, _aka_ PV, have a counter-intuitive resonse to
-shade, that surprises most people.
+The counter-intuitive effect of shade on photovoltaic (PV) solar energy panels
+surprises most people.
 
 > Shade across a relatively small portion of the panel can cause a
-disproportionately much larger power loss.
+disproportionately large power loss.
 
-_IE_ Shade across just the bottom row of cells, only 6 cells out of 60, only
-10% of the PV panel, will cause 90% power loss! Why does this happen? Did you
-think it would cause only 10% power loss? Why isn't power loss _linear_ with
-shade?
+For example, shade across just the bottom row of cells, only 6 cells out of 60,
+merely 10% of the PV panel, will cause 90% power loss! Why does this happen?
+Did you think it would cause only 10% power loss? Why isn't power loss _linear_
+with shade?
 
 OK, to be fair, if the entire array is uniformly shaded or merely illuminated
 with a less intense light, then the decrease in power _would_ be proportional
@@ -35,17 +35,18 @@ example of a PV system with non-uniform shade.
 
 # PV Primer
 
-In PV lingo a panel is called a "module" which is made up of smaller solar
-"cells" which are connected in series in most silicon PV modules. Modules are
-most often connected in series to form "strings" of modules, which are in
-parallel and connected to an "inverter" which converts DC current to AC which
-is sent to the grid.
+In PV lingo, a panel is called a **module** which, in most silicon PV modules,
+is made up of smaller solar **cells** connected in series. Modules are most
+often connected in series to form **strings** of modules. Strings are connected
+in parallel to an **inverter** which converts DC from the panels to AC which is
+sent to the grid.
 
 Here's a typical PV system at the National Institute of Standards and
-Technology (NIST) in Gaithersburg, MD which has a single 260-kW inverter
-connected to 96 strings each with twelve 235=W modules. The first four rows are
-5 modules deep, but the last row is only 4 modules deep. The modules are all in
-landscape and have straight stringing:
+Technology (NIST) in Gaithersburg, MD, which has a single 260-kW inverter
+connected to 96 strings, each with 12
+[Sharp NU-U235F2](https://pvfree.herokuapp.com/cec_modules/14738/) 235-W
+modules. The first four rows are 5 modules deep, but the last row is only 4
+modules deep. The modules are all in landscape and have straight stringing:
 
 ![NIST Google](./images/NIST_Google.png)
 ![NIST ground mount racks](./images/ground-mount-racks.jpg)
@@ -53,12 +54,12 @@ landscape and have straight stringing:
 ## PV Cells and Reverse Bias Breakdown
 
 The cells in a PV module can be considered roughly as a current source in
-parallel with a diode and some resistive elements. Diodes are semiconductors,
-in other words, they only conducts current in one direction, called the forward
-bias. When a negative voltage, or a reverse bias is applied to the cell, the
+parallel with a diode and some resistive elements. Diodes are semiconductors.
+In other words, they only conduct current in one direction, called the forward
+bias. When a negative voltage, or a reverse bias, is applied to the cell, the
 semiconductor won't conduct a current. However, if enough reverse bias is
 applied, all semiconductors will eventually breakdown, and carry a current.
-This phenomema is called **Reverse Bias Breakdown**, and the **breakdown
+This phenomema is called **reverse bias breakdown**, and the **breakdown
 voltage** varies between cell technology. A typical front contact p-type
 silicon solar cell may breakdown at around -20 volts, while a back-contact
 n-type silicon solar cell may breakdown at -5 volts. There are many factors,
@@ -130,10 +131,10 @@ PV system as an electric circuit, then it must obey the following two laws:
 
 ## Ohms Law
 
-According to Ohm's law because the cells and modules in a PV system are all in
-series, then they must all carry the same current, `I`, the total votlage of
+According to Ohm's law, because the cells and modules in a PV system are all in
+series, then they must all carry the same current, `I`, the total voltage of
 each module, `Vmod`, is the sum of the cell voltages in that module, and the
-total string voltage, `Vstr`, is the sum of the modules voltages in the string.
+total string voltage, `Vstr`, is the sum of the module voltages in the string.
 In the equation below, `Z` represents the impedance of each cell in a module or
 each module in a string.
 
@@ -141,13 +142,14 @@ each module in a string.
 
 _LaTeX provided by [CodeCogs Equation Editor](https://www.codecogs.com/latex/eqneditor.php)_
 
-The actual relation in a cell is actually a bit more complicated than `V=IZ`,
+The actual relation in a cell is really a bit more complicated than `V=IZ`,
 but hopefully this will do to explain electrical mismatch for now. The relation
-between the flux of charge and solar cell voltage is described by
+between the flux of charge and solar cell voltage is described by the
 [Poisson Energy Transport Equation](https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation)
-but in practice a 1-diode circuit is a useful analog. See this post on
-[examples of implicit vs. explicit solutions for PV systems](./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html)
-for more info.
+but in practice [the single diode model](#the-single-diode-model) circuit
+discussed above, is a useful analog. For more detail on the single diode model,
+see this post on
+[examples of implicit vs. explicit solutions for PV systems](./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html).
 
 ## Kirchhoff's Law
 
@@ -179,14 +181,13 @@ Imagine a submodule has the bottom cells completely shaded, so they are only
 getting diffuse light, say 10% of the total plane of array irradiance that's
 incident on the other cells in the module. The rest of the PV array is
 operating normally, so the current and voltage of each string might be 7.8 amps
-and 360 volts, assuming [the NIST site above](#pv-primer) with
-[Sharp NUU235F2](http://pvfree.herokuapp.com/cec_modules/14735/) modules. So as
-described in the section on
-[PV Cells and Reverse Bias Breakdown](#pv-cells-and-reverse-bias-breakdown)
+and 360 volts, assuming the NIST site shown in the [PV Primer](#pv-primer)
+above. So, as described in the section on
+[PV Cells and Reverse Bias Breakdown](#pv-cells-and-reverse-bias-breakdown),
 the two shaded cells can only carry this current in reverse bias breakdown,
 which would trigger the bypass diode to activate, and cause the string to lose
 one-third of a module's voltage. However, the strings all have to have the same
-voltage, and the maximum power of the system is not going to be at lower
+voltage, and the maximum power point of the system is not going to be at lower
 voltage, so the bad submodule can't activate it's bypass diode, and the string
 will have to operate at a lower current - the same current as the bad cell.
 
@@ -199,9 +200,9 @@ nearly all of the power in that string.
 
 ### Script 
 The following scrpt uses PVMismatch to model a PV system at STC with 10 strings
-of 10 [SunPower SPR-315E-WHT](http://pvfree.herokuapp.com/pvmodules/1517/)
+of 10 [SunPower SPR-315E-WHT](https://pvfree.herokuapp.com/pvmodules/1517/)
 96-cell modules per string. Then analyzes the same system, but with the bottom
-row of cells shaded 80%, _eg_: only diffuseirradiance left:
+row of cells shaded 80%, _ie_: only diffuse irradiance:
 
     """
     analyze and plot a 10x10 system with bottom cells of one row shaded
