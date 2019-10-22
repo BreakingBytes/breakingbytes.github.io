@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2019-10-18T15:23:00-07:00</updated><entry><title>Electric Mismatch in Silicon-Cell PV is Not Intuitive</title><link href="https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html" rel="alternate"></link><published>2019-10-18T15:23:00-07:00</published><updated>2019-10-18T15:23:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-18:/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html</id><summary type="html">&lt;p&gt;Why does shade just across the bottom row of cells cause 90% power loss?&lt;/p&gt;</summary><content type="html">&lt;h1 id="uniform-versus-non-uniform-shade"&gt;Uniform Versus Non-Uniform Shade&lt;/h1&gt;
-&lt;p&gt;Photovoltaic solar energy panels, &lt;em&gt;aka&lt;/em&gt; PV, have a counter-intuitive resonse to
-shade, that surprises most people.&lt;/p&gt;
+&lt;p&gt;The counter-intuitive effect of shade on photovoltaic (PV) solar energy panels
+surprises most people.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Shade across a relatively small portion of the panel can cause a
-disproportionately much larger power loss.&lt;/p&gt;
+disproportionately large power loss.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;IE&lt;/em&gt; Shade across just the bottom row of cells, only 6 cells out of 60, only
-10% of the PV panel, will cause 90% power loss! Why does this happen? Did you
-think it would cause only 10% power loss? Why isn't power loss &lt;em&gt;linear&lt;/em&gt; with
-shade?&lt;/p&gt;
+&lt;p&gt;For example, shade across just the bottom row of cells, only 6 cells out of 60,
+merely 10% of the PV panel, will cause 90% power loss! Why does this happen?
+Did you think it would cause only 10% power loss? Why isn't power loss &lt;em&gt;linear&lt;/em&gt;
+with shade?&lt;/p&gt;
 &lt;p&gt;OK, to be fair, if the entire array is uniformly shaded or merely illuminated
 with a less intense light, then the decrease in power &lt;em&gt;would&lt;/em&gt; be proportional
 to the decrease in light intensity. For example if a giant rain cloud passed
@@ -23,26 +23,27 @@ non-uniform differences in light intensity across the PV system. Here's an
 example of a PV system with non-uniform shade.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="non uniform shade on a roof" src="./images/20150923_170418.jpg"&gt;&lt;/p&gt;
 &lt;h1 id="pv-primer"&gt;PV Primer&lt;/h1&gt;
-&lt;p&gt;In PV lingo a panel is called a "module" which is made up of smaller solar
-"cells" which are connected in series in most silicon PV modules. Modules are
-most often connected in series to form "strings" of modules, which are in
-parallel and connected to an "inverter" which converts DC current to AC which
-is sent to the grid.&lt;/p&gt;
+&lt;p&gt;In PV lingo, a panel is called a &lt;strong&gt;module&lt;/strong&gt; which, in most silicon PV modules,
+is made up of smaller solar &lt;strong&gt;cells&lt;/strong&gt; connected in series. Modules are most
+often connected in series to form &lt;strong&gt;strings&lt;/strong&gt; of modules. Strings are connected
+in parallel to an &lt;strong&gt;inverter&lt;/strong&gt; which converts DC from the panels to AC which is
+sent to the grid.&lt;/p&gt;
 &lt;p&gt;Here's a typical PV system at the National Institute of Standards and
-Technology (NIST) in Gaithersburg, MD which has a single 260-kW inverter
-connected to 96 strings each with twelve 235=W modules. The first four rows are
-5 modules deep, but the last row is only 4 modules deep. The modules are all in
-landscape and have straight stringing:&lt;/p&gt;
+Technology (NIST) in Gaithersburg, MD, which has a single 260-kW inverter
+connected to 96 strings, each with 12
+&lt;a href="https://pvfree.herokuapp.com/cec_modules/14738/"&gt;Sharp NU-U235F2&lt;/a&gt; 235-W
+modules. The first four rows are 5 modules deep, but the last row is only 4
+modules deep. The modules are all in landscape and have straight stringing:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="NIST Google" src="./images/NIST_Google.png"&gt;
 &lt;img alt="NIST ground mount racks" src="./images/ground-mount-racks.jpg"&gt;&lt;/p&gt;
 &lt;h2 id="pv-cells-and-reverse-bias-breakdown"&gt;PV Cells and Reverse Bias Breakdown&lt;/h2&gt;
 &lt;p&gt;The cells in a PV module can be considered roughly as a current source in
-parallel with a diode and some resistive elements. Diodes are semiconductors,
-in other words, they only conducts current in one direction, called the forward
-bias. When a negative voltage, or a reverse bias is applied to the cell, the
+parallel with a diode and some resistive elements. Diodes are semiconductors.
+In other words, they only conduct current in one direction, called the forward
+bias. When a negative voltage, or a reverse bias, is applied to the cell, the
 semiconductor won't conduct a current. However, if enough reverse bias is
 applied, all semiconductors will eventually breakdown, and carry a current.
-This phenomema is called &lt;strong&gt;Reverse Bias Breakdown&lt;/strong&gt;, and the &lt;strong&gt;breakdown
+This phenomema is called &lt;strong&gt;reverse bias breakdown&lt;/strong&gt;, and the &lt;strong&gt;breakdown
 voltage&lt;/strong&gt; varies between cell technology. A typical front contact p-type
 silicon solar cell may breakdown at around -20 volts, while a back-contact
 n-type silicon solar cell may breakdown at -5 volts. There are many factors,
@@ -81,7 +82,7 @@ through the bypass diode, bypassing the entire submodule. For example, if one
 cell in the submodule is in reverse bias breakdown at -20 volts, and the other
 23 cells are all normal at 0.6 volts, then the total voltage of the submodule
 is -6.2 volts.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;V_sub = -20[V] + 23 * 0.6[V] = -20[V] - 13.8[V] = -6.2[V]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;V_sub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.6&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;13.8&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;6.2&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -101,21 +102,22 @@ PV system as an electric circuit, then it must obey the following two laws:&lt;/
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws"&gt;Kirchhoff's Law&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="ohms-law"&gt;Ohms Law&lt;/h2&gt;
-&lt;p&gt;According to Ohm's law because the cells and modules in a PV system are all in
-series, then they must all carry the same current, &lt;code&gt;I&lt;/code&gt;, the total votlage of
+&lt;p&gt;According to Ohm's law, because the cells and modules in a PV system are all in
+series, then they must all carry the same current, &lt;code&gt;I&lt;/code&gt;, the total voltage of
 each module, &lt;code&gt;Vmod&lt;/code&gt;, is the sum of the cell voltages in that module, and the
-total string voltage, &lt;code&gt;Vstr&lt;/code&gt;, is the sum of the modules voltages in the string.
+total string voltage, &lt;code&gt;Vstr&lt;/code&gt;, is the sum of the module voltages in the string.
 In the equation below, &lt;code&gt;Z&lt;/code&gt; represents the impedance of each cell in a module or
 each module in a string.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Ohm's Law" src="https://latex.codecogs.com/png.latex?V%20%3D%20%5Csum%7BV%7D%20%3D%20I%20%5Csum%7BZ%7D"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;LaTeX provided by &lt;a href="https://www.codecogs.com/latex/eqneditor.php"&gt;CodeCogs Equation Editor&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The actual relation in a cell is actually a bit more complicated than &lt;code&gt;V=IZ&lt;/code&gt;,
+&lt;p&gt;The actual relation in a cell is really a bit more complicated than &lt;code&gt;V=IZ&lt;/code&gt;,
 but hopefully this will do to explain electrical mismatch for now. The relation
-between the flux of charge and solar cell voltage is described by
+between the flux of charge and solar cell voltage is described by the
 &lt;a href="https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation"&gt;Poisson Energy Transport Equation&lt;/a&gt;
-but in practice a 1-diode circuit is a useful analog. See this post on
-&lt;a href="./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html"&gt;examples of implicit vs. explicit solutions for PV systems&lt;/a&gt;
-for more info.&lt;/p&gt;
+but in practice &lt;a href="#the-single-diode-model"&gt;the single diode model&lt;/a&gt; circuit
+discussed above, is a useful analog. For more detail on the single diode model,
+see this post on
+&lt;a href="./examples-of-implicit-versus-explicit-solutions-for-photovoltaic-solar-energy-systems.html"&gt;examples of implicit vs. explicit solutions for PV systems&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="kirchhoffs-law"&gt;Kirchhoff's Law&lt;/h2&gt;
 &lt;p&gt;Kirchhoff's law requires the voltage across all of the parallel strings to be
 the same as the voltage across the inverter, and the total current at the
@@ -140,14 +142,13 @@ understood by remembering the following rule of thumb:&lt;/p&gt;
 getting diffuse light, say 10% of the total plane of array irradiance that's
 incident on the other cells in the module. The rest of the PV array is
 operating normally, so the current and voltage of each string might be 7.8 amps
-and 360 volts, assuming &lt;a href="#pv-primer"&gt;the NIST site above&lt;/a&gt; with
-&lt;a href="http://pvfree.herokuapp.com/cec_modules/14735/"&gt;Sharp NUU235F2&lt;/a&gt; modules. So as
-described in the section on
-&lt;a href="#pv-cells-and-reverse-bias-breakdown"&gt;PV Cells and Reverse Bias Breakdown&lt;/a&gt;
+and 360 volts, assuming the NIST site shown in the &lt;a href="#pv-primer"&gt;PV Primer&lt;/a&gt;
+above. So, as described in the section on
+&lt;a href="#pv-cells-and-reverse-bias-breakdown"&gt;PV Cells and Reverse Bias Breakdown&lt;/a&gt;,
 the two shaded cells can only carry this current in reverse bias breakdown,
 which would trigger the bypass diode to activate, and cause the string to lose
 one-third of a module's voltage. However, the strings all have to have the same
-voltage, and the maximum power of the system is not going to be at lower
+voltage, and the maximum power point of the system is not going to be at lower
 voltage, so the bad submodule can't activate it's bypass diode, and the string
 will have to operate at a lower current - the same current as the bad cell.&lt;/p&gt;
 &lt;h2 id="pvmismatch"&gt;PVMismatch&lt;/h2&gt;
@@ -159,9 +160,9 @@ nearly all of the power in that string.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="script"&gt;Script&lt;/h3&gt;
 &lt;p&gt;The following scrpt uses PVMismatch to model a PV system at STC with 10 strings
-of 10 &lt;a href="http://pvfree.herokuapp.com/pvmodules/1517/"&gt;SunPower SPR-315E-WHT&lt;/a&gt;
+of 10 &lt;a href="https://pvfree.herokuapp.com/pvmodules/1517/"&gt;SunPower SPR-315E-WHT&lt;/a&gt;
 96-cell modules per string. Then analyzes the same system, but with the bottom
-row of cells shaded 80%, &lt;em&gt;eg&lt;/em&gt;: only diffuseirradiance left:&lt;/p&gt;
+row of cells shaded 80%, &lt;em&gt;ie&lt;/em&gt;: only diffuse irradiance:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class="sd"&gt;analyze and plot a 10x10 system with bottom cells of one row shaded&lt;/span&gt;
 &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
@@ -303,7 +304,7 @@ code from the authorization service.&lt;/li&gt;
 to redirect users to login with the identity provider and get an authorization
 code which can be exchanged by the client for an access token. For this example,
 we'll use the following fictitious authorization URL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/authorize/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;authorize&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -311,11 +312,11 @@ we'll use the following fictitious authorization URL:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;The authorization URL is very picky. It must include a the following query
 string parameters:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;client_id&amp;quot;: &amp;lt;client-id&amp;gt;,
-&amp;quot;state&amp;quot;: &amp;lt;optional&amp;gt;,
-&amp;quot;response_type&amp;quot;: &amp;quot;code&amp;quot;,
-&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;,
-&amp;quot;scope&amp;quot;: &amp;quot;read write email name&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;client_id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;state&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;optional&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;response_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;redirect_uri&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;scope&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;read write email name&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -348,7 +349,7 @@ client. The code can then be exchanged for an access token.&lt;/li&gt;
 &lt;p&gt;The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
 &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/token/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -357,9 +358,9 @@ exchange the authorization code for an access token. This request is sent as a
 &lt;p&gt;The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;grant_type&amp;quot;: &amp;quot;authorization_code&amp;quot;,
-&amp;quot;code&amp;quot;: &amp;lt;code&amp;gt;,
-&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;grant_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;authorization_code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;redirect_uri&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -389,14 +390,14 @@ token to obtain the token owners identity and other claims such as &lt;code&gt;e
 &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;given_name&lt;/code&gt; and &lt;code&gt;family_name&lt;/code&gt;. These claims must be submitted as
 scopes when the authorization code is requested. Then the client can send a
 &lt;code&gt;GET&lt;/code&gt; request:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/userinfo/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;provider&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;userinfo&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;code&gt;GET&lt;/code&gt; must have an authorization header containing the bearer token:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Authorization: &amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Authorization&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1104,16 +1105,16 @@ the login &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element. I made some simp
 &lt;span class="cm"&gt; *&lt;/span&gt;
 &lt;span class="cm"&gt; * Use this as the callback for jQuery&amp;#39;s resize function.*/&lt;/span&gt;
 
-&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;banner_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// height of banner&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt; &lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// window height&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// login form&lt;/span&gt;
-&lt;span class="c1"&gt;// new height = half difference between window and banner + login form&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;banner_height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;new_height = &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="c1"&gt;// set the margin on the top of the login form container&lt;/span&gt;
-&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;margin-top&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="nx"&gt;minht&lt;/span&gt; : &lt;span class="kt"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;banner&lt;/span&gt;, &lt;span class="nv"&gt;log_form&lt;/span&gt;, &lt;span class="nv"&gt;minht&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;banner_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  $&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;banner&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // height of banner&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; $&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;window&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // window height&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; $&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;log_form&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;height&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // login form&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;half&lt;/span&gt; &lt;span class="nv"&gt;difference&lt;/span&gt; &lt;span class="nv"&gt;between&lt;/span&gt; &lt;span class="nv"&gt;window&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;banner&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="nv"&gt;form&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;banner_height&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;new_height = &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;new_height&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;margin&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;top&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="nv"&gt;form&lt;/span&gt; &lt;span class="nv"&gt;container&lt;/span&gt;
+$&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;log_form&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;css&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;margin-top&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nv"&gt;minht&lt;/span&gt; ? &lt;span class="nv"&gt;minht&lt;/span&gt; : &lt;span class="nv"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;px&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1151,7 +1152,7 @@ package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
 on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of calling it. So
 all I have to do to publish my posts is execute:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make github
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;github&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1182,7 +1183,7 @@ which uses links mostly. This means that when you update your version of
 Python-3 you need to &lt;em&gt;also&lt;/em&gt; update your virtual environment.&lt;/p&gt;
 &lt;p&gt;For the &lt;code&gt;virtualenv&lt;/code&gt; package you'll have to create a new virtual environment on
 top of the old one. But for the built in &lt;code&gt;venv&lt;/code&gt; module you can just run:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;py -3 -m venv --upgrade &amp;lt;my-py3-venv&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;venv&lt;/span&gt; &lt;span class="c1"&gt;--upgrade &amp;lt;my-py3-venv&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
