@@ -92,10 +92,10 @@ The solar cell current-voltage relation, or IV curve, shown below demonstrates
 the forward and reverse bias characteristics of a solar cell. The single diode
 model matches this response close enough to be used for predictions.
 
-![3-quadrant IV curve](http://www.pveducation.org/sites/default/files/PVCDROM/Modules/Images/NONIDEAL.gif)
+![3-quadrant IV curve](https://www.pveducation.org/sites/default/files/PVCDROM/Modules/Images/NONIDEAL.gif)
 
 Image credit:
-[PV Education, UNSW, ASU, _et al._](http://www.pveducation.org/pvcdrom/modules-and-arrays/mismatch-effects)
+[PV Education, UNSW, ASU, _et al._](https://www.pveducation.org/pvcdrom/modules-and-arrays/mismatch-effects)
 
 ## PV Modules and Bypass Diodes
 
