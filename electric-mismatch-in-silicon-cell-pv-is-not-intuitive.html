@@ -13,9 +13,7 @@
     <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
 
   <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/brands.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/solid.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/font-awesome.min.css">
 
 
     <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
@@ -67,31 +65,11 @@
       </nav>
 
       <ul class="social">
-          <li>
-            <a  class="sc-github" href="https://github.com/mikofski" target="_blank">
-            <i class="fab fa-github">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank">
-            <i class="fab fa-linkedin">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank">
-            <i class="fab fa-twitter">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank">
-            <i class="fab fa-google">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-rss" href="feeds/all.atom.xml" target="_blank">
-            <i class="fas fa-rss">
-            </i>
-          </a></li>
+        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
       </ul>
     </div>
 
@@ -160,8 +138,13 @@ connected to 96 strings, each with 12
 <a href="https://pvfree.herokuapp.com/cec_modules/14738/">Sharp NU-U235F2</a> 235-W
 modules. The first four rows are 5 modules deep, but the last row is only 4
 modules deep. The modules are all in landscape and have straight stringing:</p>
-<p><img alt="NIST Google" src="./images/NIST_Google.png">
+<p><img alt="NIST Google" src="./images/nist-ground-array.png">
 <img alt="NIST ground mount racks" src="./images/ground-mount-racks.jpg"></p>
+<p>Here's a simulation from
+<a href="https://www.dnvgl.com/services/solar-pv-plant-design-software-solarfarmer-140689">SolarFarmer</a>
+showing the shadows cast by the eastern trees.</p>
+<p><img alt="NIST Google" src="./images/NIST_SolarFarmer_trees.png">
+<img alt="NIST Google" src="./images/NIST_Google.png"></p>
 <h2 id="pv-cells-and-reverse-bias-breakdown">PV Cells and Reverse Bias Breakdown</h2>
 <p>The cells in a PV module can be considered roughly as a current source in
 parallel with a diode and some resistive elements. Diodes are semiconductors.
@@ -208,7 +191,7 @@ through the bypass diode, bypassing the entire submodule. For example, if one
 cell in the submodule is in reverse bias breakdown at -20 volts, and the other
 23 cells are all normal at 0.6 volts, then the total voltage of the submodule
 is -6.2 volts.</p>
-<div class="highlight"><pre><span></span><span class="n">V_sub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">20</span><span class="o">[</span><span class="n">V</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">23</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.6</span><span class="o">[</span><span class="n">V</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">20</span><span class="o">[</span><span class="n">V</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">13.8</span><span class="o">[</span><span class="n">V</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">6.2</span><span class="o">[</span><span class="n">V</span><span class="o">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span>V_sub = -20[V] + 23 * 0.6[V] = -20[V] - 13.8[V] = -6.2[V]
 </pre></div>
 
 
@@ -234,8 +217,7 @@ each module, <code>Vmod</code>, is the sum of the cell voltages in that module, 
 total string voltage, <code>Vstr</code>, is the sum of the module voltages in the string.
 In the equation below, <code>Z</code> represents the impedance of each cell in a module or
 each module in a string.</p>
-<p><img alt="Ohm's Law" src="https://latex.codecogs.com/png.latex?V%20%3D%20%5Csum%7BV%7D%20%3D%20I%20%5Csum%7BZ%7D"></p>
-<p><em>LaTeX provided by <a href="https://www.codecogs.com/latex/eqneditor.php">CodeCogs Equation Editor</a></em></p>
+<div class="math">$$V = \sum V = I \sum Z$$</div>
 <p>The actual relation in a cell is really a bit more complicated than <code>V=IZ</code>,
 but hopefully this will do to explain electrical mismatch for now. The relation
 between the flux of charge and solar cell voltage is described by the
@@ -249,8 +231,7 @@ see this post on
 the same as the voltage across the inverter, and the total current at the
 inverter nodes to be the sum of the currents from all parallel strings
 connected to it.</p>
-<p><img alt="Kirchhoff's Law" src="https://latex.codecogs.com/png.latex?I%20%3D%20%5Csum%7BI%7D"></p>
-<p><em>LaTeX provided by <a href="https://www.codecogs.com/latex/eqneditor.php">CodeCogs Equation Editor</a></em></p>
+<div class="math">$$I = \sum I$$</div>
 <h1 id="electrical-mismatch">Electrical Mismatch</h1>
 <p>The combined effect of enforcing Ohm's and Kirchhoff's laws on a PV system that
 is partially shaded can cause what's called <em>electrical mismatch</em>. In other
@@ -370,6 +351,68 @@ relative loss, <code>(pvsys_stc – pvys_btm_row) / pvsys_stc</code>, is 7.8%.</
 relative loss, <code>(pvstr_stc – pvstr_btm_row) / pvstr_stc</code>, is 78%.</p>
 <p>(Sorry the resolution is a bit poor around the knee, this was a quick
 simulation using only 100 points.)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   <div class="tag-cloud">
     <p>

@@ -13,9 +13,7 @@
     <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
 
   <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/brands.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/solid.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/font-awesome.min.css">
 
 
     <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
@@ -67,31 +65,11 @@
       </nav>
 
       <ul class="social">
-          <li>
-            <a  class="sc-github" href="https://github.com/mikofski" target="_blank">
-            <i class="fab fa-github">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank">
-            <i class="fab fa-linkedin">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank">
-            <i class="fab fa-twitter">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank">
-            <i class="fab fa-google">
-            </i>
-          </a></li>
-          <li>
-            <a  class="sc-rss" href="feeds/all.atom.xml" target="_blank">
-            <i class="fas fa-rss">
-            </i>
-          </a></li>
+        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
       </ul>
     </div>
 
@@ -140,16 +118,16 @@ the login <code>&lt;div&gt;</code> element. I made some simplifications using jQ
 <span class="cm"> *</span>
 <span class="cm"> * Use this as the callback for jQuery&#39;s resize function.*/</span>
 
-<span class="nv">function</span> <span class="nv">set_login_form_container_margin_top</span><span class="ss">(</span><span class="nv">banner</span>, <span class="nv">log_form</span>, <span class="nv">minht</span><span class="ss">)</span> {
-<span class="nv">var</span> <span class="nv">banner_height</span> <span class="o">=</span>  $<span class="ss">(</span><span class="nv">banner</span><span class="ss">)</span>.<span class="nv">height</span><span class="ss">()</span><span class="c1">;  // height of banner</span>
-<span class="nv">var</span> <span class="nv">window_height</span> <span class="o">=</span> $<span class="ss">(</span> <span class="nv">window</span> <span class="ss">)</span>.<span class="nv">height</span><span class="ss">()</span><span class="c1">;  // window height</span>
-<span class="nv">var</span> <span class="nv">login_form_height</span> <span class="o">=</span> $<span class="ss">(</span><span class="nv">log_form</span><span class="ss">)</span>.<span class="nv">height</span><span class="ss">()</span><span class="c1">;  // login form</span>
-<span class="o">//</span> <span class="nv">new</span> <span class="nv">height</span> <span class="o">=</span> <span class="nv">half</span> <span class="nv">difference</span> <span class="nv">between</span> <span class="nv">window</span> <span class="nv">and</span> <span class="nv">banner</span> <span class="o">+</span> <span class="nv">login</span> <span class="nv">form</span>
-<span class="nv">var</span> <span class="nv">new_height</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">window_height</span> <span class="o">-</span> <span class="nv">login_form_height</span> <span class="o">-</span> <span class="nv">banner_height</span><span class="ss">)</span> <span class="o">/</span> <span class="mi">2</span><span class="c1">;</span>
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">new_height = </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">new_height</span><span class="ss">)</span><span class="c1">;</span>
-<span class="o">//</span> <span class="nv">set</span> <span class="nv">the</span> <span class="nv">margin</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">top</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">login</span> <span class="nv">form</span> <span class="nv">container</span>
-$<span class="ss">(</span><span class="nv">log_form</span><span class="ss">)</span>.<span class="nv">css</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">margin-top</span><span class="s1">&#39;</span>, <span class="nv">new_height</span> <span class="o">&lt;</span> <span class="nv">minht</span> ? <span class="nv">minht</span> : <span class="nv">new_height</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">px</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-}
+<span class="kd">function</span> <span class="nx">set_login_form_container_margin_top</span><span class="p">(</span><span class="nx">banner</span><span class="p">,</span> <span class="nx">log_form</span><span class="p">,</span> <span class="nx">minht</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">banner_height</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="nx">banner</span><span class="p">).</span><span class="nx">height</span><span class="p">();</span>  <span class="c1">// height of banner</span>
+<span class="kd">var</span> <span class="nx">window_height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nb">window</span> <span class="p">).</span><span class="nx">height</span><span class="p">();</span>  <span class="c1">// window height</span>
+<span class="kd">var</span> <span class="nx">login_form_height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">log_form</span><span class="p">).</span><span class="nx">height</span><span class="p">();</span>  <span class="c1">// login form</span>
+<span class="c1">// new height = half difference between window and banner + login form</span>
+<span class="kd">var</span> <span class="nx">new_height</span> <span class="o">=</span> <span class="p">(</span><span class="nx">window_height</span> <span class="o">-</span> <span class="nx">login_form_height</span> <span class="o">-</span> <span class="nx">banner_height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;new_height = &#39;</span> <span class="o">+</span> <span class="nx">new_height</span><span class="p">);</span>
+<span class="c1">// set the margin on the top of the login form container</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">log_form</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;margin-top&#39;</span><span class="p">,</span> <span class="nx">new_height</span> <span class="o">&lt;</span> <span class="nx">minht</span> <span class="o">?</span> <span class="nx">minht</span> : <span class="kt">new_height</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 
 
