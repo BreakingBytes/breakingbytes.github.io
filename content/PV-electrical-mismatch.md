@@ -117,7 +117,7 @@ cell in the submodule is in reverse bias breakdown at -20 volts, and the other
 23 cells are all normal at 0.6 volts, then the total voltage of the submodule
 is -6.2 volts.
 
-    V_sub = -20[V] + 23 * 0.6[V] = -20[V] - 13.8[V] = -6.2[V]
+$$V_{sub} = -20[V] + 23\left(0.6[V]\right) = -20[V] + 13.8[V] = -6.2[V]$$
 
 So if the trigger voltage of the bypass diode is -0.5 volts, then the current
 will pass through the bypass diode. If the module current is 6 amps, then the
@@ -139,15 +139,15 @@ PV system as an electric circuit, then it must obey the following two laws:
 ## Ohms Law
 
 According to Ohm's law, because the cells and modules in a PV system are all in
-series, then they must all carry the same current, `I`, the total voltage of
-each module, `Vmod`, is the sum of the cell voltages in that module, and the
-total string voltage, `Vstr`, is the sum of the module voltages in the string.
-In the equation below, `Z` represents the impedance of each cell in a module or
+series, then they must all carry the same current, $I$, the total voltage of
+each module, $V_{mod}$, is the sum of the cell voltages in that module, and the
+total string voltage, $V_{str}$, is the sum of the module voltages in the string.
+In the equation below, $Z$ represents the impedance of each cell in a module or
 each module in a string.
 
 $$V = \sum V = I \sum Z$$
 
-The actual relation in a cell is really a bit more complicated than `V=IZ`,
+The actual relation in a cell is really a bit more complicated than $V=IZ$,
 but hopefully this will do to explain electrical mismatch for now. The relation
 between the flux of charge and solar cell voltage is described by the
 [Poisson Energy Transport Equation](https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation)
@@ -163,7 +163,7 @@ the same as the voltage across the inverter, and the total current at the
 inverter nodes to be the sum of the currents from all parallel strings
 connected to it.
 
-$$I = \sum I$$
+$$I = \sum I = V\sum{\frac{1}{Z}}$$
 
 # Electrical Mismatch 
 
