@@ -62,3 +62,5 @@ MARKDOWN = {
     },
     'output_format': 'html5',
 }
+PLUGIN_PATHS=['../pelican-plugins']
+PLUGINS = ['render_math']

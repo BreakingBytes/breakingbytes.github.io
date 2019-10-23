@@ -48,8 +48,15 @@ connected to 96 strings, each with 12
 modules. The first four rows are 5 modules deep, but the last row is only 4
 modules deep. The modules are all in landscape and have straight stringing:
 
-![NIST Google](./images/NIST_Google.png)
+![NIST Google](./images/nist-ground-array.png)
 ![NIST ground mount racks](./images/ground-mount-racks.jpg)
+
+Here's a simulation from
+[SolarFarmer](https://www.dnvgl.com/services/solar-pv-plant-design-software-solarfarmer-140689)
+showing the shadows cast by the eastern trees.
+
+![NIST Google](./images/NIST_SolarFarmer_trees.png)
+![NIST Google](./images/NIST_Google.png)
 
 ## PV Cells and Reverse Bias Breakdown
 
@@ -138,9 +145,7 @@ total string voltage, `Vstr`, is the sum of the module voltages in the string.
 In the equation below, `Z` represents the impedance of each cell in a module or
 each module in a string.
 
-![Ohm's Law](https://latex.codecogs.com/png.latex?V%20%3D%20%5Csum%7BV%7D%20%3D%20I%20%5Csum%7BZ%7D)
-
-_LaTeX provided by [CodeCogs Equation Editor](https://www.codecogs.com/latex/eqneditor.php)_
+$$V = \sum V = I \sum Z$$
 
 The actual relation in a cell is really a bit more complicated than `V=IZ`,
 but hopefully this will do to explain electrical mismatch for now. The relation
@@ -158,9 +163,7 @@ the same as the voltage across the inverter, and the total current at the
 inverter nodes to be the sum of the currents from all parallel strings
 connected to it.
 
-![Kirchhoff's Law](https://latex.codecogs.com/png.latex?I%20%3D%20%5Csum%7BI%7D)
-
-_LaTeX provided by [CodeCogs Equation Editor](https://www.codecogs.com/latex/eqneditor.php)_
+$$I = \sum I$$
 
 # Electrical Mismatch 
 

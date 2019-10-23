@@ -2,3 +2,4 @@ pelican==4.2.0
 Markdown==3.1.1
 ipython
 ghp-import==0.5.5
+beautifulsoup4==4.8.1
