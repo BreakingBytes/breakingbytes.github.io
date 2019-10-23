@@ -117,7 +117,8 @@ cell in the submodule is in reverse bias breakdown at -20 volts, and the other
 23 cells are all normal at 0.6 volts, then the total voltage of the submodule
 is -6.2 volts.
 
-$$V_{sub} = -20[V] + 23\left(0.6[V]\right) = -20[V] + 13.8[V] = -6.2[V]$$
+$$\begin{align}V_{sub} &= -20[V] + 23\left(0.6[V]\right) \\
+&= -20[V] + 13.8[V] = -6.2[V]\end{align}$$
 
 So if the trigger voltage of the bypass diode is -0.5 volts, then the current
 will pass through the bypass diode. If the module current is 6 amps, then the
