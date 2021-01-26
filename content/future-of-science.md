@@ -10,4 +10,6 @@ Summary: The future of science is OSS, and the language is code.
 In the future money is obsolete, currency is your reputation, and you earn it
 but contributing to open source data, science, and software. What is open
 source? Software seems to dominate open source, but open science, open data,
-and open art are also important.
+and open art are also important. Content is not only digital, but also
+material. An open science experiment or open educational lesson plan. It's the
+ultimate socialist sharing economy. So how does it thrive?
