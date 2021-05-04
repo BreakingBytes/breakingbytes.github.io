@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="english">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -153,26 +153,26 @@ I change the size of the window. There were several StackOverflow answers that
 suggested creating a CSS class, which seemed perfect, but they didn't seem to
 work. Then I noticed they had some JavaScript in their file to pad the top of
 the login <code>&lt;div&gt;</code> element. I made some simplifications using jQuery and voila!</p>
-<div class="highlight"><pre><span></span><span class="cm">/* Vertically center login form in window</span>
-<span class="cm"> *</span>
-<span class="cm"> * Args:</span>
-<span class="cm"> *     banner (str): id of any banner or navbar elements at the top of</span>
-<span class="cm"> *         window</span>
-<span class="cm"> *     log_form (str):  id of div containing log form to center</span>
-<span class="cm"> *     minht (int): a minimum height to separate div from banner</span>
-<span class="cm"> *</span>
-<span class="cm"> * Use this as the callback for jQuery&#39;s resize function.*/</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Vertically</span> <span class="n">center</span> <span class="n">login</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">window</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">Args</span><span class="p">:</span>
+ <span class="o">*</span>     <span class="n">banner</span> <span class="p">(</span><span class="nb">str</span><span class="p">):</span> <span class="n">id</span> <span class="n">of</span> <span class="n">any</span> <span class="n">banner</span> <span class="ow">or</span> <span class="n">navbar</span> <span class="n">elements</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span>
+ <span class="o">*</span>         <span class="n">window</span>
+ <span class="o">*</span>     <span class="n">log_form</span> <span class="p">(</span><span class="nb">str</span><span class="p">):</span>  <span class="n">id</span> <span class="n">of</span> <span class="n">div</span> <span class="n">containing</span> <span class="nb">log</span> <span class="n">form</span> <span class="n">to</span> <span class="n">center</span>
+ <span class="o">*</span>     <span class="n">minht</span> <span class="p">(</span><span class="nb nb-Type">int</span><span class="p">):</span> <span class="n">a</span> <span class="n">minimum</span> <span class="n">height</span> <span class="n">to</span> <span class="n">separate</span> <span class="n">div</span> <span class="n">from</span> <span class="n">banner</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">Use</span> <span class="n">this</span> <span class="k">as</span> <span class="n">the</span> <span class="n">callback</span> <span class="k">for</span> <span class="n">jQuery</span><span class="s1">&#39;s resize function.*/</span>
 
-function<span class="w"> </span>set_login_form_container_margin_top<span class="o">(</span>banner<span class="o">,</span><span class="w"> </span>log_form<span class="o">,</span><span class="w"> </span>minht<span class="o">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-var<span class="w"> </span>banner_height<span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="err">$</span><span class="o">(</span>banner<span class="o">).</span>height<span class="o">()</span><span class="err">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span>height<span class="w"> </span>of<span class="w"> </span>banner<span class="w"></span>
-var<span class="w"> </span>window_height<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="o">(</span><span class="w"> </span>window<span class="w"> </span><span class="o">).</span>height<span class="o">()</span><span class="err">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span>window<span class="w"> </span>height<span class="w"></span>
-var<span class="w"> </span>login_form_height<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="o">(</span>log_form<span class="o">).</span>height<span class="o">()</span><span class="err">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span>login<span class="w"> </span>form<span class="w"></span>
-<span class="o">//</span><span class="w"> </span>new<span class="w"> </span>height<span class="w"> </span><span class="o">=</span><span class="w"> </span>half<span class="w"> </span>difference<span class="w"> </span>between<span class="w"> </span>window<span class="w"> </span>and<span class="w"> </span>banner<span class="w"> </span><span class="o">+</span><span class="w"> </span>login<span class="w"> </span>form<span class="w"></span>
-var<span class="w"> </span>new_height<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>window_height<span class="w"> </span><span class="o">-</span><span class="w"> </span>login_form_height<span class="w"> </span><span class="o">-</span><span class="w"> </span>banner_height<span class="o">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="err">;</span><span class="w"></span>
-console<span class="o">.</span>log<span class="o">(</span><span class="s">&#39;new_height = &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>new_height<span class="o">)</span><span class="err">;</span><span class="w"></span>
-<span class="o">//</span><span class="w"> </span>set<span class="w"> </span>the<span class="w"> </span>margin<span class="w"> </span><span class="kr">on</span><span class="w"> </span>the<span class="w"> </span>top<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>login<span class="w"> </span>form<span class="w"> </span>container<span class="w"></span>
-<span class="err">$</span><span class="o">(</span>log_form<span class="o">).</span>css<span class="o">(</span><span class="s">&#39;margin-top&#39;</span><span class="o">,</span><span class="w"> </span>new_height<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span>minht<span class="w"> </span><span class="err">?</span><span class="w"> </span><span class="nl">minht</span><span class="w"> </span><span class="o">:</span><span class="w"> </span>new_height<span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#39;px&#39;</span><span class="o">)</span><span class="err">;</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<span class="n">function</span> <span class="n">set_login_form_container_margin_top</span><span class="p">(</span><span class="n">banner</span><span class="p">,</span> <span class="n">log_form</span><span class="p">,</span> <span class="n">minht</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">var</span> <span class="n">banner_height</span> <span class="o">=</span>  <span class="o">$</span><span class="p">(</span><span class="n">banner</span><span class="p">)</span><span class="o">.</span><span class="n">height</span><span class="p">();</span>  <span class="o">//</span> <span class="n">height</span> <span class="n">of</span> <span class="n">banner</span>
+<span class="k">var</span> <span class="n">window_height</span> <span class="o">=</span> <span class="o">$</span><span class="p">(</span> <span class="n">window</span> <span class="p">)</span><span class="o">.</span><span class="n">height</span><span class="p">();</span>  <span class="o">//</span> <span class="n">window</span> <span class="n">height</span>
+<span class="k">var</span> <span class="n">login_form_height</span> <span class="o">=</span> <span class="o">$</span><span class="p">(</span><span class="n">log_form</span><span class="p">)</span><span class="o">.</span><span class="n">height</span><span class="p">();</span>  <span class="o">//</span> <span class="n">login</span> <span class="n">form</span>
+<span class="o">//</span> <span class="n">new</span> <span class="n">height</span> <span class="o">=</span> <span class="n">half</span> <span class="n">difference</span> <span class="n">between</span> <span class="n">window</span> <span class="ow">and</span> <span class="n">banner</span> <span class="o">+</span> <span class="n">login</span> <span class="n">form</span>
+<span class="k">var</span> <span class="n">new_height</span> <span class="o">=</span> <span class="p">(</span><span class="n">window_height</span> <span class="o">-</span> <span class="n">login_form_height</span> <span class="o">-</span> <span class="n">banner_height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;new_height = &#39;</span> <span class="o">+</span> <span class="n">new_height</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">set</span> <span class="n">the</span> <span class="n">margin</span> <span class="n">on</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">login</span> <span class="n">form</span> <span class="n">container</span>
+<span class="o">$</span><span class="p">(</span><span class="n">log_form</span><span class="p">)</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;margin-top&#39;</span><span class="p">,</span> <span class="n">new_height</span> <span class="o">&lt;</span> <span class="n">minht</span> <span class="err">?</span> <span class="n">minht</span> <span class="p">:</span> <span class="n">new_height</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 
 

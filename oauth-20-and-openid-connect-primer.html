@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="english">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -211,7 +211,7 @@ code from the authorization service.</li>
 to redirect users to login with the identity provider and get an authorization
 code which can be exchanged by the client for an access token. For this example,
 we'll use the following fictitious authorization URL:</p>
-<div class="highlight"><pre><span></span><span class="c">https://identity-provider/authorize/</span>
+<div class="highlight"><pre><span></span>https://identity-provider/authorize/
 </pre></div>
 
 
@@ -219,11 +219,11 @@ we'll use the following fictitious authorization URL:</p>
 <li>
 <p>The authorization URL is very picky. It must include a the following query
 string parameters:</p>
-<div class="highlight"><pre><span></span><span class="err">&quot;client_id&quot;: &lt;client-id&gt;,</span>
-<span class="err">&quot;state&quot;: &lt;optional&gt;,</span>
-<span class="err">&quot;response_type&quot;: &quot;code&quot;,</span>
-<span class="err">&quot;redirect_uri&quot;: &lt;redirect_uri&gt;,</span>
-<span class="err">&quot;scope&quot;: &quot;read write email name&quot;</span>
+<div class="highlight"><pre><span></span>&quot;client_id&quot;: &lt;client-id&gt;,
+&quot;state&quot;: &lt;optional&gt;,
+&quot;response_type&quot;: &quot;code&quot;,
+&quot;redirect_uri&quot;: &lt;redirect_uri&gt;,
+&quot;scope&quot;: &quot;read write email name&quot;
 </pre></div>
 
 
@@ -256,7 +256,7 @@ client. The code can then be exchanged for an access token.</li>
 <p>The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
 <code>POST</code>:</p>
-<div class="highlight"><pre><span></span><span class="c">https://identity-provider/token/</span>
+<div class="highlight"><pre><span></span>https://identity-provider/token/
 </pre></div>
 
 
@@ -265,9 +265,9 @@ exchange the authorization code for an access token. This request is sent as a
 <p>The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the <code>POST</code>:</p>
-<div class="highlight"><pre><span></span><span class="err">&quot;grant_type&quot;: &quot;authorization_code&quot;,</span>
-<span class="err">&quot;code&quot;: &lt;code&gt;,</span>
-<span class="err">&quot;redirect_uri&quot;: &lt;redirect_uri&gt;</span>
+<div class="highlight"><pre><span></span>&quot;grant_type&quot;: &quot;authorization_code&quot;,
+&quot;code&quot;: &lt;code&gt;,
+&quot;redirect_uri&quot;: &lt;redirect_uri&gt;
 </pre></div>
 
 
@@ -297,14 +297,14 @@ token to obtain the token owners identity and other claims such as <code>email</
 <code>name</code>, <code>given_name</code> and <code>family_name</code>. These claims must be submitted as
 scopes when the authorization code is requested. Then the client can send a
 <code>GET</code> request:</p>
-<div class="highlight"><pre><span></span><span class="c">https://identity-provider/userinfo/</span>
+<div class="highlight"><pre><span></span>https://identity-provider/userinfo/
 </pre></div>
 
 
 <ul>
 <li>
 <p>The <code>GET</code> must have an authorization header containing the bearer token:</p>
-<div class="highlight"><pre><span></span><span class="c">Authorization: &quot;Bearer &lt;token&gt;&quot;</span>
+<div class="highlight"><pre><span></span>Authorization: &quot;Bearer &lt;token&gt;&quot;
 </pre></div>
 
 
