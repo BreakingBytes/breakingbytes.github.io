@@ -13,7 +13,7 @@ STATIC_PATHS = ['images']
 
 TIMEZONE = 'US/Pacific'
 
-DEFAULT_LANG = u'English'
+DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
