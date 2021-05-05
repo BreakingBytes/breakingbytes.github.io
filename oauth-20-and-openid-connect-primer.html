@@ -8,18 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
 
-
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-          href="https://breakingbytes.github.io/theme/pygments/github.min.css">
-
-
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/brands.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/solid.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/font-awesome.min.css">
 
 
     <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
@@ -28,22 +22,11 @@
     <link rel="shortcut icon" href="/images/breakingbytes.ico" type="image/x-icon">
     <link rel="icon" href="/images/breakingbytes.ico" type="image/x-icon">
 
-  
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3X8X7LK5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-XB3X8X7LK5');
-</script>
-<!-- End of Global site tag (gtag.js) - Google Analytics -->
 
 <meta name="author" content="Mark Mikofski" />
 <meta name="description" content="Authentication and authorization with OAuth 2.0 and OpenID Connect." />
 <meta name="keywords" content="code, web, auth, oauth, openid">
-
 
 <meta property="og:site_name" content="Breaking Bytes"/>
 <meta property="og:title" content="OAuth 2.0 and OpenID Connect Primer"/>
@@ -65,76 +48,47 @@
   <title>Breaking Bytes &ndash; OAuth 2.0 and OpenID Connect Primer</title>
 
 </head>
-<body class="light-theme">
+<body>
   <aside>
     <div>
       <a href="https://breakingbytes.github.io">
         <img src="/images/70s_Marko_Mustache_cropped.jpg" alt="" title="">
       </a>
-
-      <h1>
-        <a href="https://breakingbytes.github.io"></a>
-      </h1>
-
+      <h1><a href="https://breakingbytes.github.io"></a></h1>
 
 
       <nav>
         <ul class="list">
 
-
-
-            <li>
-              <a target="_self" href="https://poquitopicante.blogspot.com/" >poquito picante</a>
-            </li>
-            <li>
-              <a target="_self" href="https://mikofski.github.io/" >bwanamarko</a>
-            </li>
-            <li>
-              <a target="_self" href="https://breakingbytes.blogspot.com/" >old breaking bytes</a>
-            </li>
+          <li><a href="https://poquitopicante.blogspot.com/" target="_blank">poquito picante</a></li>
+          <li><a href="https://mikofski.github.io/" target="_blank">bwanamarko</a></li>
+          <li><a href="https://breakingbytes.blogspot.com/" target="_blank">old breaking bytes</a></li>
         </ul>
       </nav>
 
       <ul class="social">
-          <li>
-            <a  class="sc-github" href="https://github.com/mikofski" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank">
-              <i class="fab fa-google"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-rss" href="feeds/all.atom.xml" target="_blank">
-              <i class="fas fa-rss"></i>
-            </a>
-          </li>
+        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
       </ul>
     </div>
+
 
   </aside>
   <main>
 
     <nav>
-      <a href="https://breakingbytes.github.io">Home</a>
+      <a href="https://breakingbytes.github.io">    Home
+</a>
 
       <a href="/archives.html">Archives</a>
       <a href="/categories.html">Categories</a>
       <a href="/tags.html">Tags</a>
 
-      <a href="https://breakingbytes.github.io/feeds/all.atom.xml">Atom</a>
+      <a href="https://breakingbytes.github.io/feeds/all.atom.xml">    Atom
+</a>
 
     </nav>
 
@@ -143,7 +97,8 @@
       
     <h1 id="oauth-20-and-openid-connect-primer">OAuth 2.0 and OpenID Connect Primer</h1>
     <p>
-      Posted on Thu 17 October 2019 in <a href="https://breakingbytes.github.io/category/authentication-and-authorization.html">Authentication and Authorization</a>
+          Posted on Thu 17 October 2019 in <a href="https://breakingbytes.github.io/category/authentication-and-authorization.html">Authentication and Authorization</a>
+
 
     </p>
   </header>
@@ -211,7 +166,7 @@ code from the authorization service.</li>
 to redirect users to login with the identity provider and get an authorization
 code which can be exchanged by the client for an access token. For this example,
 we'll use the following fictitious authorization URL:</p>
-<div class="highlight"><pre><span></span>https://identity-provider/authorize/
+<div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">identity</span><span class="o">-</span><span class="n">provider</span><span class="o">/</span><span class="n">authorize</span><span class="o">/</span>
 </pre></div>
 
 
@@ -219,11 +174,11 @@ we'll use the following fictitious authorization URL:</p>
 <li>
 <p>The authorization URL is very picky. It must include a the following query
 string parameters:</p>
-<div class="highlight"><pre><span></span>&quot;client_id&quot;: &lt;client-id&gt;,
-&quot;state&quot;: &lt;optional&gt;,
-&quot;response_type&quot;: &quot;code&quot;,
-&quot;redirect_uri&quot;: &lt;redirect_uri&gt;,
-&quot;scope&quot;: &quot;read write email name&quot;
+<div class="highlight"><pre><span></span><span class="ss">&quot;client_id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">client</span><span class="o">-</span><span class="n">id</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;state&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">optional</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;response_type&quot;</span><span class="p">:</span> <span class="ss">&quot;code&quot;</span><span class="p">,</span>
+<span class="ss">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">redirect_uri</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;scope&quot;</span><span class="p">:</span> <span class="ss">&quot;read write email name&quot;</span>
 </pre></div>
 
 
@@ -256,7 +211,7 @@ client. The code can then be exchanged for an access token.</li>
 <p>The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
 <code>POST</code>:</p>
-<div class="highlight"><pre><span></span>https://identity-provider/token/
+<div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">identity</span><span class="o">-</span><span class="n">provider</span><span class="o">/</span><span class="n">token</span><span class="o">/</span>
 </pre></div>
 
 
@@ -265,9 +220,9 @@ exchange the authorization code for an access token. This request is sent as a
 <p>The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the <code>POST</code>:</p>
-<div class="highlight"><pre><span></span>&quot;grant_type&quot;: &quot;authorization_code&quot;,
-&quot;code&quot;: &lt;code&gt;,
-&quot;redirect_uri&quot;: &lt;redirect_uri&gt;
+<div class="highlight"><pre><span></span><span class="ss">&quot;grant_type&quot;</span><span class="p">:</span> <span class="ss">&quot;authorization_code&quot;</span><span class="p">,</span>
+<span class="ss">&quot;code&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="ss">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">redirect_uri</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -297,14 +252,14 @@ token to obtain the token owners identity and other claims such as <code>email</
 <code>name</code>, <code>given_name</code> and <code>family_name</code>. These claims must be submitted as
 scopes when the authorization code is requested. Then the client can send a
 <code>GET</code> request:</p>
-<div class="highlight"><pre><span></span>https://identity-provider/userinfo/
+<div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">identity</span><span class="o">-</span><span class="n">provider</span><span class="o">/</span><span class="n">userinfo</span><span class="o">/</span>
 </pre></div>
 
 
 <ul>
 <li>
 <p>The <code>GET</code> must have an authorization header containing the bearer token:</p>
-<div class="highlight"><pre><span></span>Authorization: &quot;Bearer &lt;token&gt;&quot;
+<div class="highlight"><pre><span></span><span class="k">Authorization</span><span class="p">:</span> <span class="ss">&quot;Bearer &lt;token&gt;&quot;</span>
 </pre></div>
 
 
@@ -414,10 +369,9 @@ owner belongs to from the identity provider.</p>
 
     <footer>
 <p>
-  &copy; 2017  - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+  &copy;  2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
 </p>
-<p>
-Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
 </p><p>
   <a rel="license"
      href="http://creativecommons.org/licenses/by-sa/4.0/"
@@ -445,7 +399,6 @@ Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a 
   "description": ""
 }
 </script>
-
 
 </body>
 </html>
