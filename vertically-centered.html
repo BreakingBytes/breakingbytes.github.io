@@ -8,12 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="" />
 
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/font-awesome.min.css">
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://breakingbytes.github.io/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/solid.css">
 
 
     <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
@@ -22,11 +28,22 @@
     <link rel="shortcut icon" href="/images/breakingbytes.ico" type="image/x-icon">
     <link rel="icon" href="/images/breakingbytes.ico" type="image/x-icon">
 
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3X8X7LK5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-XB3X8X7LK5');
+</script>
+<!-- End of Global site tag (gtag.js) - Google Analytics -->
 
 <meta name="author" content="Mark Mikofski" />
 <meta name="description" content="Use jQuery to vertically center an element in a window." />
 <meta name="keywords" content="HTML, web, jQuery">
+
 
 <meta property="og:site_name" content="Breaking Bytes"/>
 <meta property="og:title" content="Vertically Centered"/>
@@ -46,47 +63,76 @@
   <title>Breaking Bytes &ndash; Vertically Centered</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
       <a href="https://breakingbytes.github.io">
         <img src="/images/70s_Marko_Mustache_cropped.jpg" alt="" title="">
       </a>
-      <h1><a href="https://breakingbytes.github.io"></a></h1>
+
+      <h1>
+        <a href="https://breakingbytes.github.io"></a>
+      </h1>
+
 
 
       <nav>
         <ul class="list">
 
-          <li><a href="https://poquitopicante.blogspot.com/" target="_blank">poquito picante</a></li>
-          <li><a href="https://mikofski.github.io/" target="_blank">bwanamarko</a></li>
-          <li><a href="https://breakingbytes.blogspot.com/" target="_blank">old breaking bytes</a></li>
+
+
+            <li>
+              <a target="_self" href="https://poquitopicante.blogspot.com/" >poquito picante</a>
+            </li>
+            <li>
+              <a target="_self" href="https://mikofski.github.io/" >bwanamarko</a>
+            </li>
+            <li>
+              <a target="_self" href="https://breakingbytes.blogspot.com/" >old breaking bytes</a>
+            </li>
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/mikofski" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank"><i class="fa fa-google"></i></a></li>
-        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/mikofski" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/markmikofski/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/breaking_bytes" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-google" href="https://plus.google.com/+MarkMikofski" target="_blank">
+              <i class="fab fa-google"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-rss" href="feeds/all.atom.xml" target="_blank">
+              <i class="fas fa-rss"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="https://breakingbytes.github.io">    Home
-</a>
+      <a href="https://breakingbytes.github.io">Home</a>
 
       <a href="/archives.html">Archives</a>
       <a href="/categories.html">Categories</a>
       <a href="/tags.html">Tags</a>
 
-      <a href="https://breakingbytes.github.io/feeds/all.atom.xml">    Atom
-</a>
+      <a href="https://breakingbytes.github.io/feeds/all.atom.xml">Atom</a>
 
     </nav>
 
@@ -95,8 +141,7 @@
       
     <h1 id="vertically-centered">Vertically Centered</h1>
     <p>
-          Posted on Thu 25 May 2017 in <a href="https://breakingbytes.github.io/category/javascript.html">JavaScript</a>
-
+      Posted on Thu 25 May 2017 in <a href="https://breakingbytes.github.io/category/javascript.html">JavaScript</a>
 
     </p>
   </header>
@@ -108,26 +153,26 @@ I change the size of the window. There were several StackOverflow answers that
 suggested creating a CSS class, which seemed perfect, but they didn't seem to
 work. Then I noticed they had some JavaScript in their file to pad the top of
 the login <code>&lt;div&gt;</code> element. I made some simplifications using jQuery and voila!</p>
-<div class="highlight"><pre><span></span><span class="cm">/* Vertically center login form in window</span>
-<span class="cm"> *</span>
-<span class="cm"> * Args:</span>
-<span class="cm"> *     banner (str): id of any banner or navbar elements at the top of</span>
-<span class="cm"> *         window</span>
-<span class="cm"> *     log_form (str):  id of div containing log form to center</span>
-<span class="cm"> *     minht (int): a minimum height to separate div from banner</span>
-<span class="cm"> *</span>
-<span class="cm"> * Use this as the callback for jQuery&#39;s resize function.*/</span>
+<div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Vertically</span> <span class="n">center</span> <span class="n">login</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">window</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">Args</span><span class="p">:</span>
+ <span class="o">*</span>     <span class="n">banner</span> <span class="p">(</span><span class="nb">str</span><span class="p">):</span> <span class="n">id</span> <span class="n">of</span> <span class="n">any</span> <span class="n">banner</span> <span class="ow">or</span> <span class="n">navbar</span> <span class="n">elements</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span>
+ <span class="o">*</span>         <span class="n">window</span>
+ <span class="o">*</span>     <span class="n">log_form</span> <span class="p">(</span><span class="nb">str</span><span class="p">):</span>  <span class="n">id</span> <span class="n">of</span> <span class="n">div</span> <span class="n">containing</span> <span class="nb">log</span> <span class="n">form</span> <span class="n">to</span> <span class="n">center</span>
+ <span class="o">*</span>     <span class="n">minht</span> <span class="p">(</span><span class="nb nb-Type">int</span><span class="p">):</span> <span class="n">a</span> <span class="n">minimum</span> <span class="n">height</span> <span class="n">to</span> <span class="n">separate</span> <span class="n">div</span> <span class="n">from</span> <span class="n">banner</span>
+ <span class="o">*</span>
+ <span class="o">*</span> <span class="n">Use</span> <span class="n">this</span> <span class="k">as</span> <span class="n">the</span> <span class="n">callback</span> <span class="k">for</span> <span class="n">jQuery</span><span class="s1">&#39;s resize function.*/</span>
 
-<span class="nv">function</span> <span class="nv">set_login_form_container_margin_top</span><span class="ss">(</span><span class="nv">banner</span>, <span class="nv">log_form</span>, <span class="nv">minht</span><span class="ss">)</span> {
-<span class="nv">var</span> <span class="nv">banner_height</span> <span class="o">=</span>  $<span class="ss">(</span><span class="nv">banner</span><span class="ss">)</span>.<span class="nv">height</span><span class="ss">()</span><span class="c1">;  // height of banner</span>
-<span class="nv">var</span> <span class="nv">window_height</span> <span class="o">=</span> $<span class="ss">(</span> <span class="nv">window</span> <span class="ss">)</span>.<span class="nv">height</span><span class="ss">()</span><span class="c1">;  // window height</span>
-<span class="nv">var</span> <span class="nv">login_form_height</span> <span class="o">=</span> $<span class="ss">(</span><span class="nv">log_form</span><span class="ss">)</span>.<span class="nv">height</span><span class="ss">()</span><span class="c1">;  // login form</span>
-<span class="o">//</span> <span class="nv">new</span> <span class="nv">height</span> <span class="o">=</span> <span class="nv">half</span> <span class="nv">difference</span> <span class="nv">between</span> <span class="nv">window</span> <span class="nv">and</span> <span class="nv">banner</span> <span class="o">+</span> <span class="nv">login</span> <span class="nv">form</span>
-<span class="nv">var</span> <span class="nv">new_height</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">window_height</span> <span class="o">-</span> <span class="nv">login_form_height</span> <span class="o">-</span> <span class="nv">banner_height</span><span class="ss">)</span> <span class="o">/</span> <span class="mi">2</span><span class="c1">;</span>
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">new_height = </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">new_height</span><span class="ss">)</span><span class="c1">;</span>
-<span class="o">//</span> <span class="nv">set</span> <span class="nv">the</span> <span class="nv">margin</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">top</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">login</span> <span class="nv">form</span> <span class="nv">container</span>
-$<span class="ss">(</span><span class="nv">log_form</span><span class="ss">)</span>.<span class="nv">css</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">margin-top</span><span class="s1">&#39;</span>, <span class="nv">new_height</span> <span class="o">&lt;</span> <span class="nv">minht</span> ? <span class="nv">minht</span> : <span class="nv">new_height</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">px</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-}
+<span class="n">function</span> <span class="n">set_login_form_container_margin_top</span><span class="p">(</span><span class="n">banner</span><span class="p">,</span> <span class="n">log_form</span><span class="p">,</span> <span class="n">minht</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">var</span> <span class="n">banner_height</span> <span class="o">=</span>  <span class="o">$</span><span class="p">(</span><span class="n">banner</span><span class="p">)</span><span class="o">.</span><span class="n">height</span><span class="p">();</span>  <span class="o">//</span> <span class="n">height</span> <span class="n">of</span> <span class="n">banner</span>
+<span class="k">var</span> <span class="n">window_height</span> <span class="o">=</span> <span class="o">$</span><span class="p">(</span> <span class="n">window</span> <span class="p">)</span><span class="o">.</span><span class="n">height</span><span class="p">();</span>  <span class="o">//</span> <span class="n">window</span> <span class="n">height</span>
+<span class="k">var</span> <span class="n">login_form_height</span> <span class="o">=</span> <span class="o">$</span><span class="p">(</span><span class="n">log_form</span><span class="p">)</span><span class="o">.</span><span class="n">height</span><span class="p">();</span>  <span class="o">//</span> <span class="n">login</span> <span class="n">form</span>
+<span class="o">//</span> <span class="n">new</span> <span class="n">height</span> <span class="o">=</span> <span class="n">half</span> <span class="n">difference</span> <span class="n">between</span> <span class="n">window</span> <span class="ow">and</span> <span class="n">banner</span> <span class="o">+</span> <span class="n">login</span> <span class="n">form</span>
+<span class="k">var</span> <span class="n">new_height</span> <span class="o">=</span> <span class="p">(</span><span class="n">window_height</span> <span class="o">-</span> <span class="n">login_form_height</span> <span class="o">-</span> <span class="n">banner_height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;new_height = &#39;</span> <span class="o">+</span> <span class="n">new_height</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">set</span> <span class="n">the</span> <span class="n">margin</span> <span class="n">on</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">login</span> <span class="n">form</span> <span class="n">container</span>
+<span class="o">$</span><span class="p">(</span><span class="n">log_form</span><span class="p">)</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;margin-top&#39;</span><span class="p">,</span> <span class="n">new_height</span> <span class="o">&lt;</span> <span class="n">minht</span> <span class="err">?</span> <span class="n">minht</span> <span class="p">:</span> <span class="n">new_height</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -163,9 +208,10 @@ $<span class="ss">(</span><span class="nv">log_form</span><span class="ss">)</sp
 
     <footer>
 <p>
-  &copy;  2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+  &copy; 2017  - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US" target="_blank">Creative Commons Attribution-ShareAlike</a>
 </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p><p>
   <a rel="license"
      href="http://creativecommons.org/licenses/by-sa/4.0/"
