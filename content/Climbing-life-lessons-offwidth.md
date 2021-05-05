@@ -35,7 +35,7 @@ It means keep climbing. Unless you're going to downclimb or retreat, it's better
 
 So what's the lesson? How does this apply to me, in my office, clicking a keyboard? Have you ever had a project or a product that's about to ship? And your boss calls you at 11pm, and says, "Hey change this thing." Or maybe you're the boss, and you call your team with a desperate hail Mary pitch at the last minute. **Don't. Just. Don't!** Calm down. Relax. Trust your team. Stick to the plan. The most important part is sending the project. Whatever your idea is, it's just not worth it. Or maybe it is? But you better be damned sure, because you had a product ready to ship. Are you certain you really want to fuck it up on a Friday night? Why not sleep on it? Maybe in the morning, when you start getting feedback, some bad, some good, on the product that you _actually_ delivered, you'll be glad that you didn't almost bomb everything.
 
-This is the lesson. After the 9th pitch, the climbing on the East Buttress was still hard, not technically, but we had reached the end of our rope (no pun this time) and we were tired. There was some mundane 5-easy, exposed traversing with awful rope drag, but we made it to the top. And what a top out it was. Half Dome ablaze in the most glorious sunset of my life.
+This is the lesson. After the 9th pitch, the climbing on the East Buttress was still hard, not technically, but we had reached the end of our rope (no pun this time) and we were fried. There was some mundane 5-easy, exposed traversing with awful rope drag, but we made it to the top. And what a top out it was. Half Dome ablaze in the most glorious sunset of my life.
 
 ![sunset over half dome](images/redhalfdome.JPG)
 
