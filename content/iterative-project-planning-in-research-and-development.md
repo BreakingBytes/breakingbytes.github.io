@@ -1,7 +1,7 @@
 Title: Iterative Project Planning in Research and Development
 Date: 2017-06-16 13:04:39
 Category: Productivity
-Tags: agile, kanban, scrum, development, research, time-management, project-managment, project-planning
+Tags: agile, kanban, scrum, development, research, time-management, project-management, project-planning
 Authors: Mark Mikofski
 Summary: Iterative planning is a a successful strategy for research and development.
 
