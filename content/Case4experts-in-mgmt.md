@@ -15,7 +15,7 @@ A mentor once told me, when hiring, look for intelligence versus skillset, becau
 
 ## Maximize Diversity
 
-In my opinion, there's a common misconception that experts lack leadership skills, or that their unique skills are better utilized as individual contributors. However, this artificial perception blocks potential contributions from others with unique perspectives, and it creates a void of subject matter expertise & experience in leadership. Instead it reinforces the stereotype of the alpha-male boss and the nerdy, absent minded professor.
+In my opinion, there's a common misconception that experts lack leadership skills, or that their unique skills are better utilized as individual contributors. However, this artificial perception blocks potential contributions from others with unique perspectives, and it creates a void of subject matter expertise & experience in leadership. Instead it reinforces the stereotype of the alpha-type boss and the nerdy, absent minded professor.
 
 ![Morty the mad scientist stereotype](images/morty-back-to-future.jpeg)
 
