@@ -29,7 +29,7 @@ Conversely, why are non-technical workers pushed into management, limiting their
 
 ## T-Shapes & Growth Mindsets
 
-Studies have reported on the importance of lateral moves and T-shaped workers. When a manager takes an assignment as an individual contributor they learn new skills and gain new perspectives that gives them both depth & breadth in their field. This allows them to synthesize new ideas and innovations they wouldn't have had if they'd remained siloed. Similarly when experts take on the responsibility of management, they are forced to delegate work, give up control, & learn the business constraints that limit what the organization can do. These perspectives are critical. Again, as with the manager, the expert now synthesizes these new ideas and innovates in ways they wouldn't have if they'd stayed in the lab. Both of these coworkers are now T-shaped. Instead of staying in fixed roles, by embracing a growth mindset, they have created synergy.
+Several reports have expressed the importance of lateral moves and T-shaped workers [1-4]. When a manager takes an assignment as an individual contributor they learn new skills and gain new perspectives that gives them both depth & breadth in their field. This allows them to synthesize new ideas and innovations they wouldn't have had if they'd remained siloed. Similarly when experts take on the responsibility of management, they are forced to delegate work, give up control, & learn the business constraints that limit what the organization can do. These perspectives are critical. Again, as with the manager, the expert now synthesizes these new ideas and innovates in ways they wouldn't have if they'd stayed in the lab. Both of these coworkers are now T-shaped. Instead of staying in fixed roles, by embracing a growth mindset, they have created synergy.
 
 This is what Carol Dweck was encouraging when she wrote about motivation in her 2006 book _Mindset: The New Psychology of Success_.
 
@@ -40,3 +40,13 @@ This is what Carol Dweck was encouraging when she wrote about motivation in her 
 Empathy is always in short supply,  although we all know it to be the most valuable of human abilities. Would anyone of us be alive if it weren't for the caring love of our family & friends. At work we draw boundaries, as we should, but that should not exclude empathy from the workplace. In fact, I argue it's even more important. You want people to give their best, then they have to have a safe & supportive environment where they feel trusted and respected. No punitive action is ever useful at work. Positive & constructive feedback is based on the assumption of good faith. That everyone is pulling together and giving their best for mutual success. Where failure is not criticized, but a learning opportunity for all.
 
 ## Conclusion
+
+So in summary, don't box yourself in or your coworkers. Strive to create a culture where anything is possible, learning is continuous, and failure is always an option, and that's good. Encourage lateral moves and grow a T-shaped workforce. Listen to experts and encourage them step outside of their comfort zone to take a turn at the wheel, while leaders experiment and analyze data. Don't be afraid to mix it up. The result might be a more sustainable and profitable business. 
+
+## References 
+
+1. https://hbr.org/2001/03/introducing-t-shaped-managers-knowledge-managements-next-generation
+2. https://hbr.org/podcast/2018/05/lateral-moves
+3. https://www.linkedin.com/pulse/value-t-shaped-people-mitchell-platt
+4. https://www.linkedin.com/pulse/say-yes-lateral-move-you-marissa-lee
+
