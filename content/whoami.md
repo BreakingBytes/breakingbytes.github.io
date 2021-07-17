@@ -9,7 +9,7 @@ Summary: I was no one until I began to acknowledge my intersectionality.
 
 Even today, I'm still trying to figure out who I am. Several years ago I made a [bulleted list](https://poquitopicante.blogspot.com/p/about-me.html). I thought I'd covered everything, but identity can't be packaged up so neatly in a box with only six facets. It's more like last year's Christmas lights all tangled in knots. You pull one side and three other strands come out.
 
-# Ethinicity
+# Ethnicity
 
 I am Cuban-American on my mother's side and Polish-Jewish-American from my father. Although, to be honest, my mother and father were separated before I was born, so according to custom, I shouldn't be Jewish. However, my single mother wanted to keep all options open to me, so she raised me as a Jew, even though she herself had been raised Catholic. Therefore, I went to Hebrew school from the time I was 4 years old until 3rd grade. Even though I had never met my father or anyone in his family, and my grandmother who immigrated from Cuba in the 30's and spoke almost no English, frequently lived with us, I never learned Spanish. You can imagine this was confusing for me. I still haven't figured this out even today. Am I an Eastern European Jew or Latinx from the Caribbean? Sorry, I don't have a simple answer. I'm both, neither, and something else.
 
