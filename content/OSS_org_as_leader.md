@@ -1,3 +1,10 @@
+Title: OSS Organization as Leadership
+Date: 2022-05-30
+Category: Leadership
+Tags: equity, diversity, inclusion, rant
+Authors: Mark Mikofski
+Summary: The best model of leadership is open source.
+
 # Open Source Organization as Leadership
 
 It starts with the premise that everyone is curious and compassionate. Maybe this is what [Dan Pink meant in his RSA Animate talk](https://youtu.be/u6XAPnuFjJc). He asked, "What motivates us?" His findings were autonomy, mastery, and purpose. Not money. Not leisure. Not luxury. Humans are neither lazy, stupid, nor greedy. In fact we're the opposite. This is why [the second law of infodynamics](https://poquitopicante.blogspot.com/2011/07/second-law-of-infodynamics.html) is true: we steadily and continuously, against all odds and the sublime nature of the universe, continue to learn, improve, and thrive together as a species.
