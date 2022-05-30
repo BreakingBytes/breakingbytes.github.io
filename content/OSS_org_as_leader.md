@@ -64,7 +64,7 @@ Go after what you really want. What makes your team come to work everyday at the
 
 ## An Acceptance of failure
 
-You will fail. It's not a matter of if, only when. It's the very nature of experimentation. Model and demonstrate that failure is always an option, that we can learn valuable information from them, and that there is no judgement when we all put in our best efforts. Be supportive and constructive.
+Failure is the very nature of experimentation. You will fail. It's not a matter of if, only when. Model and demonstrate that failure is always an option, that we can learn valuable information, and that there's no judgement when we all put in our best efforts. Be supportive and always constructive.
 
 ## Celebrate individuality
 
@@ -76,16 +76,16 @@ Include your team in decisions and strive for consensus. Share information and c
 
 ## An appreciation of small things
 
-Celebrate little victories. Break work down into short tasks that can be more easily explained. 
+Celebrate little victories. Break work down into short tasks that can be more easily grokked. 
 
 ## Groom leaders and empower career growth
 
-Always be working to replace yourself. Put others on a path to leadership. Seek what teammates crave and give it to them.
+Always be working to replace yourself. Put others on a path to leadership. Learn what teammates crave and give it to them.
 
 ## Give positive feedback
 
-Positive feedback is not the same as praise. Practice sharing detailed examples of work that you valued in private with your team. Always sandwich constructive feedback. A good relationship should always have a larger ratio of positive feedback.
+Positive feedback is not the same as praise. Practice sharing detailed examples of work that you value in private with your team. Always sandwich constructive feedback. A good relationship should always have a larger ratio of positive feedback.
 
 ## Share business constraints at all levels
 
-Your team needs to know what their motivation is, so give them the details. Don't hold back. If there is only $10 left in the bank, they won't make big plans at a time when earning cash is the priority.
+Your team needs to know what their motivation is, so give them the details. Don't hold back. If there's only $10 left in the bank, they won't make big plans at a time when earning cash is the priority.
