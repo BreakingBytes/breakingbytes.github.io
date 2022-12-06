@@ -38,6 +38,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+      - name: get themes and plugins
+        run: |
+          mkdir ../pelican-themes/
+          git clone https://github.com/alexandrevicenzi/Flex.git ../pelican-themes/Flex
+          mkdir ../pelican-plugins
+          git clone --recursive https://github.com/getpelican/pelican-plugins ../pelican-plugins
       - name: build site
         run: make github
       - name: Setup Pages
