@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Mark Mikofski'
 SITENAME = u'Breaking Bytes'
+SITESUBTITLE = 'My personal blog about <a rel="me" href="https://climatejustice.rocks/@mikofski">me</a>'
 SITEURL = ''
 SITELOGO = '/images/70s_Marko_Mustache_cropped.jpg'
 FAVICON = '/images/breakingbytes.ico'
@@ -31,8 +32,8 @@ LINKS = (('poquito picante', 'https://poquitopicante.blogspot.com/'),
 # Social widget
 SOCIAL = (('github', 'https://github.com/mikofski'),
           ('linkedin', 'https://www.linkedin.com/in/markmikofski/'),
-          ('twitter', 'https://twitter.com/breaking_bytes'),
-          ('google', 'https://plus.google.com/+MarkMikofski'),
+          ('mastodon', 'https://climatejustice.rocks/@mikofski'),
+          ("stack-overflow", "https://stackoverflow.com/users/1020470/mark-mikofski"),
           ('rss', 'feeds/all.atom.xml'))
 
 
