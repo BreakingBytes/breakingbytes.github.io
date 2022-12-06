@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2021-05-22T00:00:00-07:00</updated><entry><title>Case for Experts in Management</title><link href="https://breakingbytes.github.io/case-for-experts-in-management.html" rel="alternate"></link><published>2021-05-22T00:00:00-07:00</published><updated>2021-05-22T00:00:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2021-05-22:/case-for-experts-in-management.html</id><summary type="html">&lt;p&gt;Empathy &amp;amp; a growth mindset are equally important to both managers &amp;amp; individual contributors.&lt;/p&gt;</summary><content type="html">&lt;h1 id="a-case-for-more-experts-in-management"&gt;A Case for More Experts in Management&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2022-05-30T00:00:00-07:00</updated><entry><title>OSS Organization as Leadership</title><link href="https://breakingbytes.github.io/oss-organization-as-leadership.html" rel="alternate"></link><published>2022-05-30T00:00:00-07:00</published><updated>2022-05-30T00:00:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2022-05-30:/oss-organization-as-leadership.html</id><summary type="html">&lt;p&gt;The best model of leadership is open source.&lt;/p&gt;</summary><content type="html">&lt;h1 id="open-source-organization-as-leadership"&gt;Open Source Organization as Leadership&lt;/h1&gt;
+&lt;p&gt;It starts with the premise that everyone is curious and compassionate. Maybe this is what &lt;a href="https://youtu.be/u6XAPnuFjJc"&gt;Dan Pink meant in his RSA Animate talk&lt;/a&gt;. He asked, "What motivates us?" His findings were autonomy, mastery, and purpose. Not money. Not leisure. Not luxury. Humans are neither lazy, stupid, nor greedy. In fact we're the opposite. This is why &lt;a href="https://poquitopicante.blogspot.com/2011/07/second-law-of-infodynamics.html"&gt;the second law of infodynamics&lt;/a&gt; is true: we steadily and continuously, against all odds and the sublime nature of the universe, continue to learn, improve, and thrive together as a species.&lt;/p&gt;
+&lt;p&gt;Okay. Again assuming this premise, so then good leadership takes advantage of these axioms by providing a framework for their organization that fosters autonomy, allows individuals to seek mastery, and creates a strong sense of common purpose. In practice this means:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Collaboration&lt;/li&gt;
+&lt;li&gt;Communication&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Constructivism_(philosophy_of_education)"&gt;Constructivism&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Leadership that models and follows these three C's will be stronger, faster, and smarter than its opposites. An organization that is punitive, divisive, and siloed will be trapped, wither, and die.&lt;/p&gt;
+&lt;p&gt;In practice this type of organization has the following characteristics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flat structure&lt;/li&gt;
+&lt;li&gt;Rotating leadership&lt;/li&gt;
+&lt;li&gt;Frequent informal meetings&lt;/li&gt;
+&lt;li&gt;Free time&lt;/li&gt;
+&lt;li&gt;Opportunities to change job description&lt;/li&gt;
+&lt;li&gt;Strong mission, with loose long term planning, but detailed short term planning&lt;/li&gt;
+&lt;li&gt;Detailed diagnostics&lt;/li&gt;
+&lt;li&gt;Ambitious goals&lt;/li&gt;
+&lt;li&gt;An acceptance of failure&lt;/li&gt;
+&lt;li&gt;Celebrates individuality&lt;/li&gt;
+&lt;li&gt;Culture of pluralism&lt;/li&gt;
+&lt;li&gt;An appreciation of small things&lt;/li&gt;
+&lt;li&gt;Groom leaders and empower career growth&lt;/li&gt;
+&lt;li&gt;Give positive feedback&lt;/li&gt;
+&lt;li&gt;Share business constraints at all levels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="flat-structure"&gt;Flat structure&lt;/h2&gt;
+&lt;p&gt;In a 3C organization, everyone has an opportunity to be heard and be visible. This means there are less levels of leadership, more autonomy, but also more communication and collaboration.&lt;/p&gt;
+&lt;p&gt;Think about a free open source software project like &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt;. There might be be an owner or two, a rotating group of maintainers, several contributors, and many users. This is the most successful business model. A product that is completely free, thrives for decades, continuously becomes better, grows, and fuels numerous of new projects.&lt;/p&gt;
+&lt;h2 id="rotating-leadership"&gt;Rotating leadership&lt;/h2&gt;
+&lt;p&gt;The founder of an organization may be a visionary or a glorified figure head. She initially provided direction for the organization, but eventually, a group of leaders were chosen from the community to handle day to day functions. Some of these tasks are mundane yet critical, others creative and potentially ground breaking. If the organization draws strength from its members then many will be able to lead in different capacities. By rotating leadership responsibilities, the organization leverages every members unique potential.&lt;/p&gt;
+&lt;h2 id="frequent-informal-meetings"&gt;Frequent informal meetings&lt;/h2&gt;
+&lt;p&gt;No one likes pointless meetings, so instead of waiting, in the age of &lt;a href="https://slack.com/"&gt;Slack&lt;/a&gt; and other instant messaging, communicate immediately when required. In fact all the time. Communication is the key that makes an organization truly agile and responsive. As soon as you know a products timeline shifts, the sooner you can plan contingencies.&lt;/p&gt;
+&lt;h2 id="free-time"&gt;Free time&lt;/h2&gt;
+&lt;p&gt;Without free time, ideas have no fertile soil to grow. Organizations that are overworked become dysfunctional and implode.&lt;/p&gt;
+&lt;h2 id="opportunities-to-change-job-descriptions"&gt;Opportunities to change job descriptions&lt;/h2&gt;
+&lt;p&gt;In an organization that cherishes individuals, members are encouraged to seek their true calling. That may mean they move on to new challenges, or that they create new roles for themselves within the organization. Flexibility to try on different roles empowers members to seek mastery in something they value.&lt;/p&gt;
+&lt;h2 id="strong-mission-with-loose-long-term-planning-but-detailed-short-term-planning"&gt;Strong mission, with loose long term planning, but detailed short term planning&lt;/h2&gt;
+&lt;p&gt;See &lt;a href="https://breakingbytes.github.io/iterative-project-planning-in-research-and-development.html#iterative-project-planning-in-research-and-development"&gt;iterative project planning&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="detailed-diagnostics"&gt;Detailed diagnostics&lt;/h2&gt;
+&lt;p&gt;Measure what you treasure. Intuition and gut instincts will only get you so far, but data is gold. If you want your team to succeed, you need to have the facts. Data tells you where you can celebrate victories, and where you can trim the fat. Share the data with your team and make swift decisions.&lt;/p&gt;
+&lt;h2 id="ambitious-goals"&gt;Ambitious goals&lt;/h2&gt;
+&lt;p&gt;Go after what you really want. What makes your team come to work everyday at the crack of dawn? Small victories are important, but only if they are working towards a larger goal.&lt;/p&gt;
+&lt;h2 id="an-acceptance-of-failure"&gt;An Acceptance of failure&lt;/h2&gt;
+&lt;p&gt;Failure is the very nature of experimentation. You will fail. It's not a matter of if, only when. Model and demonstrate that failure is always an option, that we can learn valuable information, and that there's no judgement when we all put in our best efforts. Be supportive and always constructive.&lt;/p&gt;
+&lt;h2 id="celebrate-individuality"&gt;Celebrate individuality&lt;/h2&gt;
+&lt;p&gt;Seek different. Do not collect a team of clones. Encourage diversity and nurture it. Don't dismiss ideas that seem foreign to you. Instead embrace these as gems to be treasured and cherish the uniqueness of everyone on your team.&lt;/p&gt;
+&lt;h2 id="culture-of-pluralism"&gt;Culture of pluralism&lt;/h2&gt;
+&lt;p&gt;Include your team in decisions and strive for consensus. Share information and collaborate. We are stronger as a team. There are no heroes who have all the answers. When celebrating victories, recognize everyone. Work hard to reap the benefits of your team's rich &amp;amp; diverse culture.&lt;/p&gt;
+&lt;h2 id="an-appreciation-of-small-things"&gt;An appreciation of small things&lt;/h2&gt;
+&lt;p&gt;Celebrate little victories. Break work down into short tasks that can be more easily grokked. &lt;/p&gt;
+&lt;h2 id="groom-leaders-and-empower-career-growth"&gt;Groom leaders and empower career growth&lt;/h2&gt;
+&lt;p&gt;Always be working to replace yourself. Put others on a path to leadership. Learn what teammates crave and give it to them.&lt;/p&gt;
+&lt;h2 id="give-positive-feedback"&gt;Give positive feedback&lt;/h2&gt;
+&lt;p&gt;Positive feedback is not the same as praise. Practice sharing detailed examples of work that you value in private with your team. Always sandwich constructive feedback. A good relationship should always have a larger ratio of positive feedback.&lt;/p&gt;
+&lt;h2 id="share-business-constraints-at-all-levels"&gt;Share business constraints at all levels&lt;/h2&gt;
+&lt;p&gt;Your team needs to know what their motivation is, so give them the details. Don't hold back. If there's only $10 left in the bank, they won't make big plans at a time when earning cash is the priority.&lt;/p&gt;</content><category term="Leadership"></category><category term="equity"></category><category term="diversity"></category><category term="inclusion"></category><category term="rant"></category></entry><entry><title>Identity at the crossroads</title><link href="https://breakingbytes.github.io/identity-at-the-crossroads.html" rel="alternate"></link><published>2021-07-16T00:00:00-07:00</published><updated>2021-07-16T00:00:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2021-07-16:/identity-at-the-crossroads.html</id><summary type="html">&lt;p&gt;I was no one until I began to acknowledge my intersectionality.&lt;/p&gt;</summary><content type="html">&lt;h1 id="who-am-i"&gt;Who am I?&lt;/h1&gt;
+&lt;p&gt;Even today, I'm still trying to figure out who I am. Several years ago I made a &lt;a href="https://poquitopicante.blogspot.com/p/about-me.html"&gt;bulleted list&lt;/a&gt;. I thought I'd covered everything, but identity can't be packaged up so neatly in a box with only six facets. It's more like last year's Christmas lights all tangled in knots. You pull one side and three other strands come out.&lt;/p&gt;
+&lt;h1 id="ethnicity"&gt;Ethnicity&lt;/h1&gt;
+&lt;p&gt;I am Cuban-American on my mother's side and Polish-Jewish-American from my father. Although, to be honest, my mother and father were separated before I was born, and while growing up I had never met my father or anyone in his family, so according to custom, I shouldn't be Jewish. However, my single mother wanted to keep all options open to me, so she raised me as a Jew, even though she herself had been raised Catholic. Therefore, I went to Hebrew school from the time I was 4 years old until 3rd grade, and I never learned Spanish, even though my grandmother who immigrated from Cuba in the 30's and spoke almost no English, frequently lived with us. You can imagine how confusing this was for me. Am I an Eastern European Jew or Latinx from the Caribbean? Even today, I still haven't figured out what my ethnicity is. I don't have a simple answer. I'm both, neither, and something else.&lt;/p&gt;
+&lt;h1 id="immigration"&gt;Immigration&lt;/h1&gt;
+&lt;p&gt;When my grandmother left Cuba, she was a teenager. She never had more than an elementary school education, and she came to New York City with the family whom she served. She married one of the family sons, my grandfather, had two daughters, and was suddenly widowed. Then, my grandmother, my mother, and my aunt were deported back to Cuba where they lived for almost four years. They were finally allowed to return to the U.S., where my grandmother earned her citizenship and raised her two children by herself, working as a seamstress. So am I first generation or second? My mother immigrated to this country, even though she was born here.&lt;/p&gt;
+&lt;h1 id="sex-family"&gt;Sex &amp;amp; Family&lt;/h1&gt;
+&lt;p&gt;Three women, worked hard, raising children, without the partners that begot them. My grandmother, in a foreign country, with little formal education, only broken English, and a skill set only a servant could acquire, with a will stronger than tool steel, forged ahead, alone, making sure both her children received the education she never had. The nuns were stern at their Catholic schools, striking my left-handed aunt so she would use her right, but my mother and her sister persevered and made it through high school.&lt;/p&gt;
+&lt;p&gt;My mother went straight to community college to get her teaching credential and started working. Oh to be young and employed in New York City in 1969! How enchanting! The music, the poetry! Although it didn't work for my mother and father, she chose to keep me anyway, and like her mother made the sacrifices necessary to make sure I was healthy and happy and had more opportunities than she did as a child. We moved to California when I was three to be closer to my aunt who was also a single mother.&lt;/p&gt;
+&lt;p&gt;That was my unconventional family: my mom, my aunt, my cousin, my grandmother, and me. There were never any men in our lives other than a few of our parents' coworkers  and other friends' fathers. I saw traditional families when I went to friends' houses. Lots of kids asked me about my father, if I knew him, or if I even had a father. Yep, it was weird, but to be honest, I always loved my family, and I couldn't even imagine it any other way. We always had love, and that's what matters.&lt;/p&gt;
+&lt;p&gt;So I try to be a feminist, not just because I'm grateful of the women in my family, but because it's the right thing to be. Mothers shouldn't have to make sacrifices to raise their children, no one should. All humanity should raise up and respect parents who bring forth life, nourishing it, and model the goodness we wish to see in the world.&lt;/p&gt;
+&lt;h1 id="gender"&gt;Gender&lt;/h1&gt;
+&lt;h1 id="neurodiversity"&gt;Neurodiversity&lt;/h1&gt;
+&lt;h1 id="sexuality"&gt;Sexuality&lt;/h1&gt;
+&lt;h1 id="race-color"&gt;Race &amp;amp; Color&lt;/h1&gt;
+&lt;h1 id="nationality"&gt;Nationality&lt;/h1&gt;
+&lt;h1 id="intersectionality"&gt;Intersectionality&lt;/h1&gt;</content><category term="Diversity"></category><category term="justice"></category><category term="equity"></category><category term="diversity"></category><category term="inclusion"></category><category term="rant"></category></entry><entry><title>Case for Experts in Management</title><link href="https://breakingbytes.github.io/case-for-experts-in-management.html" rel="alternate"></link><published>2021-05-22T00:00:00-07:00</published><updated>2021-05-22T00:00:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2021-05-22:/case-for-experts-in-management.html</id><summary type="html">&lt;p&gt;Empathy &amp;amp; a growth mindset are equally important to both managers &amp;amp; individual contributors.&lt;/p&gt;</summary><content type="html">&lt;h1 id="a-case-for-more-experts-in-management"&gt;A Case for More Experts in Management&lt;/h1&gt;
 &lt;h2 id="intro"&gt;Intro&lt;/h2&gt;
 &lt;p&gt;First off, let me say I don't think you need to be an expert to be a good manager. In fact, I don't even think you need to be an expert to be a good individual contributor. Sure it helps, but I believe there are other traits that are more important for making good technical contributions and better management decisions.&lt;/p&gt;
 &lt;p&gt;A mentor once told me, when hiring, look for intelligence versus skillset, because a fast &amp;amp; flexible learner continues to be useful when a project ends, but a finite skillset will eventually be obsolete. My definition of intelligence has evolved, and now I think he was really talking about mindsets. I believe having empathy &amp;amp; a growth mindset might be even more important than expertise or leadership.&lt;/p&gt;
@@ -151,8 +224,8 @@ through the bypass diode, bypassing the entire submodule. For example, if one
 cell in the submodule is in reverse bias breakdown at -20 volts, and the other
 23 cells are all normal at 0.6 volts, then the total voltage of the submodule
 is -6.2 volts.&lt;/p&gt;
-&lt;div class="math"&gt;$$\begin{align}V_{sub} &amp;amp;= -20[V] + 23\left(0.6[V]\right) \\
-&amp;amp;= -20[V] + 13.8[V] = -6.2[V]\end{align}$$&lt;/div&gt;
+&lt;p&gt;$$\begin{align}V_{sub} &amp;amp;= -20[V] + 23\left(0.6[V]\right) \
+&amp;amp;= -20[V] + 13.8[V] = -6.2[V]\end{align}$$&lt;/p&gt;
 &lt;p&gt;So if the trigger voltage of the bypass diode is -0.5 volts, then the current
 will pass through the bypass diode. If the module current is 6 amps, then the
 bypass diode dissipates only 3 watts and avoids losing 36 watts from the bad
@@ -170,13 +243,13 @@ PV system as an electric circuit, then it must obey the following two laws:&lt;/
 &lt;/ul&gt;
 &lt;h2 id="ohms-law"&gt;Ohms Law&lt;/h2&gt;
 &lt;p&gt;According to Ohm's law, because the cells and modules in a PV system are all in
-series, then they must all carry the same current, &lt;span class="math"&gt;\(I\)&lt;/span&gt;, the total voltage of
-each module, &lt;span class="math"&gt;\(V_{mod}\)&lt;/span&gt;, is the sum of the cell voltages in that module, and the
-total string voltage, &lt;span class="math"&gt;\(V_{str}\)&lt;/span&gt;, is the sum of the module voltages in the string.
-In the equation below, &lt;span class="math"&gt;\(Z\)&lt;/span&gt; represents the impedance of each cell in a module or
+series, then they must all carry the same current, $I$, the total voltage of
+each module, $V_{mod}$, is the sum of the cell voltages in that module, and the
+total string voltage, $V_{str}$, is the sum of the module voltages in the string.
+In the equation below, $Z$ represents the impedance of each cell in a module or
 each module in a string.&lt;/p&gt;
-&lt;div class="math"&gt;$$V = \sum V = I \sum Z$$&lt;/div&gt;
-&lt;p&gt;The actual relation in a cell is really a bit more complicated than &lt;span class="math"&gt;\(V=IZ\)&lt;/span&gt;,
+&lt;p&gt;$$V = \sum V = I \sum Z$$&lt;/p&gt;
+&lt;p&gt;The actual relation in a cell is really a bit more complicated than $V=IZ$,
 but hopefully this will do to explain electrical mismatch for now. The relation
 between the flux of charge and solar cell voltage is described by the
 &lt;a href="https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation"&gt;Poisson Energy Transport Equation&lt;/a&gt;
@@ -189,7 +262,7 @@ see this post on
 the same as the voltage across the inverter, and the total current at the
 inverter nodes to be the sum of the currents from all parallel strings
 connected to it.&lt;/p&gt;
-&lt;div class="math"&gt;$$I = \sum I = V\sum{\frac{1}{Z}}$$&lt;/div&gt;
+&lt;p&gt;$$I = \sum I = V\sum{\frac{1}{Z}}$$&lt;/p&gt;
 &lt;h1 id="electrical-mismatch"&gt;Electrical Mismatch&lt;/h1&gt;
 &lt;p&gt;The combined effect of enforcing Ohm's and Kirchhoff's laws on a PV system that
 is partially shaded can cause what's called &lt;em&gt;electrical mismatch&lt;/em&gt;. In other
@@ -228,7 +301,7 @@ nearly all of the power in that string.&lt;/p&gt;
 of 10 &lt;a href="https://pvfree.herokuapp.com/pvmodules/1517/"&gt;SunPower SPR-315E-WHT&lt;/a&gt;
 96-cell modules per string. Then analyzes the same system, but with the bottom
 row of cells shaded 80%, &lt;em&gt;ie&lt;/em&gt;: only diffuse irradiance:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class="sd"&gt;analyze and plot a 10x10 system with bottom cells of one row shaded&lt;/span&gt;
 &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 
@@ -294,8 +367,7 @@ row of cells shaded 80%, &lt;em&gt;ie&lt;/em&gt;: only diffuse irradiance:&lt;/p
 &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img alt="PV system at STC" src="./images/pvsys_stc.png"&gt; &lt;/p&gt;
 &lt;p&gt;The maximum power at STC is 32,119 [W].&lt;/p&gt;
@@ -308,69 +380,7 @@ relative loss, &lt;code&gt;(pvsys_stc – pvys_btm_row) / pvsys_stc&lt;/code&gt;
 &lt;p&gt;The string power with the bottom row shaded is 721 [W], and the calculated
 relative loss, &lt;code&gt;(pvstr_stc – pvstr_btm_row) / pvstr_stc&lt;/code&gt;, is 78%.&lt;/p&gt;
 &lt;p&gt;(Sorry the resolution is a bit poor around the knee, this was a quick
-simulation using only 100 points.)&lt;/p&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-
-    var configscript = document.createElement('script');
-    configscript.type = 'text/x-mathjax-config';
-    configscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        availableFonts: ['STIX', 'TeX']," +
-        "        preferredFont: 'STIX'," +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</content><category term="Solar"></category><category term="solar"></category><category term="modeling"></category><category term="code"></category></entry><entry><title>OAuth 2.0 and OpenID Connect Primer</title><link href="https://breakingbytes.github.io/oauth-20-and-openid-connect-primer.html" rel="alternate"></link><published>2019-10-17T17:30:00-07:00</published><updated>2019-10-17T17:30:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-17:/oauth-20-and-openid-connect-primer.html</id><summary type="html">&lt;p&gt;Authentication and authorization with OAuth 2.0 and OpenID Connect.&lt;/p&gt;</summary><content type="html">&lt;h1 id="authentication-and-authorization"&gt;Authentication and Authorization&lt;/h1&gt;
+simulation using only 100 points.)&lt;/p&gt;</content><category term="Solar"></category><category term="solar"></category><category term="modeling"></category><category term="code"></category></entry><entry><title>OAuth 2.0 and OpenID Connect Primer</title><link href="https://breakingbytes.github.io/oauth-20-and-openid-connect-primer.html" rel="alternate"></link><published>2019-10-17T17:30:00-07:00</published><updated>2019-10-17T17:30:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-17:/oauth-20-and-openid-connect-primer.html</id><summary type="html">&lt;p&gt;Authentication and authorization with OAuth 2.0 and OpenID Connect.&lt;/p&gt;</summary><content type="html">&lt;h1 id="authentication-and-authorization"&gt;Authentication and Authorization&lt;/h1&gt;
 &lt;p&gt;Web applications may contain both public and private data. Private data may
 be further restricted to only certain authorized users. Therefore the web
 application must first authenticate a user, and then determine what private
@@ -431,21 +441,19 @@ code from the authorization service.&lt;/li&gt;
 to redirect users to login with the identity provider and get an authorization
 code which can be exchanged by the client for an access token. For this example,
 we'll use the following fictitious authorization URL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/authorize/
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://identity-provider/authorize/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The authorization URL is very picky. It must include a the following query
 string parameters:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;client_id&amp;quot;: &amp;lt;client-id&amp;gt;,
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;quot;client_id&amp;quot;: &amp;lt;client-id&amp;gt;,
 &amp;quot;state&amp;quot;: &amp;lt;optional&amp;gt;,
 &amp;quot;response_type&amp;quot;: &amp;quot;code&amp;quot;,
 &amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;,
 &amp;quot;scope&amp;quot;: &amp;quot;read write email name&amp;quot;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
@@ -476,20 +484,18 @@ client. The code can then be exchanged for an access token.&lt;/li&gt;
 &lt;p&gt;The redirect URI on the client side has 10 minutes, and one attempt to
 exchange the authorization code for an access token. This request is sent as a
 &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/token/
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://identity-provider/token/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;grant_type&amp;quot;: &amp;quot;authorization_code&amp;quot;,
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;quot;grant_type&amp;quot;: &amp;quot;authorization_code&amp;quot;,
 &amp;quot;code&amp;quot;: &amp;lt;code&amp;gt;,
 &amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
@@ -517,16 +523,14 @@ token to obtain the token owners identity and other claims such as &lt;code&gt;e
 &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;given_name&lt;/code&gt; and &lt;code&gt;family_name&lt;/code&gt;. These claims must be submitted as
 scopes when the authorization code is requested. Then the client can send a
 &lt;code&gt;GET&lt;/code&gt; request:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://identity-provider/userinfo/
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://identity-provider/userinfo/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;code&gt;GET&lt;/code&gt; must have an authorization header containing the bearer token:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Authorization: &amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Authorization: &amp;quot;Bearer &amp;lt;token&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
@@ -1222,31 +1226,30 @@ I change the size of the window. There were several StackOverflow answers that
 suggested creating a CSS class, which seemed perfect, but they didn't seem to
 work. Then I noticed they had some JavaScript in their file to pad the top of
 the login &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element. I made some simplifications using jQuery and voila!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;Vertically&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="n"&gt;banner&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="n"&gt;banner&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;navbar&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;top&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt;         &lt;span class="n"&gt;window&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="n"&gt;log_form&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt; &lt;span class="n"&gt;containing&lt;/span&gt; &lt;span class="nb"&gt;log&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt;     &lt;span class="n"&gt;minht&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb nb-Type"&gt;int&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;minimum&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;separate&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;banner&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt;
- &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Use&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;callback&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;jQuery&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s resize function.*/&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Vertically&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;any&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;at&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;top&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;log_form&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;containing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;minht&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb nb-Type"&gt;int&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;minimum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;separate&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Use&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jQuery&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s resize function.*/&lt;/span&gt;
 
-&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;minht&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;banner_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;banner&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;
-&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;half&lt;/span&gt; &lt;span class="n"&gt;difference&lt;/span&gt; &lt;span class="n"&gt;between&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;banner&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;
-&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;window_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;login_form_height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;banner_height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;new_height = &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;new_height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;margin&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;top&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="n"&gt;container&lt;/span&gt;
-&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;margin-top&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;minht&lt;/span&gt; &lt;span class="err"&gt;?&lt;/span&gt; &lt;span class="n"&gt;minht&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;new_height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;set_login_form_container_margin_top&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;minht&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;banner_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;window_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;login_form_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;half&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;difference&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;between&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;banner&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;new_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;window_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;login_form_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;banner_height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;new_height = &amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;new_height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;margin&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;top&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;container&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log_form&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;margin-top&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;new_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;minht&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;minht&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;new_height&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Use it on your web page with &lt;a href="https://api.jquery.com/resize/"&gt;jQuery's resize function&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/static/js/vertically_center.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/static/js/vertically_center.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
   $(function(){
     set_login_form_container_margin_top(
@@ -1259,7 +1262,7 @@ the login &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element. I made some simp
         &amp;quot;#login-form-container&amp;quot;, 0);
   });
 &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="JavaScript"></category><category term="HTML"></category><category term="web"></category><category term="jQuery"></category></entry><entry><title>Python-3 Virtual Environments on MS Windows</title><link href="https://breakingbytes.github.io/python-3-virtual-environments-on-ms-windows.html" rel="alternate"></link><published>2017-05-18T11:01:00-07:00</published><updated>2017-05-18T11:01:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-05-18:/python-3-virtual-environments-on-ms-windows.html</id><summary type="html">&lt;p&gt;Python-3 venv module vs virtualenv package&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a follow up from my &lt;a href="https://breakingbytes.github.io/moving-to-pelican-at-github-pages.html"&gt;first post&lt;/a&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="JavaScript"></category><category term="HTML"></category><category term="web"></category><category term="jQuery"></category></entry><entry><title>Python-3 Virtual Environments on MS Windows</title><link href="https://breakingbytes.github.io/python-3-virtual-environments-on-ms-windows.html" rel="alternate"></link><published>2017-05-18T11:01:00-07:00</published><updated>2017-05-18T11:01:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2017-05-18:/python-3-virtual-environments-on-ms-windows.html</id><summary type="html">&lt;p&gt;Python-3 venv module vs virtualenv package&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a follow up from my &lt;a href="https://breakingbytes.github.io/moving-to-pelican-at-github-pages.html"&gt;first post&lt;/a&gt;
 on this new Pelican blog. I should have logged how I set up this, instead of
 the glib cliché, "usage is a snap". Here I am posting for the second time, and
 I'm wondering, "why didn't I just use the
@@ -1279,9 +1282,8 @@ package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
 on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of calling it. So
 all I have to do to publish my posts is execute:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make github
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;make github
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You could even stick it into &lt;code&gt;.git/hooks/post-commit&lt;/code&gt; to automate publishing.&lt;/p&gt;
 &lt;h1 id="python-3-virtual-environment"&gt;Python-3 Virtual Environment&lt;/h1&gt;
@@ -1310,9 +1312,8 @@ which uses links mostly. This means that when you update your version of
 Python-3 you need to &lt;em&gt;also&lt;/em&gt; update your virtual environment.&lt;/p&gt;
 &lt;p&gt;For the &lt;code&gt;virtualenv&lt;/code&gt; package you'll have to create a new virtual environment on
 top of the old one. But for the built in &lt;code&gt;venv&lt;/code&gt; module you can just run:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;py -3 -m venv --upgrade &amp;lt;my-py3-venv&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;py -3 -m venv --upgrade &amp;lt;my-py3-venv&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;where &lt;code&gt;&amp;lt;my-py3-venv&amp;gt;&lt;/code&gt; is the name of your Python-3 virtual environment. I think
 the source code for both are nearly the same, and I also think that under the

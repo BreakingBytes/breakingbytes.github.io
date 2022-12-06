@@ -170,9 +170,8 @@ package is described a bit in the
 <a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github">Pelican Tips</a>
 on publishing to GitHub pages, but the <code>Makefile</code> takes care of calling it. So
 all I have to do to publish my posts is execute:</p>
-<div class="highlight"><pre><span></span>make github
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>make github
+</code></pre></div>
 
 <p>You could even stick it into <code>.git/hooks/post-commit</code> to automate publishing.</p>
 <h1 id="python-3-virtual-environment">Python-3 Virtual Environment</h1>
@@ -201,9 +200,8 @@ which uses links mostly. This means that when you update your version of
 Python-3 you need to <em>also</em> update your virtual environment.</p>
 <p>For the <code>virtualenv</code> package you'll have to create a new virtual environment on
 top of the old one. But for the built in <code>venv</code> module you can just run:</p>
-<div class="highlight"><pre><span></span>py -3 -m venv --upgrade &lt;my-py3-venv&gt;
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>py -3 -m venv --upgrade &lt;my-py3-venv&gt;
+</code></pre></div>
 
 <p>where <code>&lt;my-py3-venv&gt;</code> is the name of your Python-3 virtual environment. I think
 the source code for both are nearly the same, and I also think that under the

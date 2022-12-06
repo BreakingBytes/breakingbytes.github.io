@@ -52,9 +52,8 @@ package is described a bit in the
 &lt;a href="http://docs.getpelican.com/en/stable/tips.html#publishing-to-github"&gt;Pelican Tips&lt;/a&gt;
 on publishing to GitHub pages, but the &lt;code&gt;Makefile&lt;/code&gt; takes care of calling it. So
 all I have to do to publish my posts is execute:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make github
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;make github
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You could even stick it into &lt;code&gt;.git/hooks/post-commit&lt;/code&gt; to automate publishing.&lt;/p&gt;
 &lt;h1 id="python-3-virtual-environment"&gt;Python-3 Virtual Environment&lt;/h1&gt;
@@ -83,9 +82,8 @@ which uses links mostly. This means that when you update your version of
 Python-3 you need to &lt;em&gt;also&lt;/em&gt; update your virtual environment.&lt;/p&gt;
 &lt;p&gt;For the &lt;code&gt;virtualenv&lt;/code&gt; package you'll have to create a new virtual environment on
 top of the old one. But for the built in &lt;code&gt;venv&lt;/code&gt; module you can just run:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;py -3 -m venv --upgrade &amp;lt;my-py3-venv&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;py -3 -m venv --upgrade &amp;lt;my-py3-venv&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;where &lt;code&gt;&amp;lt;my-py3-venv&amp;gt;&lt;/code&gt; is the name of your Python-3 virtual environment. I think
 the source code for both are nearly the same, and I also think that under the
