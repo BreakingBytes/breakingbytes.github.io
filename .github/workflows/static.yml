@@ -4,60 +4,39 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches:
+    - main
 
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3     
-      # Install dependencies
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10' 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-      - name: get themes and plugins
-        run: |
-          mkdir ../pelican-themes/
-          git clone https://github.com/alexandrevicenzi/Flex.git ../pelican-themes/Flex
-          mkdir ../pelican-plugins
-          git clone --recursive https://github.com/getpelican/pelican-plugins ../pelican-plugins
-      - name: build site
-        run: make publish
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.9.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
+    - name: Checkout
+      uses: actions/checkout@v3     
+
+    # Install dependencies
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' 
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: get themes and plugins
+      run: |
+        mkdir ../pelican-themes/
+        git clone https://github.com/alexandrevicenzi/Flex.git ../pelican-themes/Flex
+        mkdir ../pelican-plugins
+        git clone --recursive https://github.com/getpelican/pelican-plugins ../pelican-plugins
+
+    - name: build site
+      run: make publish
+
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.9.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./output
