@@ -39,11 +39,11 @@ In practice this type of organization has the following characteristics:
 
 In a 3C organization, everyone has an opportunity to be heard and be visible. This means there are less levels of leadership, more autonomy, but also more communication and collaboration.
 
-Think about a free open source software project like [Python](https://www.python.org/). There might be be an owner or two, a rotating group of maintainers, several contributors, and many users. This is the most successful business model. A product that is completely free, thrives for decades, continuously becomes better, grows, and fuels numerous of new projects.
+Think about a free open source software project like [Python](https://www.python.org/). There might be be an owner or two, a rotating group of maintainers, several contributors, and many users. This is the most successful business model. A product that is completely free, thrives for decades, continuously becomes better, grows, and fuels numerous new projects.
 
 ## Rotating leadership
 
-The founder of an organization may be a visionary or a glorified figure head. She initially provided direction for the organization, but eventually, a group of leaders were chosen from the community to handle day to day functions. Some of these tasks are mundane yet critical, others creative and potentially ground breaking. If the organization draws strength from its members then many will be able to lead in different capacities. By rotating leadership responsibilities, the organization leverages every members unique potential.
+The founder of an organization may be a visionary or a glorified figure head. She initially provided direction for the organization, but eventually, a group of leaders were chosen from the community to handle day to day functions. Some of these tasks are mundane yet critical, others creative and potentially ground breaking. If the organization draws strength from its members then many will be able to lead in different capacities. By rotating leadership responsibilities, the organization leverages every member's unique potential.
 
 ## Frequent informal meetings
 
