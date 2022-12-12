@@ -32,7 +32,7 @@ LINKS = (('poquito picante', 'https://poquitopicante.blogspot.com/'),
 # Social widget
 SOCIAL = (('github', 'https://github.com/mikofski'),
           ('linkedin', 'https://www.linkedin.com/in/markmikofski/'),
-          ('mastodon', 'https://climatejustice.rocks/@mikofski'),
+          ('mastodon', 'https://fosstodon.org/@mikofski'),
           ("stack-overflow", "https://stackoverflow.com/users/1020470/mark-mikofski"),
           ('rss', 'feeds/all.atom.xml'))
 
