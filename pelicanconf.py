@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Mark Mikofski'
 SITENAME = u'Breaking Bytes'
-SITESUBTITLE = 'My personal blog about <a rel="me" href="https://climatejustice.rocks/@mikofski">me</a>'
+SITESUBTITLE = 'My personal blog about <a rel="me" href="https://fosstodon.org/@mikofski">me</a>'
 SITEURL = ''
 SITELOGO = '/images/70s_Marko_Mustache_cropped.jpg'
 FAVICON = '/images/breakingbytes.ico'
