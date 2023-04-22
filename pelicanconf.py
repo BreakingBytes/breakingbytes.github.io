@@ -63,7 +63,5 @@ MARKDOWN = {
     },
     'output_format': 'html5',
 }
-PLUGIN_PATHS=['../pelican-plugins']
-PLUGINS = ['render_math']
 
 GOOGLE_GLOBAL_SITE_TAG = 'G-XB3X8X7LK5' # Your Google Analytics 4 Property ID
