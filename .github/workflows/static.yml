@@ -25,12 +25,11 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: get themes and plugins
+    - name: get Flex theme
       run: |
-        mkdir ../pelican-themes/
-        git clone https://github.com/alexandrevicenzi/Flex.git ../pelican-themes/Flex
-        mkdir ../pelican-plugins
-        git clone --recursive https://github.com/getpelican/pelican-plugins ../pelican-plugins
+        mkdir -p ../pelican-themes/
+        rm -rf ../pelican-themes/*
+        git clone -b v2.5.0 --single-branch --depth=1 https://github.com/alexandrevicenzi/Flex.git ../pelican-themes/Flex
 
     - name: build site
       run: make publish
