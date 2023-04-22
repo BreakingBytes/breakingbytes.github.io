@@ -39,11 +39,6 @@
   gtag('config', 'G-XB3X8X7LK5');
 </script>
 
-
-
-
-
-
  
 
 <meta name="author" content="Mark Mikofski" />
@@ -237,11 +232,11 @@ we'll use the following fictitious authorization URL:</p>
 <li>
 <p>The authorization URL is very picky. It must include a the following query
 string parameters:</p>
-<div class="highlight"><pre><span></span><code>&quot;client_id&quot;: &lt;client-id&gt;,
-&quot;state&quot;: &lt;optional&gt;,
-&quot;response_type&quot;: &quot;code&quot;,
-&quot;redirect_uri&quot;: &lt;redirect_uri&gt;,
-&quot;scope&quot;: &quot;read write email name&quot;
+<div class="highlight"><pre><span></span><code><span class="s">&quot;client_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">client</span><span class="o">-</span><span class="nx">id</span><span class="p">&gt;,</span>
+<span class="s">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">optional</span><span class="p">&gt;,</span>
+<span class="s">&quot;response_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p">,</span>
+<span class="s">&quot;redirect_uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">redirect_uri</span><span class="p">&gt;,</span>
+<span class="s">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;read write email name&quot;</span>
 </code></pre></div>
 
 </li>
@@ -281,9 +276,9 @@ exchange the authorization code for an access token. This request is sent as a
 <p>The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the <code>POST</code>:</p>
-<div class="highlight"><pre><span></span><code>&quot;grant_type&quot;: &quot;authorization_code&quot;,
-&quot;code&quot;: &lt;code&gt;,
-&quot;redirect_uri&quot;: &lt;redirect_uri&gt;
+<div class="highlight"><pre><span></span><code><span class="s">&quot;grant_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p">,</span>
+<span class="s">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">code</span><span class="p">&gt;,</span>
+<span class="s">&quot;redirect_uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">redirect_uri</span><span class="p">&gt;</span>
 </code></pre></div>
 
 </li>

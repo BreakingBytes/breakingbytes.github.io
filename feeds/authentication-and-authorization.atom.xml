@@ -67,11 +67,11 @@ we'll use the following fictitious authorization URL:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;The authorization URL is very picky. It must include a the following query
 string parameters:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;quot;client_id&amp;quot;: &amp;lt;client-id&amp;gt;,
-&amp;quot;state&amp;quot;: &amp;lt;optional&amp;gt;,
-&amp;quot;response_type&amp;quot;: &amp;quot;code&amp;quot;,
-&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;,
-&amp;quot;scope&amp;quot;: &amp;quot;read write email name&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="s"&gt;&amp;quot;client_id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;,&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;state&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;optional&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;,&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;response_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;redirect_uri&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;,&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;scope&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;read write email name&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/li&gt;
@@ -111,9 +111,9 @@ exchange the authorization code for an access token. This request is sent as a
 &lt;p&gt;The token URL is very picky. It must include the client's id and secret
 either as a basic authentication header or as payload data. Additionally the
 following data must also be in the payload of the &lt;code&gt;POST&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;quot;grant_type&amp;quot;: &amp;quot;authorization_code&amp;quot;,
-&amp;quot;code&amp;quot;: &amp;lt;code&amp;gt;,
-&amp;quot;redirect_uri&amp;quot;: &amp;lt;redirect_uri&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="s"&gt;&amp;quot;grant_type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;authorization_code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;code&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;code&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;,&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;redirect_uri&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;redirect_uri&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/li&gt;

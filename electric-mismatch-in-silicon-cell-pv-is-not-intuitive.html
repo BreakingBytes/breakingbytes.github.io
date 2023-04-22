@@ -39,11 +39,6 @@
   gtag('config', 'G-XB3X8X7LK5');
 </script>
 
-
-
-
-
-
  
 
 <meta name="author" content="Mark Mikofski" />
@@ -255,8 +250,8 @@ through the bypass diode, bypassing the entire submodule. For example, if one
 cell in the submodule is in reverse bias breakdown at -20 volts, and the other
 23 cells are all normal at 0.6 volts, then the total voltage of the submodule
 is -6.2 volts.</p>
-<p>$$\begin{align}V_{sub} &amp;= -20[V] + 23\left(0.6[V]\right) \
-&amp;= -20[V] + 13.8[V] = -6.2[V]\end{align}$$</p>
+<div class="math">$$\begin{align}V_{sub} &amp;= -20[V] + 23\left(0.6[V]\right) \\
+&amp;= -20[V] + 13.8[V] = -6.2[V]\end{align}$$</div>
 <p>So if the trigger voltage of the bypass diode is -0.5 volts, then the current
 will pass through the bypass diode. If the module current is 6 amps, then the
 bypass diode dissipates only 3 watts and avoids losing 36 watts from the bad
@@ -274,13 +269,13 @@ PV system as an electric circuit, then it must obey the following two laws:</p>
 </ul>
 <h2 id="ohms-law">Ohms Law</h2>
 <p>According to Ohm's law, because the cells and modules in a PV system are all in
-series, then they must all carry the same current, $I$, the total voltage of
-each module, $V_{mod}$, is the sum of the cell voltages in that module, and the
-total string voltage, $V_{str}$, is the sum of the module voltages in the string.
-In the equation below, $Z$ represents the impedance of each cell in a module or
+series, then they must all carry the same current, <span class="math">\(I\)</span>, the total voltage of
+each module, <span class="math">\(V_{mod}\)</span>, is the sum of the cell voltages in that module, and the
+total string voltage, <span class="math">\(V_{str}\)</span>, is the sum of the module voltages in the string.
+In the equation below, <span class="math">\(Z\)</span> represents the impedance of each cell in a module or
 each module in a string.</p>
-<p>$$V = \sum V = I \sum Z$$</p>
-<p>The actual relation in a cell is really a bit more complicated than $V=IZ$,
+<div class="math">$$V = \sum V = I \sum Z$$</div>
+<p>The actual relation in a cell is really a bit more complicated than <span class="math">\(V=IZ\)</span>,
 but hopefully this will do to explain electrical mismatch for now. The relation
 between the flux of charge and solar cell voltage is described by the
 <a href="https://en.wikipedia.org/wiki/Poisson%E2%80%93Boltzmann_equation">Poisson Energy Transport Equation</a>
@@ -293,7 +288,7 @@ see this post on
 the same as the voltage across the inverter, and the total current at the
 inverter nodes to be the sum of the currents from all parallel strings
 connected to it.</p>
-<p>$$I = \sum I = V\sum{\frac{1}{Z}}$$</p>
+<div class="math">$$I = \sum I = V\sum{\frac{1}{Z}}$$</div>
 <h1 id="electrical-mismatch">Electrical Mismatch</h1>
 <p>The combined effect of enforcing Ohm's and Kirchhoff's laws on a PV system that
 is partially shaded can cause what's called <em>electrical mismatch</em>. In other
@@ -412,6 +407,68 @@ relative loss, <code>(pvsys_stc – pvys_btm_row) / pvsys_stc</code>, is 7.8%.</
 relative loss, <code>(pvstr_stc – pvstr_btm_row) / pvstr_stc</code>, is 78%.</p>
 <p>(Sorry the resolution is a bit poor around the knee, this was a quick
 simulation using only 100 points.)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   <div class="tag-cloud">
     <p>
