@@ -10,12 +10,30 @@ Summary: Reassessing risk as conditions change is critical in the backcountry.
 [Snake Dike](http://www.supertopo.com/rock-climbing/Yosemite-Valley-Half-Dome-Snake-Dike)
 is on the southwest shoulder of Half Dome, perhaps the most recognizable rock face in
 Yosemite Valley. Although considered a moderate climb, rated 5.7 R, it's sometimes called
-"Snake Hike" because it's serious commitment with pretty huge exposure.
+"Snake Hike" because it's  serious commitment with pretty huge exposure.
+
+![Snake Dike Approach](images/P2010025.JPG)
 
 Understanding risk on Snake Dike is important. This climb requires planning, good timing,
 a bit of skill, and lots of luck. More importantly though, you need to be constantly
-aware of changing conditions, how they can affect the risk, and whether bailing is stil
-an easy option. Evaluating risk is one of 
+aware of changing conditions, how they can affect your risk, and whether bailing is stil
+an easy option. Evaluating risk is one of climbings life lessons.
+
+![Snake Dike Rainout](images/P2010019.JPG)
+
+Snake Dike is an all day climb. The approach is a 6 mile, 3-hour hike up 2500-ft that starts
+at Happy Isles behind Curry Village and follows the Mist Trail, one of my favorites in the
+valley. Unfortunately, our 4am start was quickly foiled by rain, but our good timing gave us
+some flexibility, so we decided to wait it out for at least an hour and then reassess. Lucky
+for us our patience was rewarded, and within the hour we were back on the trail. We decided
+to pick up the pace a bit to make up for the lost time. Getting caught in a thunderstrom can
+have deadly consequences for climbers, so even though there was no rain in the forecast that
+day, we didn't know if the weather would turn bad again later that afternoon. There's a saying
+in the mountings:
+
+> Speed is saftey
+
+
 
 - Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
