@@ -10,7 +10,7 @@ Summary: Reassessing risk as conditions change is critical in the backcountry.
 [Snake Dike](http://www.supertopo.com/rock-climbing/Yosemite-Valley-Half-Dome-Snake-Dike)
 is on the southwest shoulder of Half Dome, perhaps the most recognizable rock face in
 Yosemite Valley. Although considered a moderate climb, rated 5.7 R, it's sometimes called
-"Snake Hike" because it's  serious commitment with pretty huge exposure.
+"Snake Hike" because it's a serious commitment with pretty huge exposure.
 
 ![Snake Dike Approach](images/P2010025.JPG)
 
