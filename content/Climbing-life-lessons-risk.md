@@ -7,16 +7,15 @@ Summary: Reassessing risk as conditions change is critical in the backcountry.
 
 # Reassessing Risk in Mountians
 
-01234567890123456789012345678901234567890123456789012345678901234567890123456789
-0         1         2         3         4         5         6         7
-
-Snake Dike is on the southwest shoulder of Half Dome, perhaps the most recognizable
-rock face in Yosemite Valley. Although considered a moderate climb, rated 5.7 R, it's
-sometimes called "Snake Hike" because it's serious commitment with pretty huge exposure.
+[Snake Dike](http://www.supertopo.com/rock-climbing/Yosemite-Valley-Half-Dome-Snake-Dike)
+is on the southwest shoulder of Half Dome, perhaps the most recognizable rock face in
+Yosemite Valley. Although considered a moderate climb, rated 5.7 R, it's sometimes called
+"Snake Hike" because it's serious commitment with pretty huge exposure.
 
 Understanding risk on Snake Dike is important. This climb requires planning, good timing,
 a bit of skill, and lots of luck. More importantly though, you need to be constantly
-
+aware of changing conditions, how they can affect the risk, and whether bailing is stil
+an easy option. Evaluating risk is one of 
 
 - Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
