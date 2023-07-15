@@ -16,7 +16,7 @@ Yosemite Valley. Although considered a moderate climb, rated 5.7 R, it's sometim
 
 Understanding risk on Snake Dike is important. This climb requires planning, good timing,
 a bit of skill, and lots of luck. More importantly though, you need to be constantly
-aware of changing conditions, how they can affect your risk, and whether bailing is stil
+aware of changing conditions, how they can affect your risk, and whether bailing is still
 an easy option. Evaluating risk is one of climbings life lessons.
 
 ![Snake Dike Rainout](images/P2010019.JPG)
