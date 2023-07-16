@@ -81,7 +81,7 @@ protection. It's just a long juggy extrusion that you follow like a ladder.
 ![Snake Dike The Dike](images/P2010029.JPG)
 
 All the rest of the pitches are juggy and positive but super runout with just a single
-bolt every 60 feet or so. In fact, some of the pitches have don't have _any_ bolts!
+bolt every 60 feet or so. In fact, some of the pitches don't have _any_ bolts!
 Another interesting twist is that every so often you come across a pair of bolts that
 looks like an anchor, but is for shorter ropes. Knowing where to belay is part of route
 finding that can speed up your climb and remember, "speed is safety!" Clip the
