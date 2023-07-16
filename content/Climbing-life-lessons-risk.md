@@ -63,7 +63,7 @@ need during the entire climb. From there on out is was bolt city.
 ![Snake Dike First Anchor](images/P2010027.JPG)
 
 That's the SERENE anchor, a cordelet with 3 equalized cams, _a la_
-[climbing anchors by Jon Long](http://falcon.com/books/9780762782079). Pay attention
+[climbing anchors by John Long](http://falcon.com/books/9780762782079). Pay attention
 to that black webbing because it's got a bit part in this story later on. I swear
 my second has a backup clove hitch on a 4th piece out of the frame you can't see,
 so he can escape the belay.
