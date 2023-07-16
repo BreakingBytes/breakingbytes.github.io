@@ -162,12 +162,13 @@ If you like this Climbing Life Lesson, check out this one on
 with the plan rather than making last minute changes.
 
 ## My Notes:
-x Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
-x The distribution might not be random, in other words some outcomes might be more likely than others.
-x Risk assessment is a measure of the possibility of favorable and undesirable outcomes.
-x Each person's or party's tolerance for risk is a choice that depends on trade offs between the chances of favorable vs. undesired outcomes.
-x changing conditions force you to reavaluate the rist and make new choices.
-x Sometimes conditions and risk can change quickly, leaving you exposed to greater risk.
+
+- Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
+- The distribution might not be random, in other words some outcomes might be more likely than others.
+- Risk assessment is a measure of the possibility of favorable and undesirable outcomes.
+- Each person's or party's tolerance for risk is a choice that depends on trade offs between the chances of favorable vs. undesired outcomes.
+- changing conditions force you to reavaluate the rist and make new choices.
+- Sometimes conditions and risk can change quickly, leaving you exposed to greater risk.
 - Exposure in theoretical terms is a measure of the level risk you've accepted but in practical terms it's measured in how far or long it will take to escape danger and get to help.
 - climbing in the mountains automatically increases your exposure because it can be difficult to escape the rock safely.
 - climbing in the backcountry can increase exposure significantly because in addition to a safe retreat you may also need to hike and drive significant distances before you can get help.
