@@ -34,7 +34,7 @@ in the dark, although we had brought our torches and some emergency overnight ge
 There's always trade offs to consider in the backcountry, so we tried to pack as lightly as we
 could to move fast yet still be safe. There's a saying in the mountains:
 
-> Speed is saftey.
+> Speed is safety.
 
 It means don't waste time, so we didn't. Ok, well maybe we stopped to take a few photos of the
 breathtaking views near Lost Lake.
