@@ -89,9 +89,9 @@ wrong bolts though, and you might find yourself and your partner simul-climbing.
 
 ![Snake Dike Runout Bols](images/P2010030.JPG)
 
-The climbing was smooth, and the and views were s0pectacular. Take a moment to
+The climbing was smooth, and the views were spectacular. Take a moment to
 appreciate this sweeping vista starting to your left past Glacier Point right
-to the valley floor and is that El Cap in the distance? 
+to the valley floor. Is that El Cap off in the distance? 
 
 ![Snake Dike View L](images/P2010034.JPG)
 ![Snake Dike View M](images/P2010033.JPG)
