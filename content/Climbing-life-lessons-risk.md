@@ -167,7 +167,7 @@ with the plan rather than making last minute changes.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
 - Risk assessment is a measure of the possibility of favorable and undesirable outcomes.
 - Each person's or party's tolerance for risk is a choice that depends on trade offs between the chances of favorable vs. undesired outcomes.
-- changing conditions force you to reavaluate the rist and make new choices.
+- changing conditions force you to reavaluate the risk and make new choices.
 - Sometimes conditions and risk can change quickly, leaving you exposed to greater risk.
 - Exposure in theoretical terms is a measure of the level risk you've accepted but in practical terms it's measured in how far or long it will take to escape danger and get to help.
 - climbing in the mountains automatically increases your exposure because it can be difficult to escape the rock safely.
