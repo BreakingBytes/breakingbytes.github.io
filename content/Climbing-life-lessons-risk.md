@@ -39,7 +39,7 @@ could to move fast yet still be safe. There's a saying in the mountains:
 It means don't waste time, so we didn't. Ok, well maybe we stopped to take a few photos of the
 breathtaking views.
 
-![Snake Dike Photo Opp](images/P2010026.JPG)
+![Snake Dike Photo Opp](images/P2010026.jpg)
 
 I had climbed Snake Dike once before with a lorge group of experienced climbers, and I'd been on the
 Mist Trail numerous times, so I had good intuition for finding the right path to turn off the trail,
@@ -55,7 +55,7 @@ for this blog, I read an
 about a couple that were off route but slipped on similar frictiony slab, tumbled to the base, and
 dragged the belayer who was not clipped to anything through a talus field. She had a punctured lung, a
 fractured pelvis, and broke two vertebra. Climbing can be especially dangerous if you're unlucky, don't 
-take precautions, and assess your risk carefully.
+take precautions, and fail to assess your risk carefully. I'm not trying to scare you, lots of things are dangerous, that's why it's important to know your risk and make conscious decisions.
 
 - Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
