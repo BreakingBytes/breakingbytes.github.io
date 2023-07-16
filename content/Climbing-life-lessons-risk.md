@@ -108,7 +108,7 @@ Is there anything that is purely deterministic? I believe almost every event has
 a distribution of possible outcomes, some good, some great, some bad, and some
 very bad. Lucky or not, those possibilities aren't usually random, some outcomes
 are more likely than others. So now I had to weigh the odds that we could summit
-and decend before it start raining. The main danger for climbers in the rain is
+and decend before it started raining. The main danger for climbers in the rain is
 lightning. For a quick primer check out this Climbing Magazine article,
 [Don't Get Struck By Lightning](https://www.climbing.com/skills/learn-this-laws-of-lightning/).
 
