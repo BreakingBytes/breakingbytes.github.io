@@ -137,7 +137,7 @@ scramble while there were still patches of blue in the cloudy skies, but once on
 summit, while taking victory photos and scarfing food, it started snowing and we
 knew we had to sprint down the cables. 
 
-![Snake Dike Snow](images/P2010039.JPG)
+![Snake Dike Snow](images/P2010039.jpg)
 
 We reached the bottom and started planning our celebration with cocktails at the
 Mountain Bar at the Lodge. There we reflected on the choices we made during the
@@ -157,13 +157,17 @@ has been one of the most useful. Understanding uncertainty has helped me navigat
 an often uncertain world, and to realize that as conditions change, I can re-evaluate
 my risk and make different choices. You can too. Thanks for reading!
 
-My Notes:
+If you like this Climbing Life Lesson, check out this one on
+[Offwidths]({filename}Climbing-life-lessons-offwidths.md) or why it's better to stick
+with the plan rather than making last minute changes.
+
+## My Notes:
 x Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
 x The distribution might not be random, in other words some outcomes might be more likely than others.
 x Risk assessment is a measure of the possibility of favorable and undesirable outcomes.
-- Each person's or party's tolerance for risk is a choice that depends on trade offs between the chances of favorable vs. undesired outcomes.
-- changing conditions force you to reavaluate the rist and make new choices.
-- Sometimes conditions and risk can change quickly, leaving you exposed to greater risk.
+x Each person's or party's tolerance for risk is a choice that depends on trade offs between the chances of favorable vs. undesired outcomes.
+x changing conditions force you to reavaluate the rist and make new choices.
+x Sometimes conditions and risk can change quickly, leaving you exposed to greater risk.
 - Exposure in theoretical terms is a measure of the level risk you've accepted but in practical terms it's measured in how far or long it will take to escape danger and get to help.
 - climbing in the mountains automatically increases your exposure because it can be difficult to escape the rock safely.
 - climbing in the backcountry can increase exposure significantly because in addition to a safe retreat you may also need to hike and drive significant distances before you can get help.
