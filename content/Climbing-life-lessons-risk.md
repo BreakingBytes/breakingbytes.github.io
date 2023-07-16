@@ -71,10 +71,19 @@ the dike doesn't really take protection. It's just a long juggy extrusion that y
 
 ![Snake Dike The Dike](images/P2010029.JPG)
 
-That's the All the pitches are super runout with just a single bolt every 60 feet or so. Some of the pitches have
-zero bolts! But every so often you come across a pair of bolts that look like an anchor, that are
-for shorter ropes. Knowing where to belay is part of route finding that can speed up your climb, and
-remember, "speed is safety!" But clip the wrong bolts and you might 
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+0         1         2         3         4         5         6         7         
+
+That's the SERENE anchor, a cordelet with 3 equalized cams, _a la_
+[climbing anchors by Jon Long](http://falcon.com/books/9780762782079). Pay attention
+to that black webbing because it's got a bit part in this story later on. I swear
+my second has a backup clove hitch out of the frame you can't see, so he can escape
+the belay. All the rest of the pitches 5 easy but super runout with just a single
+bolt every 60 feet or so. Some of the pitches have zero bolts! But every so often
+you come across a pair of bolts that look like an anchor, that are for shorter ropes.
+Knowing where to belay is part of route finding that can speed up your climb, and
+remember, "speed is safety!" Clip the wrong bolts though, and you might find yourself
+and your partner simul-climbing
 
 - Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
