@@ -62,28 +62,33 @@ climb. From there on out is was bolt city.
 
 ![Snake Dike First Anchor](images/P2010027.JPG)
 
-There's one more sketchy traverse on frictiony slab protected by a single bolt, and then the rest of
-Snake Dike is all jugs and 5 easy. You should download the
-[free supertopo](http://www.supertopo.com/topos/yosemite/snakedike.pdf) if you're serious about
-climbing Snake Dike. I had tried to memorize it, because there are so many bolts on this climb that
-it's easy to either stop early or skip an anchor. People talk about girth hitching chicken heads but
-the dike doesn't really take protection. It's just a long juggy extrusion that you follow like a ladder.
-
-![Snake Dike The Dike](images/P2010029.JPG)
-
-01234567890123456789012345678901234567890123456789012345678901234567890123456789
-0         1         2         3         4         5         6         7         
-
 That's the SERENE anchor, a cordelet with 3 equalized cams, _a la_
 [climbing anchors by Jon Long](http://falcon.com/books/9780762782079). Pay attention
 to that black webbing because it's got a bit part in this story later on. I swear
 my second has a backup clove hitch out of the frame you can't see, so he can escape
-the belay. All the rest of the pitches 5 easy but super runout with just a single
+the belay.
+
+![Snake Dike Crux Pitch](images/P2010028.JPG)
+
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+0         1         2         3         4         5         6         7         
+
+There's one more sketchy traverse on frictiony slab protected by a single bolt, and
+then the rest of Snake Dike is all jugs and 5 easy. You should download the
+[free supertopo](http://www.supertopo.com/topos/yosemite/snakedike.pdf) if you're
+serious about climbing Snake Dike. I had tried to memorize it, because there are so
+many bolts on this climb that it's easy to either stop early or skip an anchor.
+People talk about girth hitching chicken heads but the dike doesn't really take
+protection. It's just a long juggy extrusion that you follow like a ladder.
+
+![Snake Dike The Dike](images/P2010029.JPG)
+
+All the rest of the pitches 5 easy but super runout with just a single
 bolt every 60 feet or so. Some of the pitches have zero bolts! But every so often
 you come across a pair of bolts that look like an anchor, that are for shorter ropes.
 Knowing where to belay is part of route finding that can speed up your climb, and
 remember, "speed is safety!" Clip the wrong bolts though, and you might find yourself
-and your partner simul-climbing
+and your partner simul-climbing.
 
 - Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
