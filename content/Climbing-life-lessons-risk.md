@@ -158,7 +158,7 @@ an often uncertain world, and to realize that as conditions change, I can re-eva
 my risk and make different choices. You can too. Thanks for reading!
 
 If you like this Climbing Life Lesson, check out this one on
-[Offwidths]({filename}Climbing-life-lessons-offwidths.md) or why it's better to stick
+[Offwidths]({filename}Climbing-life-lessons-offwidth.md) or why it's better to stick
 with the plan rather than making last minute changes.
 
 ## My Notes:
