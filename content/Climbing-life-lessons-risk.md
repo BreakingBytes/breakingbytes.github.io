@@ -41,21 +41,40 @@ breathtaking views.
 
 ![Snake Dike Photo Opp](images/P2010026.jpg)
 
-I had climbed Snake Dike once before with a lorge group of experienced climbers, and I'd been on the
+I had climbed Snake Dike once before with a large group of experienced climbers, and I'd been on the
 Mist Trail numerous times, so I had good intuition for finding the right path to turn off the trail,
-and miraculously we stuck the approach. We ate a quick snack, tied on our climbing shoes, strapped
-on our harnesses, clipped on a light rack (mostly slings), and tackled the first pitch which is
-actually one of the 5.7 cruxes of the climb. The "R" stands for "runout" which means there's no
-protection. That pretty much describes most of Snake Dike, but the first pitch is especially sketchy.
+and miraculously we nailed the approach. We ate a quick snack, tied on our climbing shoes, strapped
+on our harnesses, clipped on a light rack (mostly slings & quickdraws), and tackled the first pitch
+which is actually one of the 5.7 cruxes of the climb. The "R" stands for "runout" which means there's
+no protection. That pretty much describes most of Snake Dike, but the first pitch is especially gnarly.
 It starts on typical Yosemite glacial polish with tiny microedges that you can friction climb up to a
 roof where you can finally place your first solid piece and exhale a huge sigh of relief. If you slip on
-this, you would get some serious scrapes as you tumbled back to the base of the climb. In researching
+this slab, you'll get some serious scrapes as you tumble back to the base of the climb. In researching
 for this blog, I read an
 [incident report from YOSAR](https://www.nps.gov/yose/blogs/rescue-from-near-snake-dike-half-dome.htm)
 about a couple that were off route but slipped on similar frictiony slab, tumbled to the base, and
 dragged the belayer who was not clipped to anything through a talus field. She had a punctured lung, a
 fractured pelvis, and broke two vertebra. Climbing can be especially dangerous if you're unlucky, don't 
-take precautions, and fail to assess your risk carefully. I'm not trying to scare you, lots of things are dangerous, that's why it's important to know your risk and make conscious decisions.
+take precautions, and fail to assess your risk carefully. I'm not trying to scare you, lots of things
+are dangerous, that's why it's important to know your risk and make conscious decisions. Anyway, I
+pulled the roof, shimmied up to the ledge and made the only anchor with pro I'd need during the entire
+climb. From there on out is was bolt city.
+
+![Snake Dike First Anchor](images/P2010027.JPG)
+
+There's one more sketchy traverse on frictiony slab protected by a single bolt, and then the rest of
+Snake Dike is all jugs and 5 easy. You should download the
+[free supertopo](http://www.supertopo.com/topos/yosemite/snakedike.pdf) if you're serious about
+climbing Snake Dike. I had tried to memorize it, because there are so many bolts on this climb that
+it's easy to either stop early or skip an anchor. People talk about girth hitching chicken heads but
+the dike doesn't really take protection. It's just a long juggy extrusion that you follow like a ladder.
+
+![Snake Dike The Dike](images/P2010029.JPG)
+
+That's the All the pitches are super runout with just a single bolt every 60 feet or so. Some of the pitches have
+zero bolts! But every so often you come across a pair of bolts that look like an anchor, that are
+for shorter ropes. Knowing where to belay is part of route finding that can speed up your climb, and
+remember, "speed is safety!" But clip the wrong bolts and you might 
 
 - Any event has a distribution of possible outcomes, some that are more favorable than others and some that are definitely undesirable.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
