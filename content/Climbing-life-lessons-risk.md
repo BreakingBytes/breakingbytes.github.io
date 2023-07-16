@@ -97,7 +97,7 @@ to the valley floor. Is that El Cap off in the distance?
 ![Snake Dike View M](images/P2010033.JPG)
 ![Snake Dike View R](images/P2010032.JPG)
 
-Look just a little furhter to the left though and you can see what I was seeing.
+Look just a little further to the left though, and you can see what I was seeing.
 Dark clouds gathering around Liberty Cap and Mt. Broderick were moving our way. We
 needed to pick up the pace, or we would end up with only bad options.
 
