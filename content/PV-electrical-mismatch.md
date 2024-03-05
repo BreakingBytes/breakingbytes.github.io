@@ -83,7 +83,7 @@ get hot as it exchanges heat with the environment around it.
 The electric circuit analog used to describe a solar cell is called the single
 diode model. Here's a schematic:
 
-![Single Diode Model](https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png)
+![Single Diode Model](https://www.sandia.gov/app/uploads/sites/243/2022/11/Single-Diode-EC2.png)
 
 Image credit:
 [Sandia PV Performance Modeling Collaborative](https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/diode-equivalent-circuit-models/)
