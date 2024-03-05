@@ -63,7 +63,7 @@ get hot as it exchanges heat with the environment around it.&lt;/p&gt;
 &lt;h3 id="the-single-diode-model"&gt;The Single Diode Model&lt;/h3&gt;
 &lt;p&gt;The electric circuit analog used to describe a solar cell is called the single
 diode model. Here's a schematic:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Single Diode Model" src="https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Single Diode Model" src="https://www.sandia.gov/app/uploads/sites/243/2022/11/Single-Diode-EC2.png"&gt;&lt;/p&gt;
 &lt;p&gt;Image credit:
 &lt;a href="https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/diode-equivalent-circuit-models/"&gt;Sandia PV Performance Modeling Collaborative&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The solar cell current-voltage relation, or IV curve, shown below demonstrates
