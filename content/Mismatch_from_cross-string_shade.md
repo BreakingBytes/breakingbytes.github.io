@@ -88,7 +88,7 @@ is operating at 5[A], to increase the voltage in the unshaded strings.
 Very clever! Go team! Luckily for the shaded module, that current is
 also very close to its max power point, which is only down 75% thanks
 to the activated bypass diodes. Recall in the parallel shade scenario,
-then entire string was down.
+the entire string was down.
 
 ![20 string PV system with cross-string shade](./images/cross-string-mismatch/pvmod1-20strings.png)
 
