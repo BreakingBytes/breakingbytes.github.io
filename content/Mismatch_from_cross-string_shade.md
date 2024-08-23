@@ -1,7 +1,19 @@
+Title: PV Electric Mismatch in Silicon-Cell PV - Part 2
+Date: 2024-08-23 01:10
+Category: Solar
+Tags: solar, modeling, code
+Authors: Mark Mikofski
+Summary: What happens when shade cuts across PV strings?
+
+# The many shades of PV electrical mismatch
 Effects from shade are complicated, but can be summarized in two orthogonal categories:
 
 1. shade across all modules parallel to strings
 2. shade across few modules perpendicular to strings
+
+These categories were defined in the Fast Shade Model [1, 2] developed by Dr.
+Bennet Meyers after simulating hundreds of different shade patterns and grouping
+them by their electrical mismatch. 
 
 ## shade parallel to rows
 Row-to-row shade in fixed-tilt systems, typically in winter, is an example of
@@ -43,4 +55,7 @@ perpendicular to the rows.
 bypass diodes activate in the shaded submodules, and the other modules operate
 at higher voltage to match the voltage of unshaded parallel strings.
 
-01234567890123456789012345678901234567890123456789012345678901234567890123456789
+## References
+
+1. Meyers, B., Mikofski, M. A., & Anderson, M. (2016). A Fast Parameterized Model for Predicting PV System Performance under Partial Shade Conditions. In IEEE (Ed.), 2016 IEEE 43rd Photovoltaic Specialists Conference (PVSC) (pp. 3173–3178). IEEE. https://doi.org/10.1109/PVSC.2016.7750251
+2. Meyers, B., & Mikofski, M. A. (2017). Accurate Modeling of Partially Shaded PV Arrays. In IEEE (Ed.), 2017 IEEE 44th Photovoltaic Specialist Conference (PVSC) (Vols. 2017-June, pp. 3354–3359). IEEE. https://doi.org/10.1109/PVSC.2017.8521559
