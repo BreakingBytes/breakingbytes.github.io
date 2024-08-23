@@ -8,17 +8,17 @@ Summary: What happens when shade cuts across PV strings?
 # The many shades of PV electrical mismatch
 Effects from shade are complicated, but can be summarized in two orthogonal categories:
 
-1. shade across all modules parallel to strings
-2. shade across few modules perpendicular to strings
+1. [shade parallel to strings](#shade-parallel-to-strings)
+2. [shade perpendicular to strings](#shade-perpendicular-to-strings)
 
 These categories were defined in the Fast Shade Model [[1, 2](#references)]
 developed by Dr. Bennet Meyers after simulating hundreds of different shade
 patterns and grouping them by their electrical mismatch. 
 
-## shade parallel to rows
-Row-to-row shade in fixed-tilt systems, typically in winter, is an example of
-shade across all modules that is parallel to strings. When I originally wrote
-about [PV electrical mismatch]]({filename}PV-electrical-mismatch.md), I analyzed
+## shade parallel to strings
+One example of shade across all modules that is parallel to strings, is row-to-row
+shade in fixed-tilt systems, typically in winter. When I originally wrote
+about [PV electrical mismatch]({filename}PV-electrical-mismatch.md), I analyzed
 this type of shade using [PVMismatch](https://sunpower.github.io/PVMismatch/)
 to simulate shade across the bottom row of a single string of 10 modules in a
 10 string system. The conclusion of that post was that the string performed as
@@ -33,9 +33,7 @@ the bottom row of cells is shaded.
 
 ![NIST Google](./images/nist-ground-array.png)
 
-This topic is also covered in 
-
-## shade not parallel to rows
+## shade not parallel to strings
 However, that post also contained a picture of a rooftop with non-uniform shade
 that was not consistent across each module of the string. The shade cast from
 the roofline cut diagonally across the modules in the string, which was wrapped
@@ -46,14 +44,60 @@ in two rows to fit.
 I didn't analyze the shade from this system in that post, so it raises the
 question whether the rule of thumb I recommended would still apply?
 
-## shade perpendicular to rows
+## shade perpendicular to strings
 To simplify the question, the rest of this post analyzes a PV system with a
-shade obstacle like a wind turbine tower or a telephone pole that casts shade
-perpendicular to the rows.
+shade obstacle like a wind turbine tower, a telephone pole, or a chimney, that casts shade
+perpendicular to the strings. My analysis is in this Jupyter notebook on Google Colaboratory:
+[mismatch_vs_strings.ipynb](https://colab.research.google.com/drive/1b2Ll7G-4WBKPl57m-FPBhU8MLjLOTfIb)
 
 >TL;DR: When shade cuts perpendicular to strings, cells go into reverse bias,
 bypass diodes activate in the shaded submodules, and the other modules operate
 at higher voltage to match the voltage of unshaded parallel strings.
+
+I simulated perpendicular shade on the first half of the first module in the
+string, while the rest of the strings were unaffected. This could be like a
+chimney. Then I increased the number of unaffected strings to see if it changed
+the effect. The effect of a shadow perpendicular to the string caused bypass
+diodes to trigger, but even after 20 strings, the IV curve of the system
+appears unaffected and the total power loss is only 0.85% for the system
+compared to unshaded.
+
+Here is the IV curve of the 20 string PV system with perpendicular shade on
+1st module of 1st string from the Jupyter notebook. It looks unaffected!
+
+![20 string PV system with cross-string shade](./images/cross-string-mismatch/pvsystem-20strings.png)
+
+Now check out the IV curve of the string with the shaded module. It should
+be generating about 3200[W], but even though it's lost about 500[W], it
+still operates at 5[A], nearly the same current as the others strings. It
+still has to operate at the same voltage as the other strings, 538.7[V] in
+this example, so how does it do it with 2 bypass diodes activated?
+
+![20 string PV system with cross-string shade](./images/cross-string-mismatch/pvstring-20strings.png)
+
+A look at the module IV curves tells the rest of the story. The shaded module
+still has to carry the 5[A] of the string, but 2 bypass diodes are triggered
+so the voltage is down 75%. Note: these are SunPower/Maxeon 310[W] modules,
+that have 96-cells in 8-columns with 3 bypass diodes in a 24-48-24 cell arrangement.
+
+![20 string PV system with cross-string shade](./images/cross-string-mismatch/pvmod0-20strings.png)
+
+However, the unshaded modules make up for the lost voltage in the shaded
+module by operating just above the max power point. This is why the string
+is operating at 5[A], to increase the voltage in the unshaded strings.
+Very clever! Go team! Luckily for the shaded module, that current is
+also very close to its max power point, which is only down 75% thanks
+to the activated bypass diodes. Recall in the parallel shade scenario,
+then entire string was down.
+
+![20 string PV system with cross-string shade](./images/cross-string-mismatch/pvmod1-20strings.png)
+
+## Conclusion
+I wish I could say, "that's all there is to it." But as my first blog post
+says, electrical mismatch in crystalline silicon is very counter-intuitive.
+That's why I created PVMismatch to begin with. I was tired of guessing and
+being wrong. So don't guess. Simulate with confidence, try PVMismatch, and
+let me know what you learn!
 
 ## References
 
