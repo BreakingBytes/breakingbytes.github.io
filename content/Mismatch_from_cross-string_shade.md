@@ -6,7 +6,7 @@ Authors: Mark Mikofski
 Summary: What happens when shade cuts across PV strings?
 
 > Note: This post is part of a joint blog with my colleague Kurt Rhee:
-[Primer on Electrical Mismatch](https://kurt-rhee.github.io/2024/04/15/a-primer-on-electrical-mismatch) 
+[Primer on Electrical Mismatch](https://kurt-rhee.github.io/2024/08/26/a-primer-on-electrical-mismatch)
 
 
 # The many shades of PV electrical mismatch
