@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/all.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2024-08-23T01:10:00-07:00</updated><subtitle>My personal blog about &lt;a rel="me" href="https://fosstodon.org/@mikofski"&gt;me&lt;/a&gt;</subtitle><entry><title>PV Electric Mismatch in Silicon-Cell PV - Part 2</title><link href="https://breakingbytes.github.io/pv-electric-mismatch-in-silicon-cell-pv-part-2.html" rel="alternate"></link><published>2024-08-23T01:10:00-07:00</published><updated>2024-08-23T01:10:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2024-08-23:/pv-electric-mismatch-in-silicon-cell-pv-part-2.html</id><summary type="html">&lt;p&gt;What happens when shade cuts across PV strings?&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
 &lt;p&gt;Note: This post is part of a joint blog with my colleague Kurt Rhee:
-&lt;a href="https://kurt-rhee.github.io/2024/04/15/a-primer-on-electrical-mismatch"&gt;Primer on Electrical Mismatch&lt;/a&gt; &lt;/p&gt;
+&lt;a href="https://kurt-rhee.github.io/2024/08/26/a-primer-on-electrical-mismatch"&gt;Primer on Electrical Mismatch&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id="the-many-shades-of-pv-electrical-mismatch"&gt;The many shades of PV electrical mismatch&lt;/h1&gt;
 &lt;p&gt;Effects from shade are complicated, but can be summarized in two orthogonal categories:&lt;/p&gt;
