@@ -5,6 +5,10 @@ Tags: solar, modeling, code
 Authors: Mark Mikofski
 Summary: What happens when shade cuts across PV strings?
 
+> Note: This post is part of a joint blog with my colleague Kurt Rhee:
+[Primer on Electrical Mismatch](https://kurt-rhee.github.io/2024/04/15/a-primer-on-electrical-mismatch) 
+
+
 # The many shades of PV electrical mismatch
 Effects from shade are complicated, but can be summarized in two orthogonal categories:
 
@@ -46,7 +50,7 @@ question whether the rule of thumb I recommended would still apply?
 
 ## shade perpendicular to strings
 To simplify the question, the rest of this post analyzes a PV system with a
-shade obstacle like a wind turbine tower, a telephone pole, or a chimney, that casts shade
+shade obstacle like a wind turbine, a telephone pole, or a chimney, that casts shade
 perpendicular to the strings. My analysis is in this Jupyter notebook on Google Colaboratory:
 [`mismatch_vs_strings.ipynb`](https://colab.research.google.com/drive/1b2Ll7G-4WBKPl57m-FPBhU8MLjLOTfIb)
 
@@ -55,21 +59,22 @@ bypass diodes activate in the shaded submodules, and the other modules operate
 at higher voltage to match the voltage of unshaded parallel strings.
 
 I simulated perpendicular shade on the first half of the first module in the
-string, while the rest of the strings were unaffected. This could be like a
-chimney. Then I increased the number of unaffected strings to see if it changed
+string, while the rest of the strings were unshaded. For example, this shade could be caused by a
+chimney. Then I increased the number of unshaded strings to see if it changed
 the effect. The effect of a shadow perpendicular to the string caused bypass
-diodes to trigger, but even after 20 strings, the IV curve of the system
-appears unaffected and the total power loss is only 0.85% for the system
-compared to unshaded.
+diodes to trigger. Adding more strings did not stop the bypass diodes from triggering, even after 20 parallel
+strings. The IV curve of the system had a kink until 4 unshaded parallel strings were added, but after 9 unshaded parallel strings were added, the IV curve
+appeared unaffected. After 19 unshaded parallel strings were added, the total power loss was only 0.85% for the system
+compared to unshaded. However, the power loss in the shaded string was about 15%.
 
-Here is the IV curve of the 20 string PV system with perpendicular shade on
-1st module of 1st string from the Jupyter notebook. It looks unaffected!
+Here is the IV curve of the 20 string PV system with perpendicular shade on the
+1st module of the 1st string from the Jupyter notebook. It looks unaffected!
 
 ![20 string PV system with cross-string shade](./images/cross-string-mismatch/pvsystem-20strings.png)
 
 Now check out the IV curve of the string with the shaded module. It should
 be generating about 3200[W], but even though it's lost about 500[W], it
-still operates at 5[A], nearly the same current as the others strings. It
+still operates at 5[A], nearly the same current as the other strings. It
 still has to operate at the same voltage as the other strings, 538.7[V] in
 this example, so how does it do it with 2 bypass diodes activated?
 
@@ -100,11 +105,19 @@ a scattershot of scenarios and found that parallel string voltage began to domin
 Of course, that only applies in this contrived example, but it was interesting nonetheless.
 
 ## Conclusion
-I wish I could say, "that's all there is to it." But as my first blog post
-says, electrical mismatch in crystalline silicon is very counter-intuitive.
+I wish I could say, that's all there is to it, but as I said in my first blog post,
+electrical mismatch in crystalline silicon is very counter-intuitive.
 That's why I created PVMismatch to begin with. I was tired of guessing and
 being wrong. So don't guess. Simulate with confidence, try PVMismatch, and
 let me know what you learn!
+
+## Epilogue
+So back to that rooftop with the diagonal shade line. It's a bit of both
+categories right? How do you think it will perform? Will it lose nearly
+all of its power or will bypass diodes active and save the day? Or maybe
+something in between or completely different. Try to analyze it using
+PVMismatch. If you need help I analyzed it in this Google Colab notebook:
+[`nonuniform-rooftop-shade.ipynb`](https://colab.research.google.com/drive/1wOSF9aNvxUc2t1iduNKN1Dn-vBW_j92w)
 
 ## References
 
