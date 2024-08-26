@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://breakingbytes.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://breakingbytes.github.io/theme/font-awesome/css/solid.css">
+
+
+  <link rel="shortcut icon" href="/images/breakingbytes.ico" type="image/x-icon">
+  <link rel="icon" href="/images/breakingbytes.ico" type="image/x-icon">
+
+
+  <link href="https://breakingbytes.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Breaking Bytes Atom">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3X8X7LK5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XB3X8X7LK5');
+</script>
+
+ 
+
+<meta name="author" content="Mark Mikofski" />
+<meta name="description" content="What happens when shade cuts across PV strings?" />
+<meta name="keywords" content="solar, modeling, code">
+
+
+  <meta property="og:site_name" content="Breaking Bytes"/>
+  <meta property="og:title" content="PV Electric Mismatch in Silicon-Cell PV - Part 2"/>
+  <meta property="og:description" content="What happens when shade cuts across PV strings?"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://breakingbytes.github.io/pv-electric-mismatch-in-silicon-cell-pv-part-2.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2024-08-23 01:10:00-07:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="https://breakingbytes.github.io/author/mark-mikofski.html">
+  <meta property="article:section" content="Solar"/>
+  <meta property="article:tag" content="solar"/>
+  <meta property="article:tag" content="modeling"/>
+  <meta property="article:tag" content="code"/>
+  <meta property="og:image" content="/images/70s_Marko_Mustache_cropped.jpg">
+
+  <title>Breaking Bytes &ndash; PV Electric Mismatch in Silicon-Cell PV - Part 2</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://breakingbytes.github.io/">
+      <img src="/images/70s_Marko_Mustache_cropped.jpg" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://breakingbytes.github.io/"></a>
+    </h1>
+
+    <p>My personal blog about <a rel="me" href="https://fosstodon.org/@mikofski">me</a></p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="https://poquitopicante.blogspot.com/" >poquito picante</a>
+          </li>
+          <li>
+            <a target="_self" href="https://mikofski.github.io/" >bwanamarko</a>
+          </li>
+          <li>
+            <a target="_self" href="https://breakingbytes.blogspot.com/" >old breaking bytes</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/mikofski"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/markmikofski/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://fosstodon.org/@mikofski"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/1020470/mark-mikofski"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-rss"
+           href="feeds/all.atom.xml"
+           target="_blank">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://breakingbytes.github.io/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="https://breakingbytes.github.io/feeds/all.atom.xml">Atom</a>
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="pv-electric-mismatch-in-silicon-cell-pv-part-2">PV Electric Mismatch in Silicon-Cell PV - Part 2</h1>
+    <p>
+      Posted on Fri 23 August 2024 in <a href="https://breakingbytes.github.io/category/solar.html">Solar</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <blockquote>
+<p>Note: This post is part of a joint blog with my colleague Kurt Rhee:
+<a href="https://kurt-rhee.github.io/2024/04/15/a-primer-on-electrical-mismatch">Primer on Electrical Mismatch</a> </p>
+</blockquote>
+<h1 id="the-many-shades-of-pv-electrical-mismatch">The many shades of PV electrical mismatch</h1>
+<p>Effects from shade are complicated, but can be summarized in two orthogonal categories:</p>
+<ol>
+<li><a href="#shade-parallel-to-strings">shade parallel to strings</a></li>
+<li><a href="#shade-perpendicular-to-strings">shade perpendicular to strings</a></li>
+</ol>
+<p>These categories were defined in the Fast Shade Model [<a href="#references">1, 2</a>]
+developed by Dr. Bennet Meyers after simulating hundreds of different shade
+patterns and grouping them by their electrical mismatch. </p>
+<h2 id="shade-parallel-to-strings">shade parallel to strings</h2>
+<p>One example of shade across all modules that is parallel to strings, is row-to-row
+shade in fixed-tilt systems, typically in winter. When I originally wrote
+about <a href="https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html">PV electrical mismatch</a>, I analyzed
+this type of shade using <a href="https://sunpower.github.io/PVMismatch/">PVMismatch</a>
+to simulate shade across the bottom row of a single string of 10 modules in a
+10 string system. The conclusion of that post was that the string performed as
+well as the most shaded cell, so even though only the bottom cells were shaded,
+the modules in the string lost most of their power. I shaded the bottom cells
+80% to simulate only diffuse light, and the string lost roughly 80% of output.
+The other 9 strings operated at full capacity, so the system only lost 8%. The
+<a href="https://www.nist.gov/el/energy-and-environment-division-73200/heat-transfer-alternative-energy-systems/photovoltaic-1">NIST ground mount array</a>
+is an example of a system that will have row-to-row shade in winter that will
+cause most of the strings to lose almost all of their output even when only
+the bottom row of cells is shaded.</p>
+<p><img alt="NIST Google" src="./images/nist-ground-array.png"></p>
+<h2 id="shade-not-parallel-to-strings">shade not parallel to strings</h2>
+<p>However, that post also contained a picture of a rooftop with non-uniform shade
+that was not consistent across each module of the string. The shade cast from
+the roofline cut diagonally across the modules in the string, which was wrapped
+in two rows to fit.</p>
+<p><img alt="non uniform shade on a roof" src="./images/20150923_170418.jpg"></p>
+<p>I didn't analyze the shade from this system in that post, so it raises the
+question whether the rule of thumb I recommended would still apply?</p>
+<h2 id="shade-perpendicular-to-strings">shade perpendicular to strings</h2>
+<p>To simplify the question, the rest of this post analyzes a PV system with a
+shade obstacle like a wind turbine, a telephone pole, or a chimney, that casts shade
+perpendicular to the strings. My analysis is in this Jupyter notebook on Google Colaboratory:
+<a href="https://colab.research.google.com/drive/1b2Ll7G-4WBKPl57m-FPBhU8MLjLOTfIb"><code>mismatch_vs_strings.ipynb</code></a></p>
+<blockquote>
+<p>TL;DR: When shade cuts perpendicular to strings, cells go into reverse bias,
+bypass diodes activate in the shaded submodules, and the other modules operate
+at higher voltage to match the voltage of unshaded parallel strings.</p>
+</blockquote>
+<p>I simulated perpendicular shade on the first half of the first module in the
+string, while the rest of the strings were unshaded. For example, this shade could be caused by a
+chimney. Then I increased the number of unshaded strings to see if it changed
+the effect. The effect of a shadow perpendicular to the string caused bypass
+diodes to trigger. Adding more strings did not stop the bypass diodes from triggering, even after 20 parallel
+strings. The IV curve of the system had a kink until 4 unshaded parallel strings were added, but after 9 unshaded parallel strings were added, the IV curve
+appeared unaffected. After 19 unshaded parallel strings were added, the total power loss was only 0.85% for the system
+compared to unshaded. However, the power loss in the shaded string was about 15%.</p>
+<p>Here is the IV curve of the 20 string PV system with perpendicular shade on the
+1st module of the 1st string from the Jupyter notebook. It looks unaffected!</p>
+<p><img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvsystem-20strings.png"></p>
+<p>Now check out the IV curve of the string with the shaded module. It should
+be generating about 3200[W], but even though it's lost about 500[W], it
+still operates at 5[A], nearly the same current as the other strings. It
+still has to operate at the same voltage as the other strings, 538.7[V] in
+this example, so how does it do it with 2 bypass diodes activated?</p>
+<p><img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvstring-20strings.png"></p>
+<p>A look at the module IV curves tells the rest of the story. The shaded module
+still has to carry the 5[A] of the string, but 2 bypass diodes are triggered
+so the voltage is down 75%. Note: these are SunPower/Maxeon 320[W] modules,
+that have 96-cells in 8-columns with 3 bypass diodes in a 24-48-24 cell arrangement.</p>
+<p><img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvmod0-20strings.png"></p>
+<p>However, the unshaded modules make up for the lost voltage in the shaded
+module by operating just above the max power point. This is why the string
+is operating at 5[A], to increase the voltage in the unshaded strings.
+Very clever! Go team! Luckily for the shaded module, that current is
+also very close to its max power point, which is only down 75% thanks
+to the activated bypass diodes. Recall in the parallel shade scenario,
+the entire string was down.</p>
+<p><img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvmod1-20strings.png"></p>
+<p>Please check out <a href="https://colab.research.google.com/drive/1b2Ll7G-4WBKPl57m-FPBhU8MLjLOTfIb"><code>mismatch_vs_strings.ipynb</code></a>
+because the 1-string example isn't limited by the voltage of parallel strings, so it's free to operate at the max power
+point, and the losses are lower. Recall in the 20-string example, the shaded string lost about 15%, but in the 1-string
+example, the loss was only about 8%. Another variation is allowing the shade to cross two or more strings. I covered
+a scattershot of scenarios and found that parallel string voltage began to dominate sowmhere between 5 to 10 strings.
+Of course, that only applies in this contrived example, but it was interesting nonetheless.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I wish I could say, that's all there is to it, but as I said in my first blog post,
+electrical mismatch in crystalline silicon is very counter-intuitive.
+That's why I created PVMismatch to begin with. I was tired of guessing and
+being wrong. So don't guess. Simulate with confidence, try PVMismatch, and
+let me know what you learn!</p>
+<h2 id="epilogue">Epilogue</h2>
+<p>So back to that rooftop with the diagonal shade line. It's a bit of both
+categories right? How do you think it will perform? Will it lose nearly
+all of its power or will bypass diodes active and save the day? Or maybe
+something in between or completely different. Try to analyze it using
+PVMismatch. If you need help I analyzed it in this Google Colab notebook:
+<a href="https://colab.research.google.com/drive/1wOSF9aNvxUc2t1iduNKN1Dn-vBW_j92w"><code>nonuniform-rooftop-shade.ipynb</code></a></p>
+<h2 id="references">References</h2>
+<ol>
+<li>Meyers, B., Mikofski, M. A., &amp; Anderson, M. (2016). A Fast Parameterized Model for Predicting PV System Performance under Partial Shade Conditions. In IEEE (Ed.), 2016 IEEE 43rd Photovoltaic Specialists Conference (PVSC) (pp. 3173–3178). IEEE. <a href="https://doi.org/10.1109/PVSC.2016.7750251">https://doi.org/10.1109/PVSC.2016.7750251</a></li>
+<li>Meyers, B., &amp; Mikofski, M. A. (2017). Accurate Modeling of Partially Shaded PV Arrays. In IEEE (Ed.), 2017 IEEE 44th Photovoltaic Specialist Conference (PVSC) (Vols. 2017-June, pp. 3354–3359). IEEE. <a href="https://doi.org/10.1109/PVSC.2017.8521559">https://doi.org/10.1109/PVSC.2017.8521559</a></li>
+</ol>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://breakingbytes.github.io/tag/solar.html">solar</a>
+      <a href="https://breakingbytes.github.io/tag/modeling.html">modeling</a>
+      <a href="https://breakingbytes.github.io/tag/code.html">code</a>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>
+  &copy; 2017  - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US" target="_blank">Creative Commons Attribution-ShareAlike</a>
+</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Breaking Bytes ",
+  "url" : "https://breakingbytes.github.io",
+  "image": "/images/70s_Marko_Mustache_cropped.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

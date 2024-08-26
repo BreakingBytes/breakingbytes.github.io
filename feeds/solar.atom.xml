@@ -1,5 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes - Solar</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/solar.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2019-10-18T15:23:00-07:00</updated><subtitle>My personal blog about &lt;a rel="me" href="https://fosstodon.org/@mikofski"&gt;me&lt;/a&gt;</subtitle><entry><title>Electric Mismatch in Silicon-Cell PV is Not Intuitive</title><link href="https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html" rel="alternate"></link><published>2019-10-18T15:23:00-07:00</published><updated>2019-10-18T15:23:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-18:/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html</id><summary type="html">&lt;p&gt;Why does shade just across the bottom row of cells cause 90% power loss?&lt;/p&gt;</summary><content type="html">&lt;h1 id="uniform-versus-non-uniform-shade"&gt;Uniform Versus Non-Uniform Shade&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Breaking Bytes - Solar</title><link href="https://breakingbytes.github.io/" rel="alternate"></link><link href="https://breakingbytes.github.io/feeds/solar.atom.xml" rel="self"></link><id>https://breakingbytes.github.io/</id><updated>2024-08-23T01:10:00-07:00</updated><subtitle>My personal blog about &lt;a rel="me" href="https://fosstodon.org/@mikofski"&gt;me&lt;/a&gt;</subtitle><entry><title>PV Electric Mismatch in Silicon-Cell PV - Part 2</title><link href="https://breakingbytes.github.io/pv-electric-mismatch-in-silicon-cell-pv-part-2.html" rel="alternate"></link><published>2024-08-23T01:10:00-07:00</published><updated>2024-08-23T01:10:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2024-08-23:/pv-electric-mismatch-in-silicon-cell-pv-part-2.html</id><summary type="html">&lt;p&gt;What happens when shade cuts across PV strings?&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
+&lt;p&gt;Note: This post is part of a joint blog with my colleague Kurt Rhee:
+&lt;a href="https://kurt-rhee.github.io/2024/04/15/a-primer-on-electrical-mismatch"&gt;Primer on Electrical Mismatch&lt;/a&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="the-many-shades-of-pv-electrical-mismatch"&gt;The many shades of PV electrical mismatch&lt;/h1&gt;
+&lt;p&gt;Effects from shade are complicated, but can be summarized in two orthogonal categories:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#shade-parallel-to-strings"&gt;shade parallel to strings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#shade-perpendicular-to-strings"&gt;shade perpendicular to strings&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These categories were defined in the Fast Shade Model [&lt;a href="#references"&gt;1, 2&lt;/a&gt;]
+developed by Dr. Bennet Meyers after simulating hundreds of different shade
+patterns and grouping them by their electrical mismatch. &lt;/p&gt;
+&lt;h2 id="shade-parallel-to-strings"&gt;shade parallel to strings&lt;/h2&gt;
+&lt;p&gt;One example of shade across all modules that is parallel to strings, is row-to-row
+shade in fixed-tilt systems, typically in winter. When I originally wrote
+about &lt;a href="https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html"&gt;PV electrical mismatch&lt;/a&gt;, I analyzed
+this type of shade using &lt;a href="https://sunpower.github.io/PVMismatch/"&gt;PVMismatch&lt;/a&gt;
+to simulate shade across the bottom row of a single string of 10 modules in a
+10 string system. The conclusion of that post was that the string performed as
+well as the most shaded cell, so even though only the bottom cells were shaded,
+the modules in the string lost most of their power. I shaded the bottom cells
+80% to simulate only diffuse light, and the string lost roughly 80% of output.
+The other 9 strings operated at full capacity, so the system only lost 8%. The
+&lt;a href="https://www.nist.gov/el/energy-and-environment-division-73200/heat-transfer-alternative-energy-systems/photovoltaic-1"&gt;NIST ground mount array&lt;/a&gt;
+is an example of a system that will have row-to-row shade in winter that will
+cause most of the strings to lose almost all of their output even when only
+the bottom row of cells is shaded.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="NIST Google" src="./images/nist-ground-array.png"&gt;&lt;/p&gt;
+&lt;h2 id="shade-not-parallel-to-strings"&gt;shade not parallel to strings&lt;/h2&gt;
+&lt;p&gt;However, that post also contained a picture of a rooftop with non-uniform shade
+that was not consistent across each module of the string. The shade cast from
+the roofline cut diagonally across the modules in the string, which was wrapped
+in two rows to fit.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="non uniform shade on a roof" src="./images/20150923_170418.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;I didn't analyze the shade from this system in that post, so it raises the
+question whether the rule of thumb I recommended would still apply?&lt;/p&gt;
+&lt;h2 id="shade-perpendicular-to-strings"&gt;shade perpendicular to strings&lt;/h2&gt;
+&lt;p&gt;To simplify the question, the rest of this post analyzes a PV system with a
+shade obstacle like a wind turbine, a telephone pole, or a chimney, that casts shade
+perpendicular to the strings. My analysis is in this Jupyter notebook on Google Colaboratory:
+&lt;a href="https://colab.research.google.com/drive/1b2Ll7G-4WBKPl57m-FPBhU8MLjLOTfIb"&gt;&lt;code&gt;mismatch_vs_strings.ipynb&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR: When shade cuts perpendicular to strings, cells go into reverse bias,
+bypass diodes activate in the shaded submodules, and the other modules operate
+at higher voltage to match the voltage of unshaded parallel strings.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I simulated perpendicular shade on the first half of the first module in the
+string, while the rest of the strings were unshaded. For example, this shade could be caused by a
+chimney. Then I increased the number of unshaded strings to see if it changed
+the effect. The effect of a shadow perpendicular to the string caused bypass
+diodes to trigger. Adding more strings did not stop the bypass diodes from triggering, even after 20 parallel
+strings. The IV curve of the system had a kink until 4 unshaded parallel strings were added, but after 9 unshaded parallel strings were added, the IV curve
+appeared unaffected. After 19 unshaded parallel strings were added, the total power loss was only 0.85% for the system
+compared to unshaded. However, the power loss in the shaded string was about 15%.&lt;/p&gt;
+&lt;p&gt;Here is the IV curve of the 20 string PV system with perpendicular shade on the
+1st module of the 1st string from the Jupyter notebook. It looks unaffected!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvsystem-20strings.png"&gt;&lt;/p&gt;
+&lt;p&gt;Now check out the IV curve of the string with the shaded module. It should
+be generating about 3200[W], but even though it's lost about 500[W], it
+still operates at 5[A], nearly the same current as the other strings. It
+still has to operate at the same voltage as the other strings, 538.7[V] in
+this example, so how does it do it with 2 bypass diodes activated?&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvstring-20strings.png"&gt;&lt;/p&gt;
+&lt;p&gt;A look at the module IV curves tells the rest of the story. The shaded module
+still has to carry the 5[A] of the string, but 2 bypass diodes are triggered
+so the voltage is down 75%. Note: these are SunPower/Maxeon 320[W] modules,
+that have 96-cells in 8-columns with 3 bypass diodes in a 24-48-24 cell arrangement.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvmod0-20strings.png"&gt;&lt;/p&gt;
+&lt;p&gt;However, the unshaded modules make up for the lost voltage in the shaded
+module by operating just above the max power point. This is why the string
+is operating at 5[A], to increase the voltage in the unshaded strings.
+Very clever! Go team! Luckily for the shaded module, that current is
+also very close to its max power point, which is only down 75% thanks
+to the activated bypass diodes. Recall in the parallel shade scenario,
+the entire string was down.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20 string PV system with cross-string shade" src="./images/cross-string-mismatch/pvmod1-20strings.png"&gt;&lt;/p&gt;
+&lt;p&gt;Please check out &lt;a href="https://colab.research.google.com/drive/1b2Ll7G-4WBKPl57m-FPBhU8MLjLOTfIb"&gt;&lt;code&gt;mismatch_vs_strings.ipynb&lt;/code&gt;&lt;/a&gt;
+because the 1-string example isn't limited by the voltage of parallel strings, so it's free to operate at the max power
+point, and the losses are lower. Recall in the 20-string example, the shaded string lost about 15%, but in the 1-string
+example, the loss was only about 8%. Another variation is allowing the shade to cross two or more strings. I covered
+a scattershot of scenarios and found that parallel string voltage began to dominate sowmhere between 5 to 10 strings.
+Of course, that only applies in this contrived example, but it was interesting nonetheless.&lt;/p&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I wish I could say, that's all there is to it, but as I said in my first blog post,
+electrical mismatch in crystalline silicon is very counter-intuitive.
+That's why I created PVMismatch to begin with. I was tired of guessing and
+being wrong. So don't guess. Simulate with confidence, try PVMismatch, and
+let me know what you learn!&lt;/p&gt;
+&lt;h2 id="epilogue"&gt;Epilogue&lt;/h2&gt;
+&lt;p&gt;So back to that rooftop with the diagonal shade line. It's a bit of both
+categories right? How do you think it will perform? Will it lose nearly
+all of its power or will bypass diodes active and save the day? Or maybe
+something in between or completely different. Try to analyze it using
+PVMismatch. If you need help I analyzed it in this Google Colab notebook:
+&lt;a href="https://colab.research.google.com/drive/1wOSF9aNvxUc2t1iduNKN1Dn-vBW_j92w"&gt;&lt;code&gt;nonuniform-rooftop-shade.ipynb&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Meyers, B., Mikofski, M. A., &amp;amp; Anderson, M. (2016). A Fast Parameterized Model for Predicting PV System Performance under Partial Shade Conditions. In IEEE (Ed.), 2016 IEEE 43rd Photovoltaic Specialists Conference (PVSC) (pp. 3173–3178). IEEE. &lt;a href="https://doi.org/10.1109/PVSC.2016.7750251"&gt;https://doi.org/10.1109/PVSC.2016.7750251&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Meyers, B., &amp;amp; Mikofski, M. A. (2017). Accurate Modeling of Partially Shaded PV Arrays. In IEEE (Ed.), 2017 IEEE 44th Photovoltaic Specialist Conference (PVSC) (Vols. 2017-June, pp. 3354–3359). IEEE. &lt;a href="https://doi.org/10.1109/PVSC.2017.8521559"&gt;https://doi.org/10.1109/PVSC.2017.8521559&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Solar"></category><category term="solar"></category><category term="modeling"></category><category term="code"></category></entry><entry><title>Electric Mismatch in Silicon-Cell PV is Not Intuitive</title><link href="https://breakingbytes.github.io/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html" rel="alternate"></link><published>2019-10-18T15:23:00-07:00</published><updated>2019-10-18T15:23:00-07:00</updated><author><name>Mark Mikofski</name></author><id>tag:breakingbytes.github.io,2019-10-18:/electric-mismatch-in-silicon-cell-pv-is-not-intuitive.html</id><summary type="html">&lt;p&gt;Why does shade just across the bottom row of cells cause 90% power loss?&lt;/p&gt;</summary><content type="html">&lt;h1 id="uniform-versus-non-uniform-shade"&gt;Uniform Versus Non-Uniform Shade&lt;/h1&gt;
 &lt;p&gt;The counter-intuitive effect of shade on photovoltaic (PV) solar energy panels
 surprises most people.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -169,13 +269,13 @@ row of cells shaded 80%, &lt;em&gt;ie&lt;/em&gt;: only diffuse irradiance:&lt;/p
 &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 
 &lt;span class="c1"&gt;# import the pvmismatch library&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pvmismatch&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;pvmismatch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
 
 &lt;span class="c1"&gt;# import the matplotlib plotting library&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;matplotlib&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pyplot&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;
 
 &lt;span class="c1"&gt;# make a 10x10 system of SPR-E20-315 96-cell panels at stc&lt;/span&gt;
-&lt;span class="n"&gt;pvsys&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pvsystem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PVsystem&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pvsystem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PVsystem&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 &lt;span class="c1"&gt;# plot the system&lt;/span&gt;
 &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotSys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -183,9 +283,9 @@ row of cells shaded 80%, &lt;em&gt;ie&lt;/em&gt;: only diffuse irradiance:&lt;/p
 
 &lt;span class="c1"&gt;# shade the bottom cell of all modules in the 1st string by 80%&lt;/span&gt;
 &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setSuns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="s1"&gt;&amp;#39;cells&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;59&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;83&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-        &lt;span class="s1"&gt;&amp;#39;Ee&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)}})&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cells&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;59&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;83&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Ee&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)}})&lt;/span&gt;
 
 &lt;span class="c1"&gt;# plot the btm row shaded system&lt;/span&gt;
 &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotSys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -196,14 +296,14 @@ row of cells shaded 80%, &lt;em&gt;ie&lt;/em&gt;: only diffuse irradiance:&lt;/p
 &lt;span class="c1"&gt;# 29607.549997102204&lt;/span&gt;
 
 &lt;span class="c1"&gt;# make a new stc system for comparison&lt;/span&gt;
-&lt;span class="n"&gt;pvsys_stc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pvsystem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PVsystem&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pvsystem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PVsystem&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 &lt;span class="c1"&gt;# stc system max power&lt;/span&gt;
 &lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;
 &lt;span class="c1"&gt;# 32119.317380452303&lt;/span&gt;
 
 &lt;span class="c1"&gt;# calculate loss&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pmp&lt;/span&gt;
 &lt;span class="c1"&gt;# 0.07820114461332704&lt;/span&gt;
 
 &lt;span class="c1"&gt;# btm row shaded string max power&lt;/span&gt;
@@ -215,20 +315,20 @@ row of cells shaded 80%, &lt;em&gt;ie&lt;/em&gt;: only diffuse irradiance:&lt;/p
 &lt;span class="c1"&gt;# 3212.7324983909575&lt;/span&gt;
 
 &lt;span class="c1"&gt;# calculate loss&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pstring&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="c1"&gt;# 0.7756860250426105&lt;/span&gt;
 
 &lt;span class="c1"&gt;# plot stc string&lt;/span&gt;
 &lt;span class="n"&gt;pvsys_stc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotStr&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gcf&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gcf&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 &lt;span class="c1"&gt;# plot btm row shaded string&lt;/span&gt;
 &lt;span class="n"&gt;pvsys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pvstrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plotStr&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gcf&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gcf&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 

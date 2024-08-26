@@ -332,13 +332,13 @@ row of cells shaded 80%, <em>ie</em>: only diffuse irradiance:</p>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># import the pvmismatch library</span>
-<span class="kn">from</span> <span class="nn">pvmismatch</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pvmismatch</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="o">*</span>
 
 <span class="c1"># import the matplotlib plotting library</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">plt</span>
 
 <span class="c1"># make a 10x10 system of SPR-E20-315 96-cell panels at stc</span>
-<span class="n">pvsys</span> <span class="o">=</span> <span class="n">pvsystem</span><span class="o">.</span><span class="n">PVsystem</span><span class="p">()</span>
+<span class="n">pvsys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pvsystem</span><span class="o">.</span><span class="n">PVsystem</span><span class="p">()</span>
 
 <span class="c1"># plot the system</span>
 <span class="n">pvsys</span><span class="o">.</span><span class="n">plotSys</span><span class="p">()</span>
@@ -346,9 +346,9 @@ row of cells shaded 80%, <em>ie</em>: only diffuse irradiance:</p>
 
 <span class="c1"># shade the bottom cell of all modules in the 1st string by 80%</span>
 <span class="n">pvsys</span><span class="o">.</span><span class="n">setSuns</span><span class="p">(</span>
-    <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;cells&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">84</span><span class="p">),</span>
-        <span class="s1">&#39;Ee&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">,)</span> <span class="o">*</span> <span class="mi">8</span><span class="p">}</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}})</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="n">m</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s1">&#39;cells&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w"> </span><span class="mi">84</span><span class="p">),</span>
+<span class="w">        </span><span class="s1">&#39;Ee&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="mf">0.2</span><span class="p">,)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">}</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}})</span>
 
 <span class="c1"># plot the btm row shaded system</span>
 <span class="n">pvsys</span><span class="o">.</span><span class="n">plotSys</span><span class="p">()</span>
@@ -359,14 +359,14 @@ row of cells shaded 80%, <em>ie</em>: only diffuse irradiance:</p>
 <span class="c1"># 29607.549997102204</span>
 
 <span class="c1"># make a new stc system for comparison</span>
-<span class="n">pvsys_stc</span> <span class="o">=</span> <span class="n">pvsystem</span><span class="o">.</span><span class="n">PVsystem</span><span class="p">()</span>
+<span class="n">pvsys_stc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pvsystem</span><span class="o">.</span><span class="n">PVsystem</span><span class="p">()</span>
 
 <span class="c1"># stc system max power</span>
 <span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span>
 <span class="c1"># 32119.317380452303</span>
 
 <span class="c1"># calculate loss</span>
-<span class="p">(</span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span> <span class="o">-</span> <span class="n">pvsys</span><span class="o">.</span><span class="n">Pmp</span><span class="p">)</span> <span class="o">/</span> <span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span>
+<span class="p">(</span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pvsys</span><span class="o">.</span><span class="n">Pmp</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">Pmp</span>
 <span class="c1"># 0.07820114461332704</span>
 
 <span class="c1"># btm row shaded string max power</span>
@@ -378,20 +378,20 @@ row of cells shaded 80%, <em>ie</em>: only diffuse irradiance:</p>
 <span class="c1"># 3212.7324983909575</span>
 
 <span class="c1"># calculate loss</span>
-<span class="p">(</span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">pvsys</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">/</span> <span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="p">(</span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pvsys</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Pstring</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="c1"># 0.7756860250426105</span>
 
 <span class="c1"># plot stc string</span>
 <span class="n">pvsys_stc</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plotStr</span><span class="p">()</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="c1"># plot btm row shaded string</span>
 <span class="n">pvsys</span><span class="o">.</span><span class="n">pvstrs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plotStr</span><span class="p">()</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
-<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+<span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </code></pre></div>
 
