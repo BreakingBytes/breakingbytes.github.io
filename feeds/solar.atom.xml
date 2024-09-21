@@ -410,7 +410,7 @@ simulation using only 100 points.)&lt;/p&gt;
 of a PV system. I'm going to assume that we're using a single diode model (SDM)
 which is an analog curcuit of a solar cell composed from a current source, a
 diode, and a resistance in parallel, in series with another resistance.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="single diode model" src="https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="single diode model" src="https://www.sandia.gov/app/uploads/sites/243/2022/11/Single-Diode-EC2.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;source: &lt;a href="https://pvpmc.sandia.gov/"&gt;Sandia National Labs: PV Performance Modeling Collaborative&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;The cell current in the SDM can't be solved explicitly as a function of cell
 voltage without using the Lambert-W function. It can be solved implicitly by
