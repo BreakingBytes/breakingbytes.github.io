@@ -5,7 +5,7 @@ Tags: project-management, project-planning, research, rant, risk-management
 Authors: Mark Mikofski
 Summary: Reassessing risk as conditions change is critical in the backcountry.
 
-# Reassessing Risk in Mountians
+# Reassessing Risk in Mountains
 
 [Snake Dike](http://www.supertopo.com/rock-climbing/Yosemite-Valley-Half-Dome-Snake-Dike)
 is on the southwest shoulder of Half Dome, perhaps the most recognizable rock face in
