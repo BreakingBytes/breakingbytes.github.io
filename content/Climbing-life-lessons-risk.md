@@ -1,7 +1,7 @@
 Title: Climbing Life Lessons: Reassessing Changing Risk
 Date: 2023-07-14
-Category: Productivity
-Tags: project-management, project-planning, research, rant, risk-management
+Category: Climbing Life Lessons
+Tags: project-management, project-planning, research, rant, time-management, risk-management
 Authors: Mark Mikofski
 Summary: Reassessing risk as conditions change is critical in the backcountry.
 
@@ -26,7 +26,7 @@ at Happy Isles behind Curry Village and follows the Mist Trail, one of my favori
 Unfortunately, our 4am start was quickly foiled by rain, but our good timing gave us some
 flexibility, so we decided to wait it out for at least an hour and then reassess. Lucky for us
 our patience was rewarded, and within the hour we were back on the trail. We decided to pick up
-the pace a bit to make up for the lost time. Getting caught in a thunderstrom can have deadly
+the pace a bit to make up for the lost time. Getting caught in a thunderstorm can have deadly
 consequences for climbers, so even though there was no rain in the forecast that day, we didn't
 know if the weather would turn bad again later that afternoon. Same as for climbers, descending
 the cables from Half Dome in a thunderstorm is a death sentence. We also didn't want to hike out
@@ -87,7 +87,7 @@ looks like an anchor, but is for shorter ropes. Knowing where to belay is part o
 finding that can speed up your climb and remember, "speed is safety!" Clip the
 wrong bolts though, and you might find yourself and your partner simul-climbing.
 
-![Snake Dike Runout Bols](images/P2010030.JPG)
+![Snake Dike Runout Bolts](images/P2010030.JPG)
 
 The climbing was smooth, and the views were spectacular. Take a moment to
 appreciate this sweeping vista starting to your left past Glacier Point right
@@ -167,12 +167,12 @@ with the plan rather than making last minute changes.
 - The distribution might not be random, in other words some outcomes might be more likely than others.
 - Risk assessment is a measure of the possibility of favorable and undesirable outcomes.
 - Each person's or party's tolerance for risk is a choice that depends on trade offs between the chances of favorable vs. undesired outcomes.
-- changing conditions force you to reavaluate the risk and make new choices.
+- changing conditions force you to reevaluate the risk and make new choices.
 - Sometimes conditions and risk can change quickly, leaving you exposed to greater risk.
 - Exposure in theoretical terms is a measure of the level risk you've accepted but in practical terms it's measured in how far or long it will take to escape danger and get to help.
 - climbing in the mountains automatically increases your exposure because it can be difficult to escape the rock safely.
 - climbing in the backcountry can increase exposure significantly because in addition to a safe retreat you may also need to hike and drive significant distances before you can get help.
 - Dangers in the mountains include route finding, getting caught in bad weather, darkness, lightning strikes, equipment failure, missing or losing equipment, falls, injuries, death
 - learning to evaluate risk in changing conditions is an important skill that can have practical advantages in all aspects of your life.
-- it can help you tolerate uncertainty, because reality is both full of possiblities and uncertainty
+- it can help you tolerate uncertainty, because reality is both full of possibilities and uncertainty
 - it can help you rule out unlikely or scenarios with no serious consequences
