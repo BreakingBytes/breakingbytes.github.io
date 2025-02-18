@@ -1,7 +1,7 @@
 Title: Climbing Life Lessons: Offwidths
 Date: 2021-05-01
-Category: Productivity
-Tags: agile, project-management, project-planning, research, rant, time-management
+Category: Climbing Life Lessons
+Tags: agile, project-management, project-planning, research, rant, time-management, risk-management
 Authors: Mark Mikofski
 Summary: An offwidth is a difficult climb, too big for hand jams, but too small to chimney. 
 
