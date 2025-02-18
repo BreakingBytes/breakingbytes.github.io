@@ -12,7 +12,7 @@ of a PV system. I'm going to assume that we're using a single diode model (SDM)
 which is an analog curcuit of a solar cell composed from a current source, a
 diode, and a resistance in parallel, in series with another resistance.
 
-![single diode model](https://pvpmc.sandia.gov/wp-content/uploads/2012/04/Single-Diode-EC2.png)
+![single diode model](https://www.sandia.gov/app/uploads/sites/243/2022/11/Single-Diode-EC2.png)
 
 _source: [Sandia National Labs: PV Performance Modeling Collaborative](https://pvpmc.sandia.gov/)_
 
